@@ -1,0 +1,158 @@
+#include <cstdio>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <utility>
+using namespace std;
+typedef pair<int,int> pp;
+vector<pp> p;
+bool check(vector<int> &v)
+{
+  int s1=v.size();
+  int s2=p.size();
+  if(s2%s1)
+    return false;
+  for(int i=0;i<s2;)
+    for(int j=0,k=p[i].first;j<s1;++j,++i)
+      if(v[j]!=p[i].second || k!=p[i].first)
+	return false;
+  return true;
+}
+bool chk(vector<int> &v,int l)
+{
+  if(v.size()<2)
+    return true;
+  for(int i=1;i<v.size();++i)
+    if(((v[i]-v[i-1])&1)==0)
+      return false;
+  int a=0,b=v.size()-1;
+  if(v[a]==1)
+    for(++a;a<=b && v[a]==v[a-1]+1;++a)
+      ;
+  if(v[b]==l)
+    for(--b;a<=b && v[b]==v[b+1]-1;--b)
+      ;
+  vector<int> z;
+  for(;a<=b;)
+    {
+      int c=1;
+      for(++a;a<=b && v[a]==v[a-1]+1;++a)
+	++c;
+      if(c>1 && (c&1))
+	return false;
+      z.push_back(c);
+      if(a<=b)
+	z.push_back(v[a]-v[a-1]);
+    }
+  a=0;
+  for(;a<z.size() && z[a]!=1;a+=2)
+    ;
+  for(;a<z.size();)
+    {
+      for(b=a+2;b<z.size() && z[b]!=1;b+=2)
+	;
+      if(b<z.size())
+	for(int i=a+1,j=b-1;i<j;++i,--j)
+	  if(z[i]!=z[j])
+	    return false;
+      a=b;
+    }
+  return true;
+//   int i=0,j=v.size()-1;
+//   if(v[0]==1)
+//     {
+//       for(i=1;i<j && v[i-1]+1==v[i];++i)
+// 	;
+//       if(i<=j && ((v[i]-v[i-1])&1)==0)
+// 	return false;
+//     }
+//   if(v[j]==l)
+//     {
+//       for(--j;i<j && v[j]+1==v[j+1];--j)
+// 	;
+//       if(i<=j && ((v[j+1]-v[j])&1)==0)
+// 	return false;
+//     }
+//   vector<int> z;
+//   for(;i<=j;)
+//     {
+//       int c=1;
+//       for(++i;i<=j && v[i-1]+1==v[i];++i)
+// 	++c;
+//       if(c>1 && (c&1))
+//  	return false;
+//       z.push_back(c);
+//       if(i<=j && i>0)
+// 	{
+// 	  if(0==(1&(v[i]-v[i-1])))
+// 	    return false;
+// 	  z.push_back(v[i]-v[i-1]);
+// 	}
+//     }
+//   i=0;
+//   for(;i<z.size() && z[i]!=1;i+=2)
+//     ;
+//   for(;i<z.size();)
+//     {
+//       for(j=i+2;j<z.size() && z[j]!=1;j+=2)
+// 	;
+//       if(j>=z.size())
+// 	break;
+//       for(int a=i+1,b=j-1;a<b;++a,--b)
+// 	if(z[a]!=z[b])
+// 	  return false;
+//       i=j;
+//     }
+//   return true;
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int n,m,k;
+  scanf("%d%d%d",&n,&m,&k);
+  if(k==0)
+    {
+      printf("YES");
+      return 0;
+    }
+  if(m>4)
+    return 1;
+  vector<int> xx;
+  vector<int> yy;
+  for(int i=0;i<k;++i)
+    {
+      int x,y;
+      scanf("%d%d",&x,&y);
+      p.push_back(pp(x,y));
+      xx.push_back(x);
+      yy.push_back(y);
+    }
+  sort(xx.begin(),xx.end());
+  xx.resize(unique(xx.begin(),xx.end())-xx.begin());
+  if(!chk(xx,m))
+    printf("NO");
+  else
+    {
+      sort(yy.begin(),yy.end());
+      yy.resize(unique(yy.begin(),yy.end())-yy.begin());
+      if(!chk(yy,n))
+	printf("NO");
+      else
+	{
+	  sort(p.begin(),p.end());
+	  p.resize(unique(p.begin(),p.end())-p.begin());
+	  if(!check(yy))
+	    printf("NO");
+	  else
+	    {
+	      for(int i=0;i<p.size();++i)
+		swap(p[i].first,p[i].second);
+	      sort(p.begin(),p.end());
+	      if(!check(xx))
+		printf("NO");
+	      else printf("YES");
+	    }
+	}
+    }
+  return 0;
+}
