@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ gen.cpp -o b.out;./b.out ;g++ -O2 547.cpp -o a.out; ./a.out ;g++ chk.cpp -o c.out;./c.out 

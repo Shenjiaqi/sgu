@@ -1,0 +1,11 @@
+10
+put 1 1
+put 3 1
+towers
+put 5 1
+tput  2 1 1
+towers
+put 4 1
+towers
+length 2
+tcubes 2 2

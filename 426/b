@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /Users/sjq/Documents/sgu/426
+g++ ./gen.cpp -o c.out;./c.out
+g++ -O2 ./426.cpp -o a.out;./a.out
+g++ -O2 ./426\ copy.cpp -o b.out;./b.out
+diff ./out ./out2

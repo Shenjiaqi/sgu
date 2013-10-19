@@ -1,41 +1,38 @@
-#include <cstdio>
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <set>
+#include <queue>
 #include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <functional>
 using namespace std;
 typedef long long ll;
-ll a,b,c;
-inline ll nxt(ll v)
-{
-  return (v*a+(v%b))%c;
-}
 int main()
 {
-  freopen("in.txt","r",stdin);
+  freopen("in","r",stdin);
+  ll a,b,c;
   cin>>a>>b>>c;
-  ll f,l;
-  f=l=1;
-  for(ll i=1,j=0;;++j)
+  set<ll> sett;
+  sett.insert(1);
+  int n(1);
+  for(ll i=1;n<=2000000;++n)
     {
-      if(j>2000000)
+      i=(a*i+(i%b))%c;
+      if(sett.find(i)!=sett.end())
 	{
-	  cout<<-1;
+	  cout<<n;
 	  return 0;
 	}
-      f=nxt(f);
-      l=nxt(l);
-      l=nxt(l);
-      if(f==l)
-	break;
+      sett.insert(i);
     }
-  f=1;
-  ll c(0);
-  for(;f!=l && c<=2000000;++c)
-    f=nxt(f),l=nxt(l);
-  f=nxt(f);
-  ++c;
-  for(;f!=l && c<=2000000;++c)
-    f=nxt(f);
-  if(c<=2000000)
-    cout<<c;
-  else cout<<-1;
+  cout<<-1;
   return 0;
 }

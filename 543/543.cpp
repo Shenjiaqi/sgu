@@ -1,108 +1,106 @@
-#include <cstdio>
 #include <algorithm>
+#include <string>
 #include <vector>
+#include <cmath>
+#include <map>
+#include <set>
+#include <queue>
 #include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <functional>
 using namespace std;
+typedef long long ll;
 #define N 2000
-bool test(int o3,int even,int num,int r)
-{
-    int p[12][2],poi;
-    poi=0;
-    if(r&1)
-    {
-        int k=min(o3,num);
-        if(k>0)
-        {
-            p[poi][0]=r-3,p[poi][1]=k,++poi;
-            o3-=k;
-        }
-        if(num>k)
-            p[poi][0]=r,p[poi][1]=num-k,++poi;
-    }
-    else
-        p[poi][0]=r,p[poi][1]=num,++poi;
-    for(int i=0;o3>1 && i<poi;++i)
-    {
-        int nump=(p[i][0]/6);
-        if(nump>0 && p[i][1])
-        {
-            if((o3>>1)>=nump)
-            {
-                int numn=min(p[i][1],(o3>>1)/nump);
-                o3-=numn*nump*2;
-                if(p[i][1]-numn>0)
-                    p[poi][0]=p[i][0],p[poi][1]=p[i][1]-numn,++poi;
-                p[i][1]=numn;
-                p[i][0]%=6;
-            }
-            else
-            {
-                int numn=o3>>1;
-                p[i][1]-=1;
-                o3-=numn*2;
-                p[poi][0]=p[i][0]-numn*6,p[poi][1]=1,++poi;
-            }
-        }
-    }
-    for(int i=0;o3>0 && i<poi;++i)
-    {
-        if(p[i][0]>=3 && p[i][1]>0)
-        {
-            int numn=min(o3,p[i][1]);
-            o3-=numn;
-            if(numn<p[i][1])
-                p[poi][0]=p[i][0],p[poi][1]=p[i][1]-numn,++poi;
-                //p.push_back(pp(p[i].first,p[i].second-numn));
-            p[i][1]=numn;
-            p[i][0]-=3;
-        }
-    }
-    if(o3>0)
-        return false;
-    for(int i=0;even>0 && i<poi;++i)
-        if(p[i][0]>1 && p[i][1]>0)
-            even-=(p[i][0]>>1)*p[i][1];
-    return even<=0;
-}
+#define R 2000
+#define A 2000
+int a[N];
+int b[N];
 int main()
 {
-    freopen("in.txt","r",stdin);
-    int n,r;
-    scanf("%d%d",&n,&r);
-    int ans(0);
-    int odd,even,con;
-    odd=even=con=0;
-    int all(0);
-    for(int i=0;i<n;++i)
+  freopen("in","r",stdin);
+  int n,r;
+  scanf("%d%d",&n,&r);
+  for(int i=0;i<n;++i)
+    scanf("%d",a+i);
+  int ans(0);
+  for(int f=0,t=n*A+1;f<=t;)
     {
-        int a;
-        scanf("%d",&a);
-        all+=a;
-        if(a&1)
-        {
-            odd+=1;
-            a-=3;
-        }
-        even+=(a>>1);
-        con+=(a/6);
+      int m=(f+t)>>1;
+      memcpy(b,a,sizeof(b));
+      int nn2,nn3;
+      nn2=nn3=0;
+      int p[40][2]={0},pi=0;
+      if(r&1)
+	{
+	  int c=m;
+	  for(int i=0;i<n && c;++i)
+	    if(b[i]&1)
+	      --c,b[i]-=3;
+	  for(int i=0;i<n && c>1;++i)
+	    for(;b[i]>=6 && c>1;)
+	      c-=2,b[i]-=6;
+	  if(m-c)
+	    p[pi][0]=r-3,p[pi][1]=m-c,++pi;
+	  if(c)
+	    p[pi][0]=r,p[pi][1]=c,++pi;
+	}
+      else p[pi][0]=r,p[pi][1]=m,++pi;
+      for(int i=0;i<n;++i)
+	{
+	  if(b[i]&1)
+	    {
+	      ++nn3;
+	      b[i]-=3;
+	    }
+	  nn2+=b[i]/2;
+	}
+      for(int j=0,k=pi;k>j && nn3>1;++j)
+	if(p[j][0]>=6)
+	  {
+	    int tmp=p[j][0]/6;
+	    int ntmp=nn3/(2*tmp);
+	    if(ntmp>0)
+	      {
+		nn3-=ntmp*2*tmp;
+		p[pi][0]=p[j][0]-6*tmp;
+		p[pi][1]=ntmp;
+		p[j][1]-=ntmp;
+		++pi;
+	      }
+	    if(nn3>1 && p[j][1]>0)
+	      {
+		ntmp=min(p[j][0]/6,nn3/2);
+		nn3-=ntmp*2;
+		p[pi][0]=p[j][0]-ntmp*6;
+		p[j][1]-=1;
+		p[pi][1]=1;
+		++pi;
+	      }
+	  }
+      for(int j=0,k=pi;k>j && nn3;++j)
+	{
+	  if(p[j][0]>=3 && p[j][1]>0)
+	    {
+	      int tmp=min(p[j][1],nn3);
+	      nn3-=tmp;
+	      p[j][1]-=tmp;
+	      p[pi][0]=p[j][0]-3;
+	      p[pi][1]=tmp;
+	      ++pi;
+	    }
+	}
+      if(nn3<=0)
+	for(int j=0;j<pi && nn2>0;++j)
+	  nn2-=p[j][1]*(p[j][0]/2);
+      if(nn3<=0 && nn2<=0)
+	ans=m,t=m-1;
+      else f=m+1;
     }
-    int ma,mi;
-    ma=(all+r-2-1)/(r-2)+1;
-    mi=(all+r-1)/r;
-    for(;mi<=ma;)
-    {
-        int mid=(ma+mi)>>1;
-        bool flag;
-        if((r&1) && odd<mid)
-        {
-            int tmp=min((mid-odd>>1),con);
-            flag=test(odd+tmp*2,even-3*tmp,mid,r);
-        }
-        else flag=test(odd,even,mid,r);
-        if(flag)
-            ans=mid,ma=mid-1;
-        else mi=mid+1;
-    }
-    printf("%d",ans);
-    return 0;
+  printf("%d",ans);
+  return 0;
 }

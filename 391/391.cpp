@@ -1,24 +1,25 @@
-#include <cstdio>
 #include <algorithm>
-#include <iostream>
+#include <string>
 #include <vector>
+#include <cmath>
+#include <map>
+#include <set>
+#include <queue>
+#include <iostream>
 #include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <functional>
 using namespace std;
+typedef long long ll;
 typedef pair<int,int> pp;
 vector<pp> p;
-bool check(vector<int> &v)
-{
-  int s1=v.size();
-  int s2=p.size();
-  if(s2%s1)
-    return false;
-  for(int i=0;i<s2;)
-    for(int j=0,k=p[i].first;j<s1;++j,++i)
-      if(v[j]!=p[i].second || k!=p[i].first)
-	return false;
-  return true;
-}
-bool chk(vector<int> &v,int l)
+vector<int> xx,yy;
+int n,m,k;
+bool chk(vector<int> &v,int lim)
 {
   if(v.size()<2)
     return true;
@@ -27,98 +28,62 @@ bool chk(vector<int> &v,int l)
       return false;
   int a=0,b=v.size()-1;
   if(v[a]==1)
-    for(++a;a<=b && v[a]==v[a-1]+1;++a)
+    for(++a;a<=b && v[a]-1==v[a-1];++a)
       ;
-  if(v[b]==l)
-    for(--b;a<=b && v[b]==v[b+1]-1;--b)
+  if(v[b]==lim)
+    for(--b;a<=b && v[b]+1==v[b+1];--b)
       ;
   vector<int> z;
   for(;a<=b;)
     {
-      int c=1;
+      int cnt(1);
       for(++a;a<=b && v[a]==v[a-1]+1;++a)
-	++c;
-      if(c>1 && (c&1))
+	++cnt;
+      if(cnt>1 && (cnt&1))
 	return false;
-      z.push_back(c);
+      z.push_back(cnt);
       if(a<=b)
-	z.push_back(v[a]-v[a-1]);
-    }
-  a=0;
-  for(;a<z.size() && z[a]!=1;a+=2)
-    ;
-  for(;a<z.size();)
-    {
-      for(b=a+2;b<z.size() && z[b]!=1;b+=2)
-	;
-      if(b<z.size())
-	for(int i=a+1,j=b-1;i<j;++i,--j)
-	  if(z[i]!=z[j])
+	{
+	  if(((v[a]-v[a-1])&1)==0)
 	    return false;
-      a=b;
+	  z.push_back(v[a]-v[a-1]);
+	}
     }
+  for(int i=0;i<z.size();i+=2)
+    if(z[i]==1)
+      {
+	for(;;)
+	  {
+	    int j=i+2;
+	    for(;j<z.size() && z[j]!=1;j+=2)
+	      ;
+	    if(j>=z.size())
+	      break;
+	    for(int k=i+1,l=j-1;k<l;++k,--l)
+	      if(z[k]!=z[l])
+		return false;
+	    i=j;
+	  }
+	break;
+      }
   return true;
-//   int i=0,j=v.size()-1;
-//   if(v[0]==1)
-//     {
-//       for(i=1;i<j && v[i-1]+1==v[i];++i)
-// 	;
-//       if(i<=j && ((v[i]-v[i-1])&1)==0)
-// 	return false;
-//     }
-//   if(v[j]==l)
-//     {
-//       for(--j;i<j && v[j]+1==v[j+1];--j)
-// 	;
-//       if(i<=j && ((v[j+1]-v[j])&1)==0)
-// 	return false;
-//     }
-//   vector<int> z;
-//   for(;i<=j;)
-//     {
-//       int c=1;
-//       for(++i;i<=j && v[i-1]+1==v[i];++i)
-// 	++c;
-//       if(c>1 && (c&1))
-//  	return false;
-//       z.push_back(c);
-//       if(i<=j && i>0)
-// 	{
-// 	  if(0==(1&(v[i]-v[i-1])))
-// 	    return false;
-// 	  z.push_back(v[i]-v[i-1]);
-// 	}
-//     }
-//   i=0;
-//   for(;i<z.size() && z[i]!=1;i+=2)
-//     ;
-//   for(;i<z.size();)
-//     {
-//       for(j=i+2;j<z.size() && z[j]!=1;j+=2)
-// 	;
-//       if(j>=z.size())
-// 	break;
-//       for(int a=i+1,b=j-1;a<b;++a,--b)
-// 	if(z[a]!=z[b])
-// 	  return false;
-//       i=j;
-//     }
-//   return true;
 }
-int main()
+bool check(vector<int> &v)
 {
-  freopen("in.txt","r",stdin);
-  int n,m,k;
-  scanf("%d%d%d",&n,&m,&k);
-  if(k==0)
-    {
-      printf("YES");
-      return 0;
-    }
-  if(m>4)
-    return 1;
-  vector<int> xx;
-  vector<int> yy;
+  int s1=v.size();
+  int s2=p.size();
+  if(s2==0)
+    return true;
+  if(s2%s1)
+    return false;
+  for(int i=0;i<s2;)
+    for(int j=0;j<s1;++j,++i)
+      if( (j && p[i].first!=p[i-1].first) || p[i].second!=v[j])
+	return false;
+  return true;
+}
+void cal()
+{
   for(int i=0;i<k;++i)
     {
       int x,y;
@@ -129,30 +94,38 @@ int main()
     }
   sort(xx.begin(),xx.end());
   xx.resize(unique(xx.begin(),xx.end())-xx.begin());
-  if(!chk(xx,m))
-    printf("NO");
-  else
+  if(chk(xx,m))
     {
       sort(yy.begin(),yy.end());
       yy.resize(unique(yy.begin(),yy.end())-yy.begin());
-      if(!chk(yy,n))
-	printf("NO");
-      else
+      if(chk(yy,n))
 	{
 	  sort(p.begin(),p.end());
-	  p.resize(unique(p.begin(),p.end())-p.begin());
-	  if(!check(yy))
-	    printf("NO");
-	  else
+	  if(check(yy))
 	    {
 	      for(int i=0;i<p.size();++i)
 		swap(p[i].first,p[i].second);
 	      sort(p.begin(),p.end());
-	      if(!check(xx))
-		printf("NO");
-	      else printf("YES");
+	      if(check(xx))
+		{
+		  printf("YES");
+		  return ;
+		}
 	    }
 	}
+    }
+  printf("NO");
+}
+int main()
+{
+  freopen("in","r",stdin);
+  for(;EOF!=scanf("%d%d%d",&n,&m,&k);)
+    {
+      p.resize(0);
+      xx.resize(0);
+      yy.resize(0);
+      cal();
+      cout<<endl;
     }
   return 0;
 }

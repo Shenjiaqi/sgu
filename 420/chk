@@ -1,0 +1,22 @@
+#!/bin/bash
+
+for ((i=0;i<5;++i)) do
+a=$RANDOM
+a=$(( $a % 100000000 ))
+b=$(( $RANDOM % 100000000 ))
+
+if  (( $a > $b ))
+then
+ tmp=$a
+ a=$b
+ b=$tmp
+fi
+
+echo $a $b
+
+echo $a $b | ./b.out 
+
+echo $a $b | ./a.out
+
+echo
+done

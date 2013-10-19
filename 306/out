@@ -1,0 +1,721 @@
+need 5 weighings
+weigh 1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17+18+19+20+21+22+23+24+25+26+27+28+29+30+31+32+33+34+35+36+37+38+39+40 vs 41+42+43+44+45+46+47+48+49+50+51+52+53+54+55+56+57+58+59+60+61+62+63+64+65+66+67+68+69+70+71+72+73+74+75+76+77+78+79+80
+case <:
+  weigh 1+2+3+4+5+6+7+41+42+43+44+45+46+47+48+49+50+51+52+53+54+55+56+57+58+59+60 vs 8+9+10+11+12+13+14+61+62+63+64+65+66+67+68+69+70+71+72+73+74+75+76+77+78+79+80
+  case <:
+    weigh 1+2+3+4+5+6+7+61+62+63+64+65+66+67+68+69 vs 8+9+10+11+12+13+14+15+16+17+18+19+20+21+70+71
+    case <:
+      weigh 1+2+3+70+71 vs 4+8+9+10+11
+      case <:
+        weigh 1+2 vs 3+4
+        case <:
+          weigh 1 vs 2
+          case <:
+            fake 1
+          case >:
+            fake 2
+          end
+        case >:
+          fake 3
+        end
+      case =:
+        weigh 5+6 vs 1+7
+        case <:
+          weigh 5 vs 6
+          case <:
+            fake 5
+          case >:
+            fake 6
+          end
+        case >:
+          fake 7
+        end
+      case >:
+        weigh 4+70+71 vs 1+2+3
+        case <:
+          fake 4
+        case >:
+          weigh 70 vs 71
+          case <:
+            fake 71
+          case >:
+            fake 70
+          end
+        end
+      end
+    case =:
+      weigh 72+73+74 vs 75+76+77
+      case <:
+        weigh 75+76 vs 1+77
+        case <:
+          fake 77
+        case >:
+          weigh 75 vs 76
+          case <:
+            fake 76
+          case >:
+            fake 75
+          end
+        end
+      case =:
+        weigh 78+79 vs 1+80
+        case <:
+          fake 80
+        case >:
+          weigh 78 vs 79
+          case <:
+            fake 79
+          case >:
+            fake 78
+          end
+        end
+      case >:
+        weigh 72+73 vs 1+74
+        case <:
+          fake 74
+        case >:
+          weigh 72 vs 73
+          case <:
+            fake 73
+          case >:
+            fake 72
+          end
+        end
+      end
+    case >:
+      weigh 61+62+63 vs 64+65+66
+      case <:
+        weigh 64+65 vs 1+66
+        case <:
+          fake 66
+        case >:
+          weigh 64 vs 65
+          case <:
+            fake 65
+          case >:
+            fake 64
+          end
+        end
+      case =:
+        weigh 67+68 vs 1+69
+        case <:
+          fake 69
+        case >:
+          weigh 67 vs 68
+          case <:
+            fake 68
+          case >:
+            fake 67
+          end
+        end
+      case >:
+        weigh 61+62 vs 1+63
+        case <:
+          fake 63
+        case >:
+          weigh 61 vs 62
+          case <:
+            fake 62
+          case >:
+            fake 61
+          end
+        end
+      end
+    end
+  case =:
+    weigh 15+16+17+18+19+20+21+22+23 vs 24+25+26+27+28+29+30+31+32
+    case <:
+      weigh 15+16+17 vs 18+19+20
+      case <:
+        weigh 15+16 vs 1+17
+        case <:
+          weigh 15 vs 16
+          case <:
+            fake 15
+          case >:
+            fake 16
+          end
+        case >:
+          fake 17
+        end
+      case =:
+        weigh 21+22 vs 1+23
+        case <:
+          weigh 21 vs 22
+          case <:
+            fake 21
+          case >:
+            fake 22
+          end
+        case >:
+          fake 23
+        end
+      case >:
+        weigh 18+19 vs 1+20
+        case <:
+          weigh 18 vs 19
+          case <:
+            fake 18
+          case >:
+            fake 19
+          end
+        case >:
+          fake 20
+        end
+      end
+    case =:
+      weigh 33+34+35 vs 36+37+38
+      case <:
+        weigh 33+34 vs 1+35
+        case <:
+          weigh 33 vs 34
+          case <:
+            fake 33
+          case >:
+            fake 34
+          end
+        case >:
+          fake 35
+        end
+      case =:
+        weigh 39 vs 40
+        case <:
+          fake 39
+        case >:
+          fake 40
+        end
+      case >:
+        weigh 36+37 vs 1+38
+        case <:
+          weigh 36 vs 37
+          case <:
+            fake 36
+          case >:
+            fake 37
+          end
+        case >:
+          fake 38
+        end
+      end
+    case >:
+      weigh 24+25+26 vs 27+28+29
+      case <:
+        weigh 24+25 vs 1+26
+        case <:
+          weigh 24 vs 25
+          case <:
+            fake 24
+          case >:
+            fake 25
+          end
+        case >:
+          fake 26
+        end
+      case =:
+        weigh 30+31 vs 1+32
+        case <:
+          weigh 30 vs 31
+          case <:
+            fake 30
+          case >:
+            fake 31
+          end
+        case >:
+          fake 32
+        end
+      case >:
+        weigh 27+28 vs 1+29
+        case <:
+          weigh 27 vs 28
+          case <:
+            fake 27
+          case >:
+            fake 28
+          end
+        case >:
+          fake 29
+        end
+      end
+    end
+  case >:
+    weigh 8+9+10+11+12+13+14+41+42+43+44+45+46+47+48+49 vs 1+2+3+4+5+6+7+15+16+17+18+19+20+21+50+51
+    case <:
+      weigh 8+9+10+50+51 vs 1+2+3+4+11
+      case <:
+        weigh 8+9 vs 1+10
+        case <:
+          weigh 8 vs 9
+          case <:
+            fake 8
+          case >:
+            fake 9
+          end
+        case >:
+          fake 10
+        end
+      case =:
+        weigh 12+13 vs 1+14
+        case <:
+          weigh 12 vs 13
+          case <:
+            fake 12
+          case >:
+            fake 13
+          end
+        case >:
+          fake 14
+        end
+      case >:
+        weigh 11+50+51 vs 1+2+3
+        case <:
+          fake 11
+        case >:
+          weigh 50 vs 51
+          case <:
+            fake 51
+          case >:
+            fake 50
+          end
+        end
+      end
+    case =:
+      weigh 52+53+54 vs 55+56+57
+      case <:
+        weigh 55+56 vs 1+57
+        case <:
+          fake 57
+        case >:
+          weigh 55 vs 56
+          case <:
+            fake 56
+          case >:
+            fake 55
+          end
+        end
+      case =:
+        weigh 58+59 vs 1+60
+        case <:
+          fake 60
+        case >:
+          weigh 58 vs 59
+          case <:
+            fake 59
+          case >:
+            fake 58
+          end
+        end
+      case >:
+        weigh 52+53 vs 1+54
+        case <:
+          fake 54
+        case >:
+          weigh 52 vs 53
+          case <:
+            fake 53
+          case >:
+            fake 52
+          end
+        end
+      end
+    case >:
+      weigh 41+42+43 vs 44+45+46
+      case <:
+        weigh 44+45 vs 1+46
+        case <:
+          fake 46
+        case >:
+          weigh 44 vs 45
+          case <:
+            fake 45
+          case >:
+            fake 44
+          end
+        end
+      case =:
+        weigh 47+48 vs 1+49
+        case <:
+          fake 49
+        case >:
+          weigh 47 vs 48
+          case <:
+            fake 48
+          case >:
+            fake 47
+          end
+        end
+      case >:
+        weigh 41+42 vs 1+43
+        case <:
+          fake 43
+        case >:
+          weigh 41 vs 42
+          case <:
+            fake 42
+          case >:
+            fake 41
+          end
+        end
+      end
+    end
+  end
+case =:
+  fake 81
+case >:
+  weigh 1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17+18+19+20+41+42+43+44+45+46+47 vs 21+22+23+24+25+26+27+28+29+30+31+32+33+34+35+36+37+38+39+40+48+49+50+51+52+53+54
+  case <:
+    weigh 21+22+23+24+25+26+27+28+29+41+42+43+44+45+46+47 vs 1+2+3+4+5+6+7+8+9+10+11+12+13+14+30+31
+    case <:
+      weigh 30+31+41+42+43 vs 1+2+3+4+44
+      case <:
+        weigh 41+42 vs 1+43
+        case <:
+          weigh 41 vs 42
+          case <:
+            fake 41
+          case >:
+            fake 42
+          end
+        case >:
+          fake 43
+        end
+      case =:
+        weigh 45+46 vs 1+47
+        case <:
+          weigh 45 vs 46
+          case <:
+            fake 45
+          case >:
+            fake 46
+          end
+        case >:
+          fake 47
+        end
+      case >:
+        weigh 30+31+44 vs 1+2+3
+        case <:
+          fake 44
+        case >:
+          weigh 30 vs 31
+          case <:
+            fake 31
+          case >:
+            fake 30
+          end
+        end
+      end
+    case =:
+      weigh 32+33+34 vs 35+36+37
+      case <:
+        weigh 35+36 vs 1+37
+        case <:
+          fake 37
+        case >:
+          weigh 35 vs 36
+          case <:
+            fake 36
+          case >:
+            fake 35
+          end
+        end
+      case =:
+        weigh 38+39 vs 1+40
+        case <:
+          fake 40
+        case >:
+          weigh 38 vs 39
+          case <:
+            fake 39
+          case >:
+            fake 38
+          end
+        end
+      case >:
+        weigh 32+33 vs 1+34
+        case <:
+          fake 34
+        case >:
+          weigh 32 vs 33
+          case <:
+            fake 33
+          case >:
+            fake 32
+          end
+        end
+      end
+    case >:
+      weigh 21+22+23 vs 24+25+26
+      case <:
+        weigh 24+25 vs 1+26
+        case <:
+          fake 26
+        case >:
+          weigh 24 vs 25
+          case <:
+            fake 25
+          case >:
+            fake 24
+          end
+        end
+      case =:
+        weigh 27+28 vs 1+29
+        case <:
+          fake 29
+        case >:
+          weigh 27 vs 28
+          case <:
+            fake 28
+          case >:
+            fake 27
+          end
+        end
+      case >:
+        weigh 21+22 vs 1+23
+        case <:
+          fake 23
+        case >:
+          weigh 21 vs 22
+          case <:
+            fake 22
+          case >:
+            fake 21
+          end
+        end
+      end
+    end
+  case =:
+    weigh 55+56+57+58+59+60+61+62+63 vs 64+65+66+67+68+69+70+71+72
+    case <:
+      weigh 55+56+57 vs 58+59+60
+      case <:
+        weigh 55+56 vs 1+57
+        case <:
+          weigh 55 vs 56
+          case <:
+            fake 55
+          case >:
+            fake 56
+          end
+        case >:
+          fake 57
+        end
+      case =:
+        weigh 61+62 vs 1+63
+        case <:
+          weigh 61 vs 62
+          case <:
+            fake 61
+          case >:
+            fake 62
+          end
+        case >:
+          fake 63
+        end
+      case >:
+        weigh 58+59 vs 1+60
+        case <:
+          weigh 58 vs 59
+          case <:
+            fake 58
+          case >:
+            fake 59
+          end
+        case >:
+          fake 60
+        end
+      end
+    case =:
+      weigh 73+74+75 vs 76+77+78
+      case <:
+        weigh 73+74 vs 1+75
+        case <:
+          weigh 73 vs 74
+          case <:
+            fake 73
+          case >:
+            fake 74
+          end
+        case >:
+          fake 75
+        end
+      case =:
+        weigh 79 vs 80
+        case <:
+          fake 79
+        case >:
+          fake 80
+        end
+      case >:
+        weigh 76+77 vs 1+78
+        case <:
+          weigh 76 vs 77
+          case <:
+            fake 76
+          case >:
+            fake 77
+          end
+        case >:
+          fake 78
+        end
+      end
+    case >:
+      weigh 64+65+66 vs 67+68+69
+      case <:
+        weigh 64+65 vs 1+66
+        case <:
+          weigh 64 vs 65
+          case <:
+            fake 64
+          case >:
+            fake 65
+          end
+        case >:
+          fake 66
+        end
+      case =:
+        weigh 70+71 vs 1+72
+        case <:
+          weigh 70 vs 71
+          case <:
+            fake 70
+          case >:
+            fake 71
+          end
+        case >:
+          fake 72
+        end
+      case >:
+        weigh 67+68 vs 1+69
+        case <:
+          weigh 67 vs 68
+          case <:
+            fake 67
+          case >:
+            fake 68
+          end
+        case >:
+          fake 69
+        end
+      end
+    end
+  case >:
+    weigh 1+2+3+4+5+6+7+8+9+48+49+50+51+52+53+54 vs 10+11+21+22+23+24+25+26+27+28+29+30+31+32+33+34
+    case <:
+      weigh 10+11+48+49+50 vs 1+2+3+4+51
+      case <:
+        weigh 48+49 vs 1+50
+        case <:
+          weigh 48 vs 49
+          case <:
+            fake 48
+          case >:
+            fake 49
+          end
+        case >:
+          fake 50
+        end
+      case =:
+        weigh 52+53 vs 1+54
+        case <:
+          weigh 52 vs 53
+          case <:
+            fake 52
+          case >:
+            fake 53
+          end
+        case >:
+          fake 54
+        end
+      case >:
+        weigh 10+11+51 vs 1+2+3
+        case <:
+          fake 51
+        case >:
+          weigh 10 vs 11
+          case <:
+            fake 11
+          case >:
+            fake 10
+          end
+        end
+      end
+    case =:
+      weigh 12+13+14 vs 15+16+17
+      case <:
+        weigh 15+16 vs 1+17
+        case <:
+          fake 17
+        case >:
+          weigh 15 vs 16
+          case <:
+            fake 16
+          case >:
+            fake 15
+          end
+        end
+      case =:
+        weigh 18+19 vs 1+20
+        case <:
+          fake 20
+        case >:
+          weigh 18 vs 19
+          case <:
+            fake 19
+          case >:
+            fake 18
+          end
+        end
+      case >:
+        weigh 12+13 vs 1+14
+        case <:
+          fake 14
+        case >:
+          weigh 12 vs 13
+          case <:
+            fake 13
+          case >:
+            fake 12
+          end
+        end
+      end
+    case >:
+      weigh 1+2+3 vs 4+5+6
+      case <:
+        weigh 4+5 vs 1+6
+        case <:
+          fake 6
+        case >:
+          weigh 4 vs 5
+          case <:
+            fake 5
+          case >:
+            fake 4
+          end
+        end
+      case =:
+        weigh 7+8 vs 1+9
+        case <:
+          fake 9
+        case >:
+          weigh 7 vs 8
+          case <:
+            fake 8
+          case >:
+            fake 7
+          end
+        end
+      case >:
+        weigh 1+2 vs 3+4
+        case <:
+          fake 3
+        case >:
+          weigh 1 vs 2
+          case <:
+            fake 2
+          case >:
+            fake 1
+          end
+        end
+      end
+    end
+  end
+end
