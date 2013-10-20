@@ -1,0 +1,7 @@
+3 
+Vasya Anna Elena Katya 
+Petya Elena Anna Katya 
+Egor Anna Elena Katya 
+Anna Petya Vasya Egor 
+Elena Vasya Petya Egor 
+Katya Vasya Petya Egor

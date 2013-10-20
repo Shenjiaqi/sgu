@@ -1,0 +1,118 @@
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+using namespace std;
+#define N 100000
+int s[N];
+int p[N*2+1][4],poi;
+int q[N+1][2];
+void add(int f,int t,int v)
+{
+  ++poi,p[poi][0]=t,p[poi][1]=v,p[poi][2]=s[f],p[poi][3]=-1,s[f]=poi;
+}
+int dfs(int v,int f)
+{
+  int r(0);
+  for(int i=s[v];i;i=p[i][2])
+    if(f!=p[i][0])
+      {
+	if(p[i][3]<0)
+	  p[i][3]=q[p[i][1]][0]+dfs(p[i][0],v);
+	r=max(r,p[i][3]);
+      }
+  return r;
+}
+int ddfs(int v,int f,int &u)
+{
+  int mi=0;
+  for(int i=s[v];i;i=p[i][2])
+    if(p[i][0]!=f)
+      mi=max(p[i][3],mi);
+  int k(0);
+  u=-1;
+  y[u][0]=y[u][2]=u;
+  for(int i=s[v];i;i=p[i][2])
+    if(p[i][0]!=f)
+      {
+	int t;
+	int tmp=ddfs(p[i][0],v,t);
+	if(q[p[i][1]][1]<tmp)
+	  k+=q[p[i][1]][1],ad(u,p[i][1],0);
+	else k+=tmp,ad(u,v,1);
+      }
+      k+=min(q[p[i][1]][1],ddfs(p[i][0],v));
+  return k;
+}
+int main()
+{
+  int n;
+  scanf("%d",&n);
+  for(int i=1;i<n;++i)
+    {
+      int f,t,l,c;
+      scanf("%d%d%d%d",&f,&t,&l,&c);
+      add(f,t,i);
+      add(t,f,i);
+      q[i][0]=l,q[i][1]=c;
+    }
+  int mpv,mp;
+  mpv=-1;
+  for(int i=0;i<n;++i)
+    {
+      dfs(n,-1);
+      int m1,m2,m3;
+      m1=m2=m3=0;
+      for(int j=s[i];j;j=p[j][2])
+	{
+	  if(p[j][3]>m1)
+	    m3=m2,m2=m1,m1=p[j][3];
+	  else if(p[j][3]>m2)
+	    m3=m2,m2=p[j][3];
+	  else if(p[j][3]>m3)
+	    m3=p[j][3];
+	}
+      if(m1+m2>mpv || (m1+m2==mpv && m3==m2))
+	mpv=m1+m2,mp=i;
+    }
+  int mk1=0,mk2=0,cc=0;
+  for(int i=s[mp];i;i=p[i][2])
+    {
+      ++cc;
+      if(mk1<p[i][3])
+	mk2=mk1,mk1=p[i][3];
+      else if(mk2<p[i][3])
+	mk2=p[i][3];
+    }
+  if(cc==1)
+    {
+      int tmp=ddfs(-1,mp);
+      printf("%d\n",tmp);
+      pt();
+    }
+  else
+    {
+      if(mk1==mk2)
+	{
+#typedef pp<int,int> pp;
+	  vector<pp> b;
+	  for(int i=s[mp];i;i=p[i][2])
+	    if(p[i][3]==mk1)
+	      {
+		int t;
+		int tmp=ddfs(mp,p[i][0],t);
+		b.push_back(tmp,t);
+	      }
+	  sort(b.begin(),b.end());
+	  int ans(0);
+	  for(int i=0;i<b.size()-1;++i)
+	    ans+=b[i].first;
+	  printf("%d\n",ans);
+	  for(int i=0;i<b.size()-1;++i)
+	    pt(b[i].second);
+	}
+      else
+	{
+	  for(int i=0}
+    }
+  return 0;
+}

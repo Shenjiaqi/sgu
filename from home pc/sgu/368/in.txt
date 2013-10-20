@@ -1,0 +1,18 @@
+2 3
+98 87 90
+Computer Science and IT
+3 1 2 3
+90 95 99 80 90 100 91 93 95
+2
+Computer Security
+15
+Applied Math and Informatics
+14
+Mathematics and Mechanics
+3 1 2 3
+70 80 90 80 85 90 65 76 90
+2
+Applied Math and Informatics
+13
+Applied Math in Agriculture
+5

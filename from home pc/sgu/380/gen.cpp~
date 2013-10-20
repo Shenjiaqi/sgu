@@ -1,0 +1,55 @@
+#include <cstdio>
+#include <iostream>
+#include <map>
+#include <utility>
+using namespace std;
+#define N 100000
+typedef long long ll;
+typedef pair<ll,ll> pp;
+#define BETWEEN(a,b,c) (((a)<=(b)&&(a)>=(c))||((a)>=(b)&&(a)<=(c)))
+int p[N];
+map<ll,int> mapp;
+bool dfs(int a,int b,bool dir)
+{
+  printf("%d %d\n",a,b);
+  ll tmp=a;
+  tmp=(tmp<<30)|(ll)b;
+  if(mapp.find(tmp)!=mapp.end())
+    return false;
+  mapp[tmp]=1;
+  for(;a+2<b;)
+    if(p[a+1]==p[b-1])
+      return dfs(a+1,b,true)||dfs(a,b-1,false);
+    else
+      {
+	bool t1=BETWEEN(p[a+1],p[b],p[b-1]);
+	bool t2=BETWEEN(p[b-1],p[a],p[a+1]);
+	if(dir)
+	  {
+	    if(t1)
+	      ++a;
+	    else if(t2)
+	      --b,dir=false;
+	  }
+	else if(t2)
+	  --b;
+	else if(t1)
+	  ++a,dir=true;
+	else break;
+      }
+  cout<<a<<' '<<b<<endl;
+  if(a+2==b)
+    return true;
+  return false;
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int n;
+  scanf("%d",&n);
+  for(int i=0;i<n;++i)
+    scanf("%d",p+i);
+  printf("%s",((dfs(0,n-1,true)||dfs(0,n-1,false))?"YES":"NO"));
+  return 0;
+}
+

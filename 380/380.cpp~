@@ -1,0 +1,40 @@
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <map>
+#include <utility>
+using namespace std;
+#define N 100007
+int p[N];
+map<pair<int,int>,int> mapp;
+int n;
+bool dfs(int a,int b)
+{
+  if(a>=b)
+    return true;
+  if(mapp.find(make_pair(a,b))!=mapp.end())
+    return false;
+  mapp[make_pair(a,b)]=1;
+  if(min(p[b],p[b-1])<=p[a+1] && p[a+1]<=max(p[b],p[b-1]) && dfs(a+1,b))
+    return true;
+  if(min(p[a],p[a+1])<=p[b-1] && p[b-1]<=max(p[a],p[a+1]) && dfs(a,b-1))
+    return true;
+  if(a>0 && min(p[b],p[b-1])<=p[a-1] && p[a-1]>=max(p[b],p[b-1]) &&
+     dfs(a-1,b))
+    return true;
+  if(b+1<n && min(p[a],p[a+1])<=p[b+1] && p[b+1]<=max(p[a],p[a+1]) &&
+     dfs(a,b+1))
+     return true;
+  return false;
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  scanf("%d",&n);
+  for(int i=0;i<n;++i)
+    scanf("%d",p+i);
+  if(dfs(0,n-1))
+    printf("YES");
+  else printf("NO");
+  return 0;
+}

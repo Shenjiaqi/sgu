@@ -1,0 +1,140 @@
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <map>
+#include <utility>
+#include <vector>
+#include <queue>
+using namespace std;
+#define M (200000)
+#define N (2000)
+int p[M*2+1][3],poi;
+int s[N+1];
+int path[M][3];
+void add(int x,int y,int l)
+{
+  ++poi,p[poi][0]=y,p[poi][1]=l,p[poi][2]=s[x],s[x]=poi;
+}
+void sr(int st,vector<int> &a)
+{
+  queue<int> que;
+  que.push(st);
+  fill(a.begin(),a.end(),-1);
+  a[st]=0;
+  vector<bool> in;
+  in.resize(a.size());
+  fill(in.begin(),in.end(),false);
+  in[st]=true;
+  for(;!que.empty();)
+    {
+      int v=que.front();
+      for(int c=s[v];c;c=p[c][2])
+	{
+	  int pp=p[c][0];
+	  if(a[pp]<0 || a[pp]>a[v]+p[c][1])
+	    {
+	      a[pp]=a[v]+p[c][1];
+	      if(!in[pp])
+		{
+		  que.push(pp);
+		  in[pp]=true;
+		}
+	    }
+	}
+      que.pop();
+      in[v]=false;
+    }
+}
+void add(int v,vector<int> &a)
+{
+  int m=a.size()-1;
+  for(int i=v;i<=m;i+=(i&(-i)))
+    ++a[i];
+}
+int que(int v,vector<int> &a)
+{
+  int r=0;
+  for(;v;v-=(v&(-v)))
+    r+=a[v];
+  return r;
+}
+vector<int> p1,p2,p3;
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int n,x,y;
+  cin>>n>>x>>y;
+  int m;
+  cin>>m;
+  for(int i=0;i<m;++i)
+    {
+      int xi,yi,li;
+      cin>>xi>>yi>>li;
+      add(xi,yi,li);
+      add(yi,xi,li);
+      path[i][0]=xi,path[i][1]=yi,path[i][2]=li;
+    }
+  p1.resize(n+1);
+  p2.resize(n+1);
+  p3.resize(n+1);
+  sr(x,p1);
+  sr(y,p2);
+  for(int i=1;i<=n;++i)
+    p3[i]=p1[i]+p2[i];
+  int smin=p1[y];
+  map<int,int> mapp;
+  map<int,int>::iterator ite;
+  for(int i=1;i<=n;++i)
+    {
+      mapp[p1[i]]=0;
+      mapp[p3[i]]=0;
+    }
+  ite=mapp.begin();
+  for(int i=0;ite!=mapp.end();++ite)
+    ite->second=++i;
+  vector<int> a1,a2;
+  a1.resize(mapp.size()+1);
+  a2.resize(mapp.size()+1);
+  for(int i=0;i<m;++i)
+    {
+      int xi=path[i][0],yi=path[i][1],li=path[i][2];
+      if(p3[xi]==smin && p3[yi]==smin)
+	{
+	  if(p1[xi]+li==p1[yi])
+	    {
+	      add(1+mapp[p1[xi]],a1);
+	      add(mapp[p1[yi]],a2);
+	    }
+	  else if(p1[yi]+li==p1[xi])
+	    {
+	      add(1+mapp[p1[yi]],a1);
+	      add(mapp[p1[xi]],a2);
+	    }
+	}
+    }
+  vector<int> ans;
+  ans.resize(2*n+1);
+  vector<int> add;
+  add.resize(2*n+1);
+  fill(ans.begin(),ans.end(),0);
+  fill(add.begin(),add.end(),-1);
+  for(int i=1;i<=n;++i)
+    {
+      if(p3[i]==smin)
+	{
+	  int tmp=mapp[p1[i]];
+	  ++ans[tmp];
+	  if(add[tmp]<0)
+	    add[tmp]=que(tmp,a1)-que(tmp,a2);
+	}
+    }
+  for(int i=1;i<=n;++i)
+    if(p3[i]==smin)
+      {
+	int tmp=mapp[p1[i]];
+	//cout<<'!'<<ans[tmp]<<' '<<add[tmp]<<endl;
+	cout<<(ans[tmp]+add[tmp])<<' ';
+      }
+    else cout<<0<<' ';
+  return 0;
+}
