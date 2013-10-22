@@ -1,0 +1,854 @@
+ormode_table size:0
+
+-------------------------***-------------------------
+
+op_image size: 11
++------>1:
+|       op_img_alt size: 1
+|       +------>1:
+|               op_img_ent size: 1
+|               +------>1: type:271  val:1030  idx:0
++------>2:
+|       op_img_alt size: 0
++------>3:
+|       op_img_alt size: 1
+|       +------>1:
+|               op_img_ent size: 3
+|               +------>1: type:271  val:1068  idx:0
+|               +------>2: type:289  val:2  idx:0
+|               +------>3: type:289  val:3  idx:0
++------>4:
+|       op_img_alt size: 0
++------>5:
+|       op_img_alt size: 1
+|       +------>1:
+|               op_img_ent size: 4
+|               +------>1: type:289  val:5  idx:0
+|               +------>2: type:289  val:6  idx:0
+|               +------>3: type:289  val:7  idx:0
+|               +------>4: type:289  val:8  idx:0
++------>6:
+|       op_img_alt size: 0
++------>7:
+|       op_img_alt size: 1
+|       +------>1:
+|               op_img_ent size: 3
+|               +------>1: type:271  val:1124  idx:0
+|               +------>2: type:289  val:14  idx:0
+|               +------>3: type:289  val:15  idx:0
++------>8:
+|       op_img_alt size: 0
++------>9:
+|       op_img_alt size: 1
+|       +------>1:
+|               op_img_ent size: 1
+|               +------>1: type:271  val:1147  idx:0
++------>10:
+|       op_img_alt size: 0
++------>11:
+        op_img_alt size: 1
+        +------>1:
+                op_img_ent size: 4
+                +------>1: type:289  val:18  idx:0
+                +------>2: type:289  val:19  idx:0
+                +------>3: type:289  val:20  idx:0
+                +------>4: type:289  val:21  idx:0
+
+-------------------------***-------------------------
+
+opn_table size: 6
++------>1: para: 1  syn: 1  img: 1
++------>2: para: 2  syn: 3  img: 3
++------>3: para: 5  syn: 5  img: 5
++------>4: para: 14  syn: 7  img: 7
++------>5: para: 17  syn: 9  img: 9
++------>6: para: 18  syn: 11  img: 11
+
+-------------------------***-------------------------
+
+syntax_trm_c size: 11
++------>1:
+|       syntax_trm_c size: 1
+|       +------>1:
+|               syntax_ent_c size: 1
+|               +------>1: type:271  val:1026  idx:0
++------>2:
+|       syntax_trm_c size: 0
++------>3:
+|       syntax_trm_c size: 1
+|       +------>1:
+|               syntax_ent_c size: 4
+|               +------>1: type:271  val:706  idx:0
+|               +------>2: type:289  val:2  idx:0
+|               +------>3: type:271  val:1066  idx:0
+|               +------>4: type:289  val:3  idx:0
++------>4:
+|       syntax_trm_c size: 0
++------>5:
+|       syntax_trm_c size: 1
+|       +------>1:
+|               syntax_ent_c size: 6
+|               +------>1: type:289  val:5  idx:0
+|               +------>2: type:289  val:6  idx:0
+|               +------>3: type:271  val:1066  idx:0
+|               +------>4: type:289  val:7  idx:0
+|               +------>5: type:271  val:1066  idx:0
+|               +------>6: type:289  val:8  idx:0
++------>6:
+|       syntax_trm_c size: 0
++------>7:
+|       syntax_trm_c size: 1
+|       +------>1:
+|               syntax_ent_c size: 4
+|               +------>1: type:271  val:706  idx:0
+|               +------>2: type:289  val:14  idx:0
+|               +------>3: type:271  val:1066  idx:0
+|               +------>4: type:289  val:15  idx:0
++------>8:
+|       syntax_trm_c size: 0
++------>9:
+|       syntax_trm_c size: 1
+|       +------>1:
+|               syntax_ent_c size: 1
+|               +------>1: type:271  val:1026  idx:0
++------>10:
+|       syntax_trm_c size: 0
++------>11:
+        syntax_trm_c size: 1
+        +------>1:
+                syntax_ent_c size: 6
+                +------>1: type:289  val:18  idx:0
+                +------>2: type:289  val:19  idx:0
+                +------>3: type:271  val:1066  idx:0
+                +------>4: type:289  val:20  idx:0
+                +------>5: type:271  val:1066  idx:0
+                +------>6: type:289  val:21  idx:0
+
+-------------------------***-------------------------
+
+par_table size: 26
++------>1: name:(null)  val:(null)
++------>2: name:rd  val:reg_32
++------>3: name:rs  val:reg_32
++------>4: name:(null)  val:(null)
++------>5: name:name  val:insn64slot3_others_iterm
++------>6: name:rd  val:reg_32
++------>7: name:ar  val:reg_ar
++------>8: name:off  val:reg_off
++------>9: name:(null)  val:(null)
++------>10: name:insn64slot3_nop  val:insn64slot3_nop
++------>11: name:insn64slot3_mov  val:insn64slot3_mov
++------>12: name:insn64slot3_others  val:insn64slot3_others
++------>13: name:(null)  val:(null)
++------>14: name:rd  val:reg_all
++------>15: name:rs  val:reg_all
++------>16: name:(null)  val:(null)
++------>17: name:(null)  val:(null)
++------>18: name:name  val:insn64slot1_others_iterm
++------>19: name:acc  val:reg_acc
++------>20: name:rs  val:reg_all
++------>21: name:rt  val:reg_all
++------>22: name:(null)  val:(null)
++------>23: name:insn64slot1_mov  val:insn64slot1_mov
++------>24: name:insn64slot1_nop  val:insn64slot1_nop
++------>25: name:insn64slot1_others  val:insn64slot1_others
++------>26: name:(null)  val:(null)
+
+-------------------------***-------------------------
+
+oropn_table size: 2
++------>1: param:10  val:1
++------>2: param:23  val:3
+
+-------------------------***-------------------------
+
+or_table size: 3
++------>1:
+|       or_table_entry size: 3
+|       +------>1:
+|       |       oropn_table size: 1
+|       |       +------>1: type:289  val:10  idx:0
+|       +------>2:
+|       |       oropn_table size: 1
+|       |       +------>1: type:289  val:11  idx:0
+|       +------>3:
+|               oropn_table size: 1
+|               +------>1: type:289  val:12  idx:0
++------>2:
+|       or_table_entry size: 0
++------>3:
+        or_table_entry size: 3
+        +------>1:
+        |       oropn_table size: 1
+        |       +------>1: type:289  val:23  idx:0
+        +------>2:
+        |       oropn_table size: 1
+        |       +------>1: type:289  val:25  idx:0
+        +------>3:
+                oropn_table size: 1
+                +------>1: type:289  val:24  idx:0
+
+-------------------------***-------------------------
+
+address_range_c size: 8
++------>1: beg:3  end:2
++------>2: beg:6  end:5
++------>3: beg:9  end:8
++------>4: beg:12  end:11
++------>5: beg:15  end:14
++------>6: beg:18  end:17
++------>7: beg:21  end:20
++------>8: beg:24  end:23
+
+-------------------------***-------------------------
+
+mem_table size: 8
++------>1: addrng: 1  type: 1  addrtype: 2
++------>2: addrng: 2  type: 1  addrtype: 2
++------>3: addrng: 3  type: 2  addrtype: 4
++------>4: addrng: 4  type: 6  addrtype: 5
++------>5: addrng: 5  type: 7  addrtype: 8
++------>6: addrng: 6  type: 6  addrtype: 9
++------>7: addrng: 7  type: 6  addrtype: 10
++------>8: addrng: 8  type: 6  addrtype: 11
+
+-------------------------***-------------------------
+
+address_table size: 8
++------>1: range: 1  step: 4
++------>2: range: 2  step: 7
++------>3: range: 3  step: 10
++------>4: range: 4  step: 13
++------>5: range: 5  step: 16
++------>6: range: 6  step: 19
++------>7: range: 7  step: 22
++------>8: range: 8  step: 25
+
+-------------------------***-------------------------
+
+string_table size: 1187(chars&\0)
++------>1: byte
++------>6: 8
++------>8: addr32
++------>15: 32
++------>18: addr21
++------>25: 21
++------>28: arid
++------>33: 3
++------>35: drid
++------>40: 4
++------>42: int
++------>46: acc48
++------>52: 48
++------>55: accid
++------>61: 6
++------>63: offid
++------>69: 2
++------>71: barid
++------>77: mrid
++------>82: imm9
++------>87: 9
++------>89: mem_size
++------>98: 1024
++------>103: xmem
++------>108: ymem
++------>113: ar
++------>116: dr
++------>119: 16
++------>122: acc
++------>126: off
++------>130: bar
++------>134: mr
++------>137: reg_ar
++------>144: _a0
++------>148: _a1
++------>152: _a2
++------>156: _a3
++------>160: _a4
++------>164: _a5
++------>168: _a6
++------>172: _a7
++------>176: reg_dr
++------>183: _r0
++------>187: _r1
++------>191: _r2
++------>195: _r3
++------>199: _r4
++------>203: _r5
++------>207: _r6
++------>211: _r7
++------>215: _r8
++------>219: _r9
++------>223: _r10
++------>228: _r11
++------>233: _r12
++------>238: _r13
++------>243: _r14
++------>248: _r15
++------>253: reg_acc
++------>261: _c0
++------>265: _c1
++------>269: _c2
++------>273: _c3
++------>277: reg_off
++------>285: _o0
++------>289: _o1
++------>293: _o2
++------>297: _o3
++------>301: reg_bar
++------>309: _b0
++------>313: _b1
++------>317: _b2
++------>321: _b3
++------>325: reg_mr
++------>332: _m0
++------>336: _m1
++------>340: _m2
++------>344: _m3
++------>348: reg_all
++------>356: reg_32
++------>363: jmp_addr_iterm
++------>378: jmp
++------>382: je
++------>385: jne
++------>389: jb
++------>392: jnb
++------>396: ja
++------>399: jna
++------>403: jl
++------>406: jnl
++------>410: jg
++------>413: jng
++------>417: call
++------>422: load_store_rd_rs_imm_iterm
++------>449: lb
++------>452: lh
++------>455: lw
++------>458: sb
++------>461: sh
++------>464: sw
++------>467: lby
++------>471: lhy
++------>475: lwy
++------>479: sby
++------>483: shy
++------>487: swy
++------>491: alu_rd_rs_rt_iterm
++------>510: add
++------>514: addu
++------>519: sub
++------>523: mul
++------>527: mulu
++------>532: fmul
++------>537: fcmul
++------>543: cmac
++------>548: mac
++------>552: simd_rd_rs_rt_iterm
++------>572: dadd
++------>577: qadd
++------>582: dsub
++------>587: qsub
++------>592: fdmul
++------>598: fqmul
++------>604: dmac
++------>609: qmac
++------>614: dmax
++------>619: qmax
++------>624: dmin
++------>629: qmin
++------>634: logic_rd_rs_rt_iterm
++------>655: and
++------>659: or
++------>662: xor
++------>666: max
++------>670: min
++------>674: sla
++------>678: slaa
++------>683: srl
++------>687: others_rd_rs_iterm
++------>706: mov
++------>710: cmp
++------>714: cmpu
++------>719: test
++------>724: cd2a
++------>729: ca2a
++------>734: abs
++------>738: cbw
++------>742: cwd
++------>746: not
++------>750: dabs
++------>755: qabs
++------>760: dsum
++------>765: qsum
++------>770: load_store_off_rd_rs_rt_iterm
++------>800: lbo
++------>804: lho
++------>808: lwo
++------>812: sbo
++------>816: sho
++------>820: swo
++------>824: lboy
++------>829: lhoy
++------>834: lwoy
++------>839: sboy
++------>844: shoy
++------>849: swoy
++------>854: insn32slot1_rd_rs_rt_iterm
++------>881: 1
++------>883: insn32slot1_rd_rs_iterm
++------>907: insn32slot2_rd_rs_rt_iterm
++------>934: insn64slot1_others_iterm
++------>959: insn64slot3_others_iterm
++------>984: imm_9
++------>990: addr_21
++------>998: insn64slot1
++------>1010: insn64slot3_nop
++------>1026: nop
++------>1030: 0000000000000
++------>1044: insn64slot3_mov
++------>1060: rd
++------>1063: rs
++------>1066: ,
++------>1068: 111
++------>1072: insn64slot3_others
++------>1091: name
++------>1096: insn64slot3
++------>1108: insn64slot1_mov
++------>1124: 100010
++------>1131: insn64slot1_nop
++------>1147: 000000000000000000
++------>1166: insn64slot1_others
++------>1185: rt
+
+-------------------------***-------------------------
+
+num_table size: 27
++------>1: num: 1024
++------>2: num: 1023
++------>3: num: 0
++------>4: num: 1
++------>5: num: 1023
++------>6: num: 0
++------>7: num: 1
++------>8: num: 7
++------>9: num: 0
++------>10: num: 1
++------>11: num: 15
++------>12: num: 0
++------>13: num: 1
++------>14: num: 3
++------>15: num: 0
++------>16: num: 1
++------>17: num: 3
++------>18: num: 0
++------>19: num: 1
++------>20: num: 3
++------>21: num: 0
++------>22: num: 1
++------>23: num: 3
++------>24: num: 0
++------>25: num: 1
++------>26: num: 0
++------>27: num: 0
+
+-------------------------***-------------------------
+
+var_table size: 51
++------>1: name: byte  type: 276  val: 1  defineline: 1
++------>2: name: addr32  type: 276  val: 2  defineline: 2
++------>3: name: addr21  type: 276  val: 3  defineline: 3
++------>4: name: arid  type: 276  val: 4  defineline: 4
++------>5: name: drid  type: 276  val: 5  defineline: 5
++------>6: name: int  type: 276  val: 6  defineline: 6
++------>7: name: acc48  type: 276  val: 7  defineline: 7
++------>8: name: accid  type: 276  val: 8  defineline: 8
++------>9: name: offid  type: 276  val: 9  defineline: 9
++------>10: name: barid  type: 276  val: 10  defineline: 10
++------>11: name: mrid  type: 276  val: 11  defineline: 11
++------>12: name: imm9  type: 276  val: 12  defineline: 12
++------>13: name: mem_size  type: 259  val: 1  defineline: 14
++------>14: name: xmem  type: 282  val: 1  defineline: 16
++------>15: name: ymem  type: 282  val: 2  defineline: 17
++------>16: name: ar  type: 286  val: 3  defineline: 19
++------>17: name: dr  type: 286  val: 4  defineline: 20
++------>18: name: acc  type: 286  val: 5  defineline: 21
++------>19: name: off  type: 286  val: 6  defineline: 22
++------>20: name: bar  type: 286  val: 7  defineline: 23
++------>21: name: mr  type: 286  val: 8  defineline: 24
++------>22: name: reg_ar  type: 270  val: 1  defineline: 26
++------>23: name: reg_dr  type: 270  val: 2  defineline: 27
++------>24: name: reg_acc  type: 270  val: 3  defineline: 28
++------>25: name: reg_off  type: 270  val: 4  defineline: 29
++------>26: name: reg_bar  type: 270  val: 5  defineline: 30
++------>27: name: reg_mr  type: 270  val: 6  defineline: 31
++------>28: name: reg_all  type: 270  val: 7  defineline: 39
++------>29: name: reg_32  type: 270  val: 8  defineline: 45
++------>30: name: jmp_addr_iterm  type: 270  val: 9  defineline: 46
++------>31: name: load_store_rd_rs_imm_iterm  type: 270  val: 10  defineline: 47
++------>32: name: alu_rd_rs_rt_iterm  type: 270  val: 11  defineline: 48
++------>33: name: simd_rd_rs_rt_iterm  type: 270  val: 12  defineline: 49
++------>34: name: logic_rd_rs_rt_iterm  type: 270  val: 13  defineline: 50
++------>35: name: others_rd_rs_iterm  type: 270  val: 14  defineline: 51
++------>36: name: load_store_off_rd_rs_rt_iterm  type: 270  val: 15  defineline: 52
++------>37: name: insn32slot1_rd_rs_rt_iterm  type: 270  val: 16  defineline: 53
++------>38: name: insn32slot1_rd_rs_iterm  type: 270  val: 17  defineline: 54
++------>39: name: insn32slot2_rd_rs_rt_iterm  type: 270  val: 18  defineline: 55
++------>40: name: insn64slot1_others_iterm  type: 270  val: 19  defineline: 57
++------>41: name: insn64slot3_others_iterm  type: 270  val: 20  defineline: 58
++------>42: name: imm_9  type: 273  val: 1  defineline: 61
++------>43: name: addr_21  type: 273  val: 2  defineline: 62
++------>44: name: insn64slot3_nop  type: 296  val: 1  defineline: 71
++------>45: name: insn64slot3_mov  type: 296  val: 2  defineline: 77
++------>46: name: insn64slot3_others  type: 296  val: 3  defineline: 83
++------>47: name: insn64slot3  type: 295  val: 1  defineline: 90
++------>48: name: insn64slot1_mov  type: 296  val: 4  defineline: 96
++------>49: name: insn64slot1_nop  type: 296  val: 5  defineline: 102
++------>50: name: insn64slot1_others  type: 296  val: 6  defineline: 108
++------>51: name: insn64slot1  type: 295  val: 2  defineline: 115
+
+-------------------------***-------------------------
+
+enum_table size: 20
++------>1:
+|       enum_table_term size: 8  width: 3
+|       +------>1: mnemonic: _a0  name: _a0  val: 0
+|       +------>2: mnemonic: _a1  name: _a1  val: 1
+|       +------>3: mnemonic: _a2  name: _a2  val: 2
+|       +------>4: mnemonic: _a3  name: _a3  val: 3
+|       +------>5: mnemonic: _a4  name: _a4  val: 4
+|       +------>6: mnemonic: _a5  name: _a5  val: 5
+|       +------>7: mnemonic: _a6  name: _a6  val: 6
+|       +------>8: mnemonic: _a7  name: _a7  val: 7
++------>2:
+|       enum_table_term size: 16  width: 4
+|       +------>1: mnemonic: _r0  name: _r0  val: 0
+|       +------>2: mnemonic: _r1  name: _r1  val: 1
+|       +------>3: mnemonic: _r2  name: _r2  val: 2
+|       +------>4: mnemonic: _r3  name: _r3  val: 3
+|       +------>5: mnemonic: _r4  name: _r4  val: 4
+|       +------>6: mnemonic: _r5  name: _r5  val: 5
+|       +------>7: mnemonic: _r6  name: _r6  val: 6
+|       +------>8: mnemonic: _r7  name: _r7  val: 7
+|       +------>9: mnemonic: _r8  name: _r8  val: 8
+|       +------>10: mnemonic: _r9  name: _r9  val: 9
+|       +------>11: mnemonic: _r10  name: _r10  val: 10
+|       +------>12: mnemonic: _r11  name: _r11  val: 11
+|       +------>13: mnemonic: _r12  name: _r12  val: 12
+|       +------>14: mnemonic: _r13  name: _r13  val: 13
+|       +------>15: mnemonic: _r14  name: _r14  val: 14
+|       +------>16: mnemonic: _r15  name: _r15  val: 15
++------>3:
+|       enum_table_term size: 4  width: 2
+|       +------>1: mnemonic: _c0  name: _c0  val: 0
+|       +------>2: mnemonic: _c1  name: _c1  val: 1
+|       +------>3: mnemonic: _c2  name: _c2  val: 2
+|       +------>4: mnemonic: _c3  name: _c3  val: 3
++------>4:
+|       enum_table_term size: 4  width: 2
+|       +------>1: mnemonic: _o0  name: _o0  val: 0
+|       +------>2: mnemonic: _o1  name: _o1  val: 1
+|       +------>3: mnemonic: _o2  name: _o2  val: 2
+|       +------>4: mnemonic: _o3  name: _o3  val: 3
++------>5:
+|       enum_table_term size: 4  width: 2
+|       +------>1: mnemonic: _b0  name: _b0  val: 0
+|       +------>2: mnemonic: _b1  name: _b1  val: 1
+|       +------>3: mnemonic: _b2  name: _b2  val: 2
+|       +------>4: mnemonic: _b3  name: _b3  val: 3
++------>6:
+|       enum_table_term size: 4  width: 2
+|       +------>1: mnemonic: _m0  name: _m0  val: 0
+|       +------>2: mnemonic: _m1  name: _m1  val: 1
+|       +------>3: mnemonic: _m2  name: _m2  val: 2
+|       +------>4: mnemonic: _m3  name: _m3  val: 3
++------>7:
+|       enum_table_term size: 40  width: 6
+|       +------>1: mnemonic: _r0  name: _r0  val: 0
+|       +------>2: mnemonic: _r1  name: _r1  val: 1
+|       +------>3: mnemonic: _r2  name: _r2  val: 2
+|       +------>4: mnemonic: _r3  name: _r3  val: 3
+|       +------>5: mnemonic: _r4  name: _r4  val: 4
+|       +------>6: mnemonic: _r5  name: _r5  val: 5
+|       +------>7: mnemonic: _r6  name: _r6  val: 6
+|       +------>8: mnemonic: _r7  name: _r7  val: 7
+|       +------>9: mnemonic: _r8  name: _r8  val: 8
+|       +------>10: mnemonic: _r9  name: _r9  val: 9
+|       +------>11: mnemonic: _r10  name: _r10  val: 10
+|       +------>12: mnemonic: _r11  name: _r11  val: 11
+|       +------>13: mnemonic: _r12  name: _r12  val: 12
+|       +------>14: mnemonic: _r13  name: _r13  val: 13
+|       +------>15: mnemonic: _r14  name: _r14  val: 14
+|       +------>16: mnemonic: _r15  name: _r15  val: 15
+|       +------>17: mnemonic: _a0  name: _a0  val: 16
+|       +------>18: mnemonic: _a1  name: _a1  val: 17
+|       +------>19: mnemonic: _a2  name: _a2  val: 18
+|       +------>20: mnemonic: _a3  name: _a3  val: 19
+|       +------>21: mnemonic: _a4  name: _a4  val: 20
+|       +------>22: mnemonic: _a5  name: _a5  val: 21
+|       +------>23: mnemonic: _a6  name: _a6  val: 22
+|       +------>24: mnemonic: _a7  name: _a7  val: 23
+|       +------>25: mnemonic: _c0  name: _c0  val: 24
+|       +------>26: mnemonic: _c1  name: _c1  val: 25
+|       +------>27: mnemonic: _c2  name: _c2  val: 26
+|       +------>28: mnemonic: _c3  name: _c3  val: 27
+|       +------>29: mnemonic: _o0  name: _o0  val: 28
+|       +------>30: mnemonic: _o1  name: _o1  val: 29
+|       +------>31: mnemonic: _o2  name: _o2  val: 30
+|       +------>32: mnemonic: _o3  name: _o3  val: 31
+|       +------>33: mnemonic: _b0  name: _b0  val: 32
+|       +------>34: mnemonic: _b1  name: _b1  val: 33
+|       +------>35: mnemonic: _b2  name: _b2  val: 34
+|       +------>36: mnemonic: _b3  name: _b3  val: 35
+|       +------>37: mnemonic: _m0  name: _m0  val: 36
+|       +------>38: mnemonic: _m1  name: _m1  val: 37
+|       +------>39: mnemonic: _m2  name: _m2  val: 38
+|       +------>40: mnemonic: _m3  name: _m3  val: 39
++------>8:
+|       enum_table_term size: 32  width: 5
+|       +------>1: mnemonic: _r0  name: _r0  val: 0
+|       +------>2: mnemonic: _r1  name: _r1  val: 1
+|       +------>3: mnemonic: _r2  name: _r2  val: 2
+|       +------>4: mnemonic: _r3  name: _r3  val: 3
+|       +------>5: mnemonic: _r4  name: _r4  val: 4
+|       +------>6: mnemonic: _r5  name: _r5  val: 5
+|       +------>7: mnemonic: _r6  name: _r6  val: 6
+|       +------>8: mnemonic: _r7  name: _r7  val: 7
+|       +------>9: mnemonic: _r8  name: _r8  val: 8
+|       +------>10: mnemonic: _r9  name: _r9  val: 9
+|       +------>11: mnemonic: _r10  name: _r10  val: 10
+|       +------>12: mnemonic: _r11  name: _r11  val: 11
+|       +------>13: mnemonic: _r12  name: _r12  val: 12
+|       +------>14: mnemonic: _r13  name: _r13  val: 13
+|       +------>15: mnemonic: _r14  name: _r14  val: 14
+|       +------>16: mnemonic: _r15  name: _r15  val: 15
+|       +------>17: mnemonic: _a0  name: _a0  val: 16
+|       +------>18: mnemonic: _a1  name: _a1  val: 17
+|       +------>19: mnemonic: _a2  name: _a2  val: 18
+|       +------>20: mnemonic: _a3  name: _a3  val: 19
+|       +------>21: mnemonic: _a4  name: _a4  val: 20
+|       +------>22: mnemonic: _a5  name: _a5  val: 21
+|       +------>23: mnemonic: _a6  name: _a6  val: 22
+|       +------>24: mnemonic: _a7  name: _a7  val: 23
+|       +------>25: mnemonic: _c0  name: _c0  val: 24
+|       +------>26: mnemonic: _c1  name: _c1  val: 25
+|       +------>27: mnemonic: _c2  name: _c2  val: 26
+|       +------>28: mnemonic: _c3  name: _c3  val: 27
+|       +------>29: mnemonic: _o0  name: _o0  val: 28
+|       +------>30: mnemonic: _o1  name: _o1  val: 29
+|       +------>31: mnemonic: _o2  name: _o2  val: 30
+|       +------>32: mnemonic: _o3  name: _o3  val: 31
++------>9:
+|       enum_table_term size: 12  width: 4
+|       +------>1: mnemonic: jmp  name: jmp  val: 0
+|       +------>2: mnemonic: je  name: je  val: 1
+|       +------>3: mnemonic: jne  name: jne  val: 2
+|       +------>4: mnemonic: jb  name: jb  val: 3
+|       +------>5: mnemonic: jnb  name: jnb  val: 4
+|       +------>6: mnemonic: ja  name: ja  val: 5
+|       +------>7: mnemonic: jna  name: jna  val: 6
+|       +------>8: mnemonic: jl  name: jl  val: 7
+|       +------>9: mnemonic: jnl  name: jnl  val: 8
+|       +------>10: mnemonic: jg  name: jg  val: 9
+|       +------>11: mnemonic: jng  name: jng  val: 10
+|       +------>12: mnemonic: call  name: call  val: 11
++------>10:
+|       enum_table_term size: 12  width: 4
+|       +------>1: mnemonic: lb  name: lb  val: 0
+|       +------>2: mnemonic: lh  name: lh  val: 1
+|       +------>3: mnemonic: lw  name: lw  val: 2
+|       +------>4: mnemonic: sb  name: sb  val: 3
+|       +------>5: mnemonic: sh  name: sh  val: 4
+|       +------>6: mnemonic: sw  name: sw  val: 5
+|       +------>7: mnemonic: lby  name: lby  val: 6
+|       +------>8: mnemonic: lhy  name: lhy  val: 7
+|       +------>9: mnemonic: lwy  name: lwy  val: 8
+|       +------>10: mnemonic: sby  name: sby  val: 9
+|       +------>11: mnemonic: shy  name: shy  val: 10
+|       +------>12: mnemonic: swy  name: swy  val: 11
++------>11:
+|       enum_table_term size: 9  width: 4
+|       +------>1: mnemonic: add  name: add  val: 0
+|       +------>2: mnemonic: addu  name: addu  val: 1
+|       +------>3: mnemonic: sub  name: sub  val: 2
+|       +------>4: mnemonic: mul  name: mul  val: 3
+|       +------>5: mnemonic: mulu  name: mulu  val: 4
+|       +------>6: mnemonic: fmul  name: fmul  val: 5
+|       +------>7: mnemonic: fcmul  name: fcmul  val: 6
+|       +------>8: mnemonic: cmac  name: cmac  val: 7
+|       +------>9: mnemonic: mac  name: mac  val: 8
++------>12:
+|       enum_table_term size: 12  width: 4
+|       +------>1: mnemonic: dadd  name: dadd  val: 0
+|       +------>2: mnemonic: qadd  name: qadd  val: 1
+|       +------>3: mnemonic: dsub  name: dsub  val: 2
+|       +------>4: mnemonic: qsub  name: qsub  val: 3
+|       +------>5: mnemonic: fdmul  name: fdmul  val: 4
+|       +------>6: mnemonic: fqmul  name: fqmul  val: 5
+|       +------>7: mnemonic: dmac  name: dmac  val: 6
+|       +------>8: mnemonic: qmac  name: qmac  val: 7
+|       +------>9: mnemonic: dmax  name: dmax  val: 8
+|       +------>10: mnemonic: qmax  name: qmax  val: 9
+|       +------>11: mnemonic: dmin  name: dmin  val: 10
+|       +------>12: mnemonic: qmin  name: qmin  val: 11
++------>13:
+|       enum_table_term size: 8  width: 3
+|       +------>1: mnemonic: and  name: and  val: 0
+|       +------>2: mnemonic: or  name: or  val: 1
+|       +------>3: mnemonic: xor  name: xor  val: 2
+|       +------>4: mnemonic: max  name: max  val: 3
+|       +------>5: mnemonic: min  name: min  val: 4
+|       +------>6: mnemonic: sla  name: sla  val: 5
+|       +------>7: mnemonic: slaa  name: slaa  val: 6
+|       +------>8: mnemonic: srl  name: srl  val: 7
++------>14:
+|       enum_table_term size: 14  width: 4
+|       +------>1: mnemonic: mov  name: mov  val: 0
+|       +------>2: mnemonic: cmp  name: cmp  val: 1
+|       +------>3: mnemonic: cmpu  name: cmpu  val: 2
+|       +------>4: mnemonic: test  name: test  val: 3
+|       +------>5: mnemonic: cd2a  name: cd2a  val: 4
+|       +------>6: mnemonic: ca2a  name: ca2a  val: 5
+|       +------>7: mnemonic: abs  name: abs  val: 6
+|       +------>8: mnemonic: cbw  name: cbw  val: 7
+|       +------>9: mnemonic: cwd  name: cwd  val: 8
+|       +------>10: mnemonic: not  name: not  val: 9
+|       +------>11: mnemonic: dabs  name: dabs  val: 10
+|       +------>12: mnemonic: qabs  name: qabs  val: 11
+|       +------>13: mnemonic: dsum  name: dsum  val: 12
+|       +------>14: mnemonic: qsum  name: qsum  val: 13
++------>15:
+|       enum_table_term size: 12  width: 4
+|       +------>1: mnemonic: lbo  name: lbo  val: 0
+|       +------>2: mnemonic: lho  name: lho  val: 1
+|       +------>3: mnemonic: lwo  name: lwo  val: 2
+|       +------>4: mnemonic: sbo  name: sbo  val: 3
+|       +------>5: mnemonic: sho  name: sho  val: 4
+|       +------>6: mnemonic: swo  name: swo  val: 5
+|       +------>7: mnemonic: lboy  name: lboy  val: 6
+|       +------>8: mnemonic: lhoy  name: lhoy  val: 7
+|       +------>9: mnemonic: lwoy  name: lwoy  val: 8
+|       +------>10: mnemonic: sboy  name: sboy  val: 9
+|       +------>11: mnemonic: shoy  name: shoy  val: 10
+|       +------>12: mnemonic: swoy  name: swoy  val: 11
++------>16:
+|       enum_table_term size: 26  width: 5
+|       +------>1: mnemonic: add  name: add  val: 1
+|       +------>2: mnemonic: addu  name: addu  val: 2
+|       +------>3: mnemonic: sub  name: sub  val: 3
+|       +------>4: mnemonic: mul  name: mul  val: 4
+|       +------>5: mnemonic: mulu  name: mulu  val: 5
+|       +------>6: mnemonic: fmul  name: fmul  val: 6
+|       +------>7: mnemonic: fcmul  name: fcmul  val: 7
+|       +------>8: mnemonic: cmac  name: cmac  val: 8
+|       +------>9: mnemonic: mac  name: mac  val: 9
+|       +------>10: mnemonic: dadd  name: dadd  val: 10
+|       +------>11: mnemonic: qadd  name: qadd  val: 11
+|       +------>12: mnemonic: dsub  name: dsub  val: 12
+|       +------>13: mnemonic: fdmul  name: fdmul  val: 13
+|       +------>14: mnemonic: fqmul  name: fqmul  val: 14
+|       +------>15: mnemonic: dmac  name: dmac  val: 15
+|       +------>16: mnemonic: qmac  name: qmac  val: 16
+|       +------>17: mnemonic: dmax  name: dmax  val: 17
+|       +------>18: mnemonic: qmax  name: qmax  val: 18
+|       +------>19: mnemonic: dmin  name: dmin  val: 19
+|       +------>20: mnemonic: qmin  name: qmin  val: 20
+|       +------>21: mnemonic: and  name: and  val: 21
+|       +------>22: mnemonic: or  name: or  val: 22
+|       +------>23: mnemonic: xor  name: xor  val: 23
+|       +------>24: mnemonic: max  name: max  val: 24
+|       +------>25: mnemonic: min  name: min  val: 25
+|       +------>26: mnemonic: sla  name: sla  val: 26
++------>17:
+|       enum_table_term size: 13  width: 4
+|       +------>1: mnemonic: cmp  name: cmp  val: 0
+|       +------>2: mnemonic: cmpu  name: cmpu  val: 1
+|       +------>3: mnemonic: test  name: test  val: 2
+|       +------>4: mnemonic: cd2a  name: cd2a  val: 3
+|       +------>5: mnemonic: ca2a  name: ca2a  val: 4
+|       +------>6: mnemonic: abs  name: abs  val: 5
+|       +------>7: mnemonic: cbw  name: cbw  val: 6
+|       +------>8: mnemonic: cwd  name: cwd  val: 7
+|       +------>9: mnemonic: not  name: not  val: 8
+|       +------>10: mnemonic: dabs  name: dabs  val: 9
+|       +------>11: mnemonic: qabs  name: qabs  val: 10
+|       +------>12: mnemonic: dsum  name: dsum  val: 11
+|       +------>13: mnemonic: qsum  name: qsum  val: 12
++------>18:
+|       enum_table_term size: 12  width: 4
+|       +------>1: mnemonic: lbo  name: lbo  val: 0
+|       +------>2: mnemonic: lho  name: lho  val: 1
+|       +------>3: mnemonic: lwo  name: lwo  val: 2
+|       +------>4: mnemonic: sbo  name: sbo  val: 3
+|       +------>5: mnemonic: sho  name: sho  val: 4
+|       +------>6: mnemonic: swo  name: swo  val: 5
+|       +------>7: mnemonic: lboy  name: lboy  val: 6
+|       +------>8: mnemonic: lhoy  name: lhoy  val: 7
+|       +------>9: mnemonic: lwoy  name: lwoy  val: 8
+|       +------>10: mnemonic: sboy  name: sboy  val: 9
+|       +------>11: mnemonic: shoy  name: shoy  val: 10
+|       +------>12: mnemonic: swoy  name: swoy  val: 11
++------>19:
+|       enum_table_term size: 33  width: 6
+|       +------>1: mnemonic: add  name: add  val: 1
+|       +------>2: mnemonic: addu  name: addu  val: 2
+|       +------>3: mnemonic: sub  name: sub  val: 3
+|       +------>4: mnemonic: mul  name: mul  val: 4
+|       +------>5: mnemonic: mulu  name: mulu  val: 5
+|       +------>6: mnemonic: fmul  name: fmul  val: 6
+|       +------>7: mnemonic: fcmul  name: fcmul  val: 7
+|       +------>8: mnemonic: cmac  name: cmac  val: 8
+|       +------>9: mnemonic: mac  name: mac  val: 9
+|       +------>10: mnemonic: dadd  name: dadd  val: 10
+|       +------>11: mnemonic: qadd  name: qadd  val: 11
+|       +------>12: mnemonic: dsub  name: dsub  val: 12
+|       +------>13: mnemonic: qsub  name: qsub  val: 13
+|       +------>14: mnemonic: fdmul  name: fdmul  val: 14
+|       +------>15: mnemonic: fqmul  name: fqmul  val: 15
+|       +------>16: mnemonic: dmac  name: dmac  val: 16
+|       +------>17: mnemonic: qmac  name: qmac  val: 17
+|       +------>18: mnemonic: dmax  name: dmax  val: 18
+|       +------>19: mnemonic: qmax  name: qmax  val: 19
+|       +------>20: mnemonic: dmin  name: dmin  val: 20
+|       +------>21: mnemonic: qmin  name: qmin  val: 21
+|       +------>22: mnemonic: and  name: and  val: 22
+|       +------>23: mnemonic: or  name: or  val: 23
+|       +------>24: mnemonic: xor  name: xor  val: 24
+|       +------>25: mnemonic: max  name: max  val: 25
+|       +------>26: mnemonic: min  name: min  val: 26
+|       +------>27: mnemonic: sla  name: sla  val: 27
+|       +------>28: mnemonic: slaa  name: slaa  val: 28
+|       +------>29: mnemonic: srl  name: srl  val: 29
+|       +------>30: mnemonic: dabs  name: dabs  val: 30
+|       +------>31: mnemonic: qabs  name: qabs  val: 31
+|       +------>32: mnemonic: dsum  name: dsum  val: 32
+|       +------>33: mnemonic: qsum  name: qsum  val: 33
++------>20:
+        enum_table_term size: 6  width: 3
+        +------>1: mnemonic: lb  name: lb  val: 1
+        +------>2: mnemonic: lh  name: lh  val: 2
+        +------>3: mnemonic: lw  name: lw  val: 3
+        +------>4: mnemonic: sb  name: sb  val: 4
+        +------>5: mnemonic: sh  name: sh  val: 5
+        +------>6: mnemonic: sw  name: sw  val: 6
+
+-------------------------***-------------------------
+
+cst_table size: 2
++------>1: type: 12  val: 26
++------>2: type: 3  val: 27
+
+-------------------------***-------------------------
+
+type_table size: 12
++------>1: signed: 0  width: 8
++------>2: signed: 0  width: 32
++------>3: signed: 1  width: 21
++------>4: signed: 0  width: 3
++------>5: signed: 0  width: 4
++------>6: signed: 1  width: 32
++------>7: signed: 1  width: 48
++------>8: signed: 0  width: 6
++------>9: signed: 0  width: 2
++------>10: signed: 0  width: 2
++------>11: signed: 0  width: 2
++------>12: signed: 1  width: 9

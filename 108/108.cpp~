@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <algorithm>
+using namespace std;
+
+#define N ((1<<7)-1)
+
+bool p[N];
+int c[5000];
+
+int main()
+{
+	int n,k;
+	scanf("%d %d\n",&n,&k);
+	for(int i=0;i<c;++i)
+		scanf("%d",ans+i);
+	
+	sort(c,c+k);
+
+	int g=0,poi=0,l=0;
+	for(int i=0;i<n;++i)
+	{
+		if(p[i&N]==0)
+		{
+			++g;
+			if(poi<k && g==c[poi])
+			{
+				c[l++]=i+1;
+				++poi;
+				while(poi<k && c[poi]==c[poi-1])
+					++poi;
+			}
+		}
+		else
+			p[i&N]=0;
+		
+		int tmp=i;
+		for(int j=i+i;j;j/=1000)
+			tmp+=j%10+(j%100)/10+(j%1000)/100+(j%10000)/1000;
+		if(tmp<n)
+			p[tmp]=1;
+	}
+
+	printf("%d\n%d",g,c[0]);
+
+	for(int i=1;i<l;++i)
+		printf(" %d",c[i]);
+
+	return 0;
+}

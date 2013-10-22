@@ -1,0 +1,10 @@
+LEX = flex -v
+CC = g++
+sacnner.o : lex.yy.c token.h
+	$(CC) -c lex.yy.c -o scanner.o
+	
+lex.yy.c : nml.lex token.h
+	$(LEX) nml.lex
+	
+clean : 
+	rm *.o

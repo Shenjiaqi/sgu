@@ -1,0 +1,35 @@
+#incldue <cstdio>
+#define N (200)
+#define K (200)
+int p[(N*K+2+N+K)*2+1][3],poi;
+int s[1+N+K+2];
+int n,k;
+int S,T;
+int main()
+{
+  scanf("%d%d",&n,&k);
+  S=n+k+1;
+  T=1+S;
+  for(int i=1;i<=n;++i)
+    {
+      add(S,i,2);
+      int j;
+      scanf("%d",&j);
+      for(;j;--j)
+	{
+	  int tmp;
+	  scanf("%d",&tmp);
+	  add(i,n+tmp,1);
+	}
+    }
+  for(int i=1;i<=k;++i)
+    add(i+n,T,2);
+  if(mf()<2*k)
+    printf("NO");
+  else
+    {
+      printf("YES\n");
+      pr();
+    }
+  return 0;
+}

@@ -1,0 +1,8 @@
+
+%type <idx> rule_reg_all
+%type <idx> rule_insn64slot1_mov
+%type <idx> rule_insn64slot1_nop
+%type <idx> rule_insn64slot1_others_iterm
+%type <idx> rule_reg_acc
+%type <idx> rule_insn64slot1_others
+%type <idx> rule_insn64slot1

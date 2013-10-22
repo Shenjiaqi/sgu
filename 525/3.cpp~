@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+typedef long long ll;
+int main()
+{
+  ll a;
+  int t;
+  cin>>t;
+  a=(ll)1<<40;
+  cout<<a<<endl;
+  return 0;
+}

@@ -1,0 +1,28 @@
+2 22 
+ $ a = "0123456789" ; 
+ $ b = "abcdefghigklmn" ; 
+$c = $a;
+print($cc);
+$cc=substr($c,2);
+print($cc);
+$cc=substr($c,2,1);
+print($cc);
+$cc=substr($c,2,-1);
+print($cc);
+$cc=substr($c,-2,1);
+print($cc);
+$cc=substr($c,-2,-1);
+print($cc);
+$cc =$ a;
+substr($cc,2)=substr($c,2,1);
+print($cc);
+substr($cc,-2)=substr($c,2,1);
+print($cc);
+substr($cc,2,-2)=substr($c,2,1);
+print($cc);
+substr($cc,2,2)=substr($c,-2,1);
+print($cc);
+substr($cc,2)=substr($c,2,1);
+print(substr($cc,2));
+
+

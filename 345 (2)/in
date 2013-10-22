@@ -1,0 +1,117 @@
+type byte <8,unsigned>;
+type addr32 <32,unsigned>;
+type addr21<21,signed>;
+type arid <3,unsigned>;
+type drid<4,unsigned>;
+type int<32,signed>;
+type acc48<48,signed>;
+type accid<6,unsigned>;
+type offid<2,unsigned>;
+type barid<2,unsigned>;
+type mrid<2,unsigned>;
+type imm9<9,signed>;
+
+def mem_size=1024;
+
+mem xmem [ mem_size ] <byte,addr32>;
+mem ymem [mem_size]<byte,addr32>;
+
+reg ar[8]<addr32,arid>;  //syntax("_a");
+reg dr[16]<int,drid>; //syntax("_r");
+reg acc[4]<acc48,accid>;// syntax("_c");
+reg off[4]<int,offid>;// syntax("_o");
+reg bar[4]<int,barid>;// syntax("_b");
+reg mr[4]<int,mrid>;// syntax("_m");
+
+enum reg_ar {_a0,_a1,_a2,_a3,_a4,_a5,_a6,_a7};
+enum reg_dr {_r0,_r1,_r2,_r3,_r4,_r5,_r6,_r7,_r8,_r9,_r10,_r11,_r12,_r13,_r14,_r15};
+enum reg_acc {_c0,_c1,_c2,_c3};
+enum reg_off {_o0,_o1,_o2,_o3};
+enum reg_bar {_b0,_b1,_b2,_b3};
+enum reg_mr {_m0,_m1,_m2,_m3};
+enum reg_all {
+	_r0,_r1,_r2,_r3,_r4,_r5,_r6,_r7,_r8,_r9,_r10,_r11,_r12,_r13,_r14,_r15, //15
+	_a0,_a1,_a2,_a3,_a4,_a5,_a6,_a7, //23
+	_c0,_c1,_c2,_c3, //27
+	_o0,_o1,_o2,_o3, //31
+	_b0,_b1,_b2,_b3, //35
+	_m0,_m1,_m2,_m3 //39
+	};
+enum reg_32{
+	_r0,_r1,_r2,_r3,_r4,_r5,_r6,_r7,_r8,_r9,_r10,_r11,_r12,_r13,_r14,_r15, //15
+	_a0,_a1,_a2,_a3,_a4,_a5,_a6,_a7, //23
+	_c0,_c1,_c2,_c3, //27
+	_o0,_o1,_o2,_o3 //31
+	};
+enum jmp_addr_iterm{jmp,je,jne,jb,jnb,ja,jna,jl,jnl,jg,jng,call};
+enum load_store_rd_rs_imm_iterm{lb,lh,lw,sb,sh,sw,lby,lhy,lwy,sby,shy,swy};
+enum alu_rd_rs_rt_iterm{add,addu,sub,mul,mulu,fmul,fcmul,cmac,mac};
+enum simd_rd_rs_rt_iterm{dadd,qadd,dsub,qsub,fdmul,fqmul,dmac,qmac,dmax,qmax,dmin,qmin};
+enum logic_rd_rs_rt_iterm{and,or,xor,max,min,sla,slaa/*?*/,srl};
+enum others_rd_rs_iterm{mov,cmp,cmpu,test,cd2a,ca2a,abs,cbw,cwd,not,dabs,qabs,dsum,qsum};
+enum load_store_off_rd_rs_rt_iterm{lbo,lho,lwo,sbo,sho,swo,lboy,lhoy,lwoy,sboy,shoy,swoy};
+enum insn32slot1_rd_rs_rt_iterm{add=1,addu,sub,mul,mulu,fmul,fcmul,cmac,mac,dadd,qadd,dsub,fdmul,fqmul,dmac,qmac,dmax,qmax,dmin,qmin,and,or,xor,max,min,sla};
+enum insn32slot1_rd_rs_iterm{cmp,cmpu,test,cd2a,ca2a,abs,cbw,cwd,not,dabs,qabs,dsum,qsum};
+enum insn32slot2_rd_rs_rt_iterm{lbo,lho,lwo,sbo,sho,swo,lboy,lhoy,lwoy,sboy,shoy,swoy};
+enum insn64slot1_others_iterm{add=1,addu,sub,mul,mulu,fmul,fcmul,cmac,mac,dadd,qadd,dsub,qsub,fdmul,fqmul,dmac,qmac,dmax,
+qmax,dmin,qmin,and,or,xor,max,min,sla,slaa/*?*/,srl,dabs,qabs,dsum,qsum};
+enum insn64slot3_others_iterm{lb=1,lh,lw,sb,sh,sw};
+
+
+cst imm_9<imm9>;
+cst addr_21<addr21>;
+
+
+start insn64slot1;
+
+op insn64slot3_nop()
+{
+	syntax : "nop";
+	image : "0000000000000";
+}
+
+op insn64slot3_mov(rd : reg_32 , rs : reg_32)
+{
+	syntax : "mov" rd "," rs;
+	image : "111"::rd::rs;
+}
+
+op insn64slot3_others(name : insn64slot3_others_iterm , rd : reg_32 , ar : reg_ar , off : reg_off)
+{
+	syntax : name rd "," ar "," off;
+	image : name::rd::ar::off;
+}
+
+op insn64slot3(insn64slot3_nop | insn64slot3_mov | insn64slot3_others)
+{
+	image : insn64slot3_nop
+		| insn64slot3_mov
+		| insn64slot3_others;
+}
+
+op insn64slot1_mov( rd : reg_all , rs : reg_all)
+{
+	syntax : "mov" rd "," rs;
+	image : "100010"::rd::rs;
+}
+
+op insn64slot1_nop()
+{
+	syntax : "nop";
+	image : "000000000000000000";
+}
+
+op insn64slot1_others(name : insn64slot1_others_iterm , acc : reg_acc , rs : reg_all , rt : reg_all)
+{
+	syntax : name acc "," rs "," rt;
+	image : name::acc::rs::rt;
+}
+
+op insn64slot1(insn64slot1_mov | insn64slot1_nop | insn64slot1_others)
+{
+	image : insn64slot1_mov
+		| insn64slot1_others
+		| insn64slot1_nop;
+}
+
+

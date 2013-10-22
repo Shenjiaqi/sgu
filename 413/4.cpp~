@@ -1,0 +1,248 @@
+#include <cstdio>
+#include <iostream>
+#include <queue>
+#include <cstdlib>
+#include <string.h>
+using namespace std;
+#define N 100
+#define M 1000
+int p[M*2+1][4],poi;
+int s[N+1];
+int id[N+1];
+bool in[N+1];
+int vis[N+1];
+int q[M][2];
+int seq[N+1];
+int n,m;
+int gid;
+queue<int> que;
+int fa[N+1];
+int quer(int v)
+{
+  return fa[v]==v?v:fa[v]=quer(fa[v]);
+}
+void joi(int a,int b)
+{
+  a=quer(a),b=quer(b);
+  if(a!=b)
+    fa[a]=b;
+}
+bool circle(int v,int f)
+{
+  if(vis[v]==gid)
+    return true;
+  vis[v]=gid;
+  for(int i=s[v],pre=0;i;i=p[i][1])
+    {
+      int t=p[i][0];
+      if(t!=f && circle(t,v))
+	return true;
+      pre=i;
+    }
+  return false;
+}
+void trv(int v)
+{
+  vis[v]=gid;
+  for(int i=s[v];i;i=p[i][1])
+    if(vis[p[i][0]]!=gid && in[p[i][0]])
+      trv(p[i][0]);
+}
+void add(int f,int t)
+{
+  ++poi,p[poi][0]=t;
+  p[poi][1]=s[f];
+  p[s[f]][2]=poi;
+  s[f]=poi;
+  p[poi][3]=f;
+  p[poi][2]=0;
+}
+void del(int i)
+{
+  if(p[i][2]==0)
+    s[p[i][3]]=p[i][1];
+  else
+    p[p[i][2]][1]=p[i][1];
+  if(p[i][1])
+    p[p[i][1]][2]=p[i][2];
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int tst;
+  scanf("%d",&tst);
+  for(;tst--;)
+    {
+      scanf("%d%d",&n,&m);
+      memset(s,0,sizeof(s));
+      memset(id,0,sizeof(id));
+      for(int i=1;i<=n;++i)
+	in[i]=true;
+      poi=0;
+      int cnt=0;
+      for(int i=0,f,t;i<m;++i)
+	{
+	  scanf("%d%d",&f,&t);
+	  add(f,t);
+	  add(t,f);
+	  q[i][0]=f,q[i][1]=t;
+	}
+      for(int i=1;i<=n;++i)
+	{
+	  if(p[s[i]][1]==0)
+	    que.push(i);
+	  fa[i]=i;
+	}
+      for(int i=1,j=0;i<=n && j<m;)
+	{
+	  //++gid;
+	  //if(!circle(i,0))
+	  //break;
+	  for(;!que.empty();)
+	    {
+	      int k=que.front();
+	      que.pop();
+	      if(in[k])
+		{
+		  int tmp=s[k];
+		  int t=p[tmp][0];
+		  joi(k,t);
+		  del(tmp+((tmp&1)?1:-1));
+		  del(tmp);
+		  in[k]=false;
+		  int num=2;
+		  for(int z=s[t];z;z=p[z][1])
+		    {
+		      int y=p[z][0];
+		      if(p[s[y]][1]==0)
+			{
+			  joi(y,t),++num;
+			  del(z);
+			  del(z+((z&1)?1:-1));
+			  in[y]=false;
+			}
+		    }
+		  if(0==(num&1))
+		    {
+		      for(int z=s[t];z;z=p[z][1])
+			{
+			  int y=p[z][0];
+			  del(z);
+			  del(z+((z&1)?1:-1));
+			  if(p[s[y]][1]==0)
+			    que.push(y);
+			}
+		      in[t]=false;
+		    }
+		  else if(p[s[t]][1]==0)
+		    que.push(t);
+		}
+	    }
+	  for(;i<=n && !in[i];++i)
+	    ;
+	  if(i>n)
+	    break;
+	  bool flg=false;
+	  for(int a=i;a<=n;++a)
+	    if(in[a] && p[p[s[a]][1]][1]==0)
+	      {
+		int b=p[s[a]][0];
+		int c=p[p[s[a]][1]][0];
+		if(p[p[s[c]][1]][1]==0)
+		  swap(b,c);
+		else if(p[p[s[b]][1]][0])
+		  continue;
+		int e=p[s[b]][0];
+		int f=p[p[s[b]][1]][0];
+		if(e==c || f==c)
+		  {
+		    joi(a,b);
+		    int tmp=s[a];
+		    del(tmp),del(tmp+((tmp&1)?1:-1));
+		    tmp=s[a];
+		    del(tmp),del(tmp+((tmp&1)?1:-1));
+		    tmp=s[b];
+		    del(tmp),del(tmp+((tmp&1)?1:-1));
+		    in[a]=in[b]=false;
+		    flg=true;
+		    //break;
+		  }
+	      }
+	  if(flg)
+	    continue;
+	  for(;j<m;++j)
+	    {
+	      int a=q[j][0],b=q[j][1];
+	      if(in[a] && in[b])
+		{
+		  in[a]=in[b]=false;
+		  int k=i;
+		  for(;k<=n && !in[k];++k)
+		    ;
+		  if(k>n)
+		    {
+		      break;
+		      return 1;
+		    }
+		  ++gid;
+		  trv(k);
+		  for(k=i;k<=n;++k)
+		    if(in[k] && gid!=vis[k])
+		      break;
+		  if(k>n)
+		    {
+		      joi(a,b);
+		      for(int l=s[a];l;l=p[l][1])
+			{
+			  int t=p[l][0];
+			  del(l);
+			  del(l+((l&1)?1:-1));
+			  if(p[s[t]][1]==0)
+			    que.push(t);
+			}
+		      for(int l=s[b];l;l=p[l][1])
+			{
+			  int t=p[l][0];
+			  del(l);
+			  del(l+((l&1)?1:-1));
+			  if(p[s[t]][1]==0)
+			    que.push(t);
+			}
+		      ++j;
+		      break;
+		    }
+		  in[a]=in[b]=true;
+		}
+	    }
+	}
+      /*for(int i=1;i<=n;++i)
+	if(in[i])
+	  {
+	    ++gid;
+	    if(circle(i,0))
+	      {
+		for(int i=1;i<=n;++i)
+		  if(in[i])
+		    cout<<i<<' ';
+		cout<<endl;
+		return 1;
+	      }
+	    break;
+	    }*/
+      for(int i=1;i<=n;++i)
+	if(in[i])
+	  joi(i,0);
+      memset(seq,0,sizeof(seq));
+      for(int i=1,j=1;i<=n;++i)
+	{
+	  int t=quer(i);
+	  if(seq[t]==0)
+	    seq[t]=j++;
+	  printf("%d ",seq[t]);
+	}
+      for(;!que.empty();)
+	que.pop();
+      printf("\n");
+    }
+  return 0;
+}

@@ -1,0 +1,30 @@
+
+def u =(9-7)**3/2+1+1;
+enum c { a "a" = 1 , b "b" = 2 ,u "c" = 3} ; /*sadf*/
+enum y { a "a" = 1 , b "b" = 2 ,u "c" = 9} ; /*sadf*/
+type dr <5,unsigned>;
+type uu <32,signed>;
+type drid <4,unsigned>;
+cst yu <uu>= 0b101;
+mem r[32]<uu,dr>;
+reg dri[16]<uu,drid>;
+
+op aaa ()
+{
+	syntax : "nop";/*afsad
+	asdff*/
+	image: "0001";
+}
+
+op bbb()
+{
+	syntax : "nop1";
+	image: "000011";
+}
+
+op ccc( aaa | bbb )
+{
+	image : aaa | bbb ;
+}
+
+

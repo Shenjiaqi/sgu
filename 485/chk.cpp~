@@ -1,0 +1,6 @@
+#include <cstdio>
+int main()
+{
+  freopen("in.txt","r",stdin);
+  scanf("%d%d",&t,&n);
+}

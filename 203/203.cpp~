@@ -1,0 +1,57 @@
+#include <cstdio>
+#include <set>
+using namespace std;
+#define N (500000)
+typedef long long ll;
+ll p[N*2+1][3];
+int poi;
+int n;
+struct cmp
+{
+  bool operator()(int a,int b)
+  {
+    if(p[a][0]==p[b][0])
+      return a<b;
+    return p[a][0]<p[b][0];
+  }
+};
+void df(int v,int l)
+{
+  if(v>n)
+    {
+      df(p[v][2],l+1);
+      df(p[v][1],l+1);
+    }
+  else p[v][1]=l;
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  scanf("%d",&n);
+  set<int,cmp> sett;
+  for(int i=1;i<=n;++i)
+    {
+      scanf("%I64d",*(p+i));
+      sett.insert(i);
+    }
+  set<int,cmp>::iterator ite;
+  poi=n+1;
+  for(int i=1;i<n;++i)
+    {
+      ite=sett.begin();
+      int a=*ite;
+      int b=*++ite;
+      sett.erase(a);
+      sett.erase(b);
+      p[poi][0]=p[a][0]+p[b][0];
+      p[poi][1]=a,p[poi][2]=b;
+      sett.insert(poi);
+      ++poi;
+    }
+  df(poi-1,0);
+  ll ans(0);
+  for(int i=1;i<=n;++i)
+      ans+=p[i][0]*p[i][1];
+  printf("%I64d",ans);
+  return 0;
+}

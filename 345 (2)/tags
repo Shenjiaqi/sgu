@@ -1,0 +1,1692 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACTION	_nml.tab.c	/^     ACTION = 258,$/;"	e	enum:yytokentype	file:
+ACTION	_nml.tab.h	/^     ACTION = 258,$/;"	e	enum:yytokentype
+ALIAS	_nml.tab.c	/^     ALIAS = 259,$/;"	e	enum:yytokentype	file:
+ALIAS	_nml.tab.h	/^     ALIAS = 259,$/;"	e	enum:yytokentype
+ALIAS	nml.tab.c	/^     ALIAS = 300,$/;"	e	enum:yytokentype	file:
+ALIAS	nml.tab.h	/^     ALIAS = 300,$/;"	e	enum:yytokentype
+ALIGN	_nml.tab.c	/^     ALIGN = 344,$/;"	e	enum:yytokentype	file:
+ALIGN	_nml.tab.h	/^     ALIGN = 344,$/;"	e	enum:yytokentype
+AND	_nml.tab.c	/^     AND = 327,$/;"	e	enum:yytokentype	file:
+AND	_nml.tab.h	/^     AND = 327,$/;"	e	enum:yytokentype
+AND_E	token.h	/^  AND_E,$/;"	e	enum:__anon1
+ARBITARY_ORDER	_nml.tab.c	/^     ARBITARY_ORDER = 300,$/;"	e	enum:yytokentype	file:
+ARBITARY_ORDER	_nml.tab.h	/^     ARBITARY_ORDER = 300,$/;"	e	enum:yytokentype
+ASSIGN	_nml.tab.c	/^     ASSIGN = 317,$/;"	e	enum:yytokentype	file:
+ASSIGN	_nml.tab.h	/^     ASSIGN = 317,$/;"	e	enum:yytokentype
+ASSIGN	nml.tab.c	/^     ASSIGN = 258,$/;"	e	enum:yytokentype	file:
+ASSIGN	nml.tab.h	/^     ASSIGN = 258,$/;"	e	enum:yytokentype
+ASSIGN_E	token.h	/^  ASSIGN_E,$/;"	e	enum:__anon1
+Access_transitory	_nml.y	/^Access_transitory : \/*Transitory_name$/;"	l
+Access_transitory_list	_nml.y	/^Access_transitory_list :$/;"	l
+Address_range	_nml.y	/^Address_range : Integer_expression {$/;"	l
+Address_step_opt	_nml.y	/^Address_step_opt :$/;"	l
+Address_type	_nml.y	/^Address_type : TYPE_ID{ $$=$1;}$/;"	l
+Alias_declaration	_nml.y	/^Alias_declaration : ALIAS Identifier Align_opt$/;"	l
+Alias_declaration_opt	_nml.y	/^Alias_declaration_opt :$/;"	l
+Align_opt	_nml.y	/^Align_opt :$/;"	l
+And_field_encoding	_nml.y	/^And_field_encoding : String {opimg.addele(STRING,strtab.addstr($1),0);}\/*Bit_string *\/$/;"	l
+And_field_encoding	_nml.y	/^And_field_encoding:$/;"	l
+And_field_encoding_list	_nml.y	/^And_field_encoding_list : And_field_encoding Enc_alias_opt$/;"	l
+And_field_encoding_list	_nml.y	/^And_field_encoding_list:$/;"	l
+And_image_attrbute	_nml.y	/^And_image_attrbute : IMAGE COLON And_field_encoding_list$/;"	l
+And_image_attribute	_nml.y	/^And_image_attribute: IMAGE COLON And_field_encoding_list Instr_properties_opt SEMI{$/;"	l
+And_image_attribute_list	_nml.y	/^And_image_attribute_list:{$$=0;}$/;"	l
+And_mode_rule	_nml.y	/^And_mode_rule : MODE Identifier Class_access_opt LPAREN Parameter_declaration_list RPAREN$/;"	l
+And_op_rule	_nml.y	/^And_op_rule: OP Identifier LPAREN Parameter_declaration_list RPAREN$/;"	l
+BEGIN	lex.yy.c	125;"	d	file:
+BINARY_CONST	_nml.tab.c	/^     BINARY_CONST = 314,$/;"	e	enum:yytokentype	file:
+BINARY_CONST	_nml.tab.h	/^     BINARY_CONST = 314,$/;"	e	enum:yytokentype
+BINARY_CONSTANT_E	token.h	/^  BINARY_CONSTANT_E,$/;"	e	enum:__anon1
+BIN_CONST	nml.tab.c	/^     BIN_CONST = 278,$/;"	e	enum:yytokentype	file:
+BIN_CONST	nml.tab.h	/^     BIN_CONST = 278,$/;"	e	enum:yytokentype
+BITAND	_nml.tab.c	/^     BITAND = 340,$/;"	e	enum:yytokentype	file:
+BITAND	_nml.tab.h	/^     BITAND = 340,$/;"	e	enum:yytokentype
+BITAND_E	token.h	/^  BITAND_E,$/;"	e	enum:__anon1
+BITNEG	_nml.tab.c	/^     BITNEG = 306,$/;"	e	enum:yytokentype	file:
+BITNEG	_nml.tab.h	/^     BITNEG = 306,$/;"	e	enum:yytokentype
+BITOR	_nml.tab.c	/^     BITOR = 339,$/;"	e	enum:yytokentype	file:
+BITOR	_nml.tab.h	/^     BITOR = 339,$/;"	e	enum:yytokentype
+BITOR	nml.tab.c	/^     BITOR = 294,$/;"	e	enum:yytokentype	file:
+BITOR	nml.tab.h	/^     BITOR = 294,$/;"	e	enum:yytokentype
+BITOR_E	token.h	/^  BITOR_E,$/;"	e	enum:__anon1
+BLANK_E	token.h	/^  BLANK_E,$/;"	e	enum:__anon1
+BUFSIZE	outputf.cpp	34;"	d	file:
+BYPASS	_nml.tab.c	/^     BYPASS = 260,$/;"	e	enum:yytokentype	file:
+BYPASS	_nml.tab.h	/^     BYPASS = 260,$/;"	e	enum:yytokentype
+Binary	_nml.y	/^Binary : BINARY_CONST{$$=$1;}$/;"	l
+Binary_logic_operator	_nml.y	/^Binary_logic_operator: BITAND | BITOR*\/$/;"	l
+Bit_kind_opt	_nml.y	/^Bit_kind_opt :$/;"	l
+Bit_selection	_nml.y	/^Bit_selection : LBRACK Bit_kind_opt Integer_expression Bit_kind_opt RBRACK$/;"	l
+Bit_string_literal	_nml.y	/^Bit_string_literal: String{$$=$1;}$/;"	l
+CASE	_nml.tab.c	/^     CASE = 261,$/;"	e	enum:yytokentype	file:
+CASE	_nml.tab.h	/^     CASE = 261,$/;"	e	enum:yytokentype
+CC	makefile	/^CC = g++$/;"	m
+CHESS	_nml.tab.c	/^     CHESS = 311,$/;"	e	enum:yytokentype	file:
+CHESS	_nml.tab.h	/^     CHESS = 311,$/;"	e	enum:yytokentype
+CHESS_PC_OFFSET	_nml.tab.c	/^     CHESS_PC_OFFSET = 262,$/;"	e	enum:yytokentype	file:
+CHESS_PC_OFFSET	_nml.tab.h	/^     CHESS_PC_OFFSET = 262,$/;"	e	enum:yytokentype
+CHESS_PC_OFFSET	nml.tab.c	/^     CHESS_PC_OFFSET = 301,$/;"	e	enum:yytokentype	file:
+CHESS_PC_OFFSET	nml.tab.h	/^     CHESS_PC_OFFSET = 301,$/;"	e	enum:yytokentype
+CHESS_VIEW	_nml.tab.c	/^     CHESS_VIEW = 263,$/;"	e	enum:yytokentype	file:
+CHESS_VIEW	_nml.tab.h	/^     CHESS_VIEW = 263,$/;"	e	enum:yytokentype
+CLASS	_nml.tab.c	/^     CLASS = 301,$/;"	e	enum:yytokentype	file:
+CLASS	_nml.tab.h	/^     CLASS = 301,$/;"	e	enum:yytokentype
+CLASS	nml.tab.c	/^     CLASS = 302,$/;"	e	enum:yytokentype	file:
+CLASS	nml.tab.h	/^     CLASS = 302,$/;"	e	enum:yytokentype
+COLON	_nml.tab.c	/^     COLON = 319,$/;"	e	enum:yytokentype	file:
+COLON	_nml.tab.h	/^     COLON = 319,$/;"	e	enum:yytokentype
+COLON	nml.tab.c	/^     COLON = 293,$/;"	e	enum:yytokentype	file:
+COLON	nml.tab.h	/^     COLON = 293,$/;"	e	enum:yytokentype
+COLON_E	token.h	/^  COLON_E,$/;"	e	enum:__anon1
+COMMA	_nml.tab.c	/^     COMMA = 320,$/;"	e	enum:yytokentype	file:
+COMMA	_nml.tab.h	/^     COMMA = 320,$/;"	e	enum:yytokentype
+COMMA	nml.tab.c	/^     COMMA = 272,$/;"	e	enum:yytokentype	file:
+COMMA	nml.tab.h	/^     COMMA = 272,$/;"	e	enum:yytokentype
+COMMA_E	token.h	/^  COMMA_E,$/;"	e	enum:__anon1
+COMP_E	token.h	/^  COMP_E,$/;"	e	enum:__anon1
+CST	_nml.tab.c	/^     CST = 264,$/;"	e	enum:yytokentype	file:
+CST	_nml.tab.h	/^     CST = 264,$/;"	e	enum:yytokentype
+CST	nml.tab.c	/^     CST = 273,$/;"	e	enum:yytokentype	file:
+CST	nml.tab.h	/^     CST = 273,$/;"	e	enum:yytokentype
+CYCLES	_nml.tab.c	/^     CYCLES = 265,$/;"	e	enum:yytokentype	file:
+CYCLES	_nml.tab.h	/^     CYCLES = 265,$/;"	e	enum:yytokentype
+CYCLES	nml.tab.c	/^     CYCLES = 299,$/;"	e	enum:yytokentype	file:
+CYCLES	nml.tab.h	/^     CYCLES = 299,$/;"	e	enum:yytokentype
+Class_access	_nml.y	/^Class_access : CLASS LPAREN Register_class_name RPAREN$/;"	l
+Class_access_opt	_nml.y	/^Class_access_opt : $/;"	l
+Class_declaration	_nml.y	/^Class_declaration : CLASS Identifier Valid_address_declaration LESS TYPE_ID GRT Record_declaration SEMI$/;"	l
+Const_instant_name_Enum_instant_name	_nml.y	/^Const_instant_name_Enum_instant_name: Identifier{$/;"	l
+Const_name	_nml.y	/^Const_name : Identifier*\/$/;"	l
+Constant_declaration	_nml.y	/^Constant_declaration : CST Identifier LESS TYPE_ID GRT Constant_value_opt SEMI{$/;"	l
+Constant_value_opt	_nml.y	/^Constant_value_opt : {$$=mpz_class(0);}$/;"	l
+Cst_expression	_nml.y	/^Cst_expression : Const_instant_name_Enum_instant_name$/;"	l
+DBG_ENUM_TABLE	enum_table.cpp	9;"	d	file:
+DBG_INTEGER_TABLE	integer_table.cpp	5;"	d	file:
+DBG_NUM_TABLE	num_table.cpp	8;"	d	file:
+DBG_OPIMG_TABLE	op_image.cpp	6;"	d	file:
+DBG_OPN_TABLE	opn_table.cpp	6;"	d	file:
+DBG_ORMODE_TABLE	ormode_table.cpp	6;"	d	file:
+DBG_OROPN_TABLE	oropn_table.cpp	6;"	d	file:
+DBG_OR_TABLE	or_table.cpp	6;"	d	file:
+DBG_OUTPUTF	outputf.cpp	7;"	d	file:
+DBG_PAR_TABLE	par_table.cpp	7;"	d	file:
+DBG_SYNTAX_TABLE	syntax_table.cpp	6;"	d	file:
+DBG_TYPE_TABLE	type_table.cpp	7;"	d	file:
+DBG_VAR_TABLE	var_table.cpp	7;"	d	file:
+DBG__STRING_TABLE	string_table.cpp	7;"	d	file:
+DCOLON	_nml.tab.c	/^     DCOLON = 305,$/;"	e	enum:yytokentype	file:
+DCOLON	_nml.tab.h	/^     DCOLON = 305,$/;"	e	enum:yytokentype
+DCOLON	nml.tab.c	/^     DCOLON = 290,$/;"	e	enum:yytokentype	file:
+DCOLON	nml.tab.h	/^     DCOLON = 290,$/;"	e	enum:yytokentype
+DEF	_nml.tab.c	/^     DEF = 267,$/;"	e	enum:yytokentype	file:
+DEF	_nml.tab.h	/^     DEF = 267,$/;"	e	enum:yytokentype
+DEF	nml.tab.c	/^     DEF = 259,$/;"	e	enum:yytokentype	file:
+DEF	nml.tab.h	/^     DEF = 259,$/;"	e	enum:yytokentype
+DEFAULT	_nml.tab.c	/^     DEFAULT = 266,$/;"	e	enum:yytokentype	file:
+DEFAULT	_nml.tab.h	/^     DEFAULT = 266,$/;"	e	enum:yytokentype
+DELAY	_nml.tab.c	/^     DELAY = 345,$/;"	e	enum:yytokentype	file:
+DELAY	_nml.tab.h	/^     DELAY = 345,$/;"	e	enum:yytokentype
+DELAY_SLOTS	_nml.tab.c	/^     DELAY_SLOTS = 268,$/;"	e	enum:yytokentype	file:
+DELAY_SLOTS	_nml.tab.h	/^     DELAY_SLOTS = 268,$/;"	e	enum:yytokentype
+DELAY_SLOTS	nml.tab.c	/^     DELAY_SLOTS = 303,$/;"	e	enum:yytokentype	file:
+DELAY_SLOTS	nml.tab.h	/^     DELAY_SLOTS = 303,$/;"	e	enum:yytokentype
+DIV	_nml.tab.c	/^     DIV = 342,$/;"	e	enum:yytokentype	file:
+DIV	_nml.tab.h	/^     DIV = 342,$/;"	e	enum:yytokentype
+DIV	nml.tab.c	/^     DIV = 264,$/;"	e	enum:yytokentype	file:
+DIV	nml.tab.h	/^     DIV = 264,$/;"	e	enum:yytokentype
+DOLLAR	_nml.tab.c	/^     DOLLAR = 304,$/;"	e	enum:yytokentype	file:
+DOLLAR	_nml.tab.h	/^     DOLLAR = 304,$/;"	e	enum:yytokentype
+DONE	drt.cpp	37;"	d	file:
+DONE	drt.h	35;"	d
+DOUBLEDOT	_nml.tab.c	/^     DOUBLEDOT = 303,$/;"	e	enum:yytokentype	file:
+DOUBLEDOT	_nml.tab.h	/^     DOUBLEDOT = 303,$/;"	e	enum:yytokentype
+DOUBLEDOT	nml.tab.c	/^     DOUBLEDOT = 285,$/;"	e	enum:yytokentype	file:
+DOUBLEDOT	nml.tab.h	/^     DOUBLEDOT = 285,$/;"	e	enum:yytokentype
+Data_type_attr	_nml.y	/^Data_type_attr : CST INT Identifier ASSIGN INT_CONST$/;"	l
+Data_type_def	_nml.y	/^Data_type_def : PRIMITIVE CLASS Identifier SEMI$/;"	l
+Declaration	_nml.y	/^Declaration:	Number_declaration$/;"	l
+Declaration_list	_nml.y	/^Declaration_list : Declaration$/;"	l
+ECHO	lex.yy.c	686;"	d	file:
+ELSE	_nml.tab.c	/^     ELSE = 269,$/;"	e	enum:yytokentype	file:
+ELSE	_nml.tab.h	/^     ELSE = 269,$/;"	e	enum:yytokentype
+ENUM	_nml.tab.c	/^     ENUM = 270,$/;"	e	enum:yytokentype	file:
+ENUM	_nml.tab.h	/^     ENUM = 270,$/;"	e	enum:yytokentype
+ENUM	nml.tab.c	/^     ENUM = 270,$/;"	e	enum:yytokentype	file:
+ENUM	nml.tab.h	/^     ENUM = 270,$/;"	e	enum:yytokentype
+ENUM_NAME	_nml.tab.c	/^     ENUM_NAME = 346,$/;"	e	enum:yytokentype	file:
+ENUM_NAME	_nml.tab.h	/^     ENUM_NAME = 346,$/;"	e	enum:yytokentype
+ENUM_NAME	nml.tab.c	/^     ENUM_NAME = 305,$/;"	e	enum:yytokentype	file:
+ENUM_NAME	nml.tab.h	/^     ENUM_NAME = 305,$/;"	e	enum:yytokentype
+EOB_ACT_CONTINUE_SCAN	lex.yy.c	168;"	d	file:
+EOB_ACT_END_OF_FILE	lex.yy.c	169;"	d	file:
+EOB_ACT_LAST_MATCH	lex.yy.c	170;"	d	file:
+EQU	_nml.tab.c	/^     EQU = 329,$/;"	e	enum:yytokentype	file:
+EQU	_nml.tab.h	/^     EQU = 329,$/;"	e	enum:yytokentype
+Enc_alias	_nml.y	/^Enc_alias : LESS ALIAS And_field_encoding GRT$/;"	l
+Enc_alias_opt	_nml.y	/^Enc_alias_opt :$/;"	l
+Enum_declaration	_nml.y	/^Enum_declaration : ENUM Identifier LBRACE Enum_list RBRACE COMMA{$/;"	l
+Enum_element	_nml.y	/^Enum_element : Identifier Mnemonic_opt Init_opt{$/;"	l
+Enum_element_name	_nml.y	/^Enum_element_name : Identifier{$$=$1;}$/;"	l
+Enum_list	_nml.y	/^Enum_list : Enum_element{}$/;"	l
+Enum_value	_nml.y	/^Enum_value : Identifier$/;"	l
+Exclusive_command	_nml.y	/^Exclusive_command: IS_EXCLUSIVE | MAKE_EXCLUSIVE$/;"	l
+Exclusive_command_opt	_nml.y	/^Exclusive_command_opt:$/;"	l
+FIXED_CONSTANT_E	token.h	/^  FIXED_CONSTANT_E,$/;"	e	enum:__anon1
+FLEXINT_H	lex.yy.c	29;"	d	file:
+FLEX_BETA	lex.yy.c	13;"	d	file:
+FLEX_SCANNER	lex.yy.c	8;"	d	file:
+FU	_nml.tab.c	/^     FU = 271,$/;"	e	enum:yytokentype	file:
+FU	_nml.tab.h	/^     FU = 271,$/;"	e	enum:yytokentype
+Field_names	_nml.y	/^Field_names : SYNTAX LPAREN ENUM_NAME RPAREN$/;"	l
+Field_names_opt	_nml.y	/^Field_names_opt :$/;"	l
+GRT	_nml.tab.c	/^     GRT = 333,$/;"	e	enum:yytokentype	file:
+GRT	_nml.tab.h	/^     GRT = 333,$/;"	e	enum:yytokentype
+GRT	nml.tab.c	/^     GRT = 275,$/;"	e	enum:yytokentype	file:
+GRT	nml.tab.h	/^     GRT = 275,$/;"	e	enum:yytokentype
+GRTE	_nml.tab.c	/^     GRTE = 334,$/;"	e	enum:yytokentype	file:
+GRTE	_nml.tab.h	/^     GRTE = 334,$/;"	e	enum:yytokentype
+HASH_H	hash.h	2;"	d
+HEX_CONST	_nml.tab.c	/^     HEX_CONST = 315,$/;"	e	enum:yytokentype	file:
+HEX_CONST	_nml.tab.h	/^     HEX_CONST = 315,$/;"	e	enum:yytokentype
+HEX_CONST	nml.tab.c	/^     HEX_CONST = 279,$/;"	e	enum:yytokentype	file:
+HEX_CONST	nml.tab.h	/^     HEX_CONST = 279,$/;"	e	enum:yytokentype
+HEX_CONSTANT_E	token.h	/^  HEX_CONSTANT_E,$/;"	e	enum:__anon1
+HW_INIT	_nml.tab.c	/^     HW_INIT = 272,$/;"	e	enum:yytokentype	file:
+HW_INIT	_nml.tab.h	/^     HW_INIT = 272,$/;"	e	enum:yytokentype
+HW_STALL	_nml.tab.c	/^     HW_STALL = 273,$/;"	e	enum:yytokentype	file:
+HW_STALL	_nml.tab.h	/^     HW_STALL = 273,$/;"	e	enum:yytokentype
+Hex	_nml.y	/^Hex : HEX_CONST{$$=$1;}$/;"	l
+IDENTIFIER	_nml.tab.c	/^     IDENTIFIER = 316,$/;"	e	enum:yytokentype	file:
+IDENTIFIER	_nml.tab.h	/^     IDENTIFIER = 316,$/;"	e	enum:yytokentype
+IDENTIFIER	nml.tab.c	/^     IDENTIFIER = 261,$/;"	e	enum:yytokentype	file:
+IDENTIFIER	nml.tab.h	/^     IDENTIFIER = 261,$/;"	e	enum:yytokentype
+IDENTIFIER_E	token.h	/^  IDENTIFIER_E,$/;"	e	enum:__anon1
+IF	_nml.tab.c	/^     IF = 274,$/;"	e	enum:yytokentype	file:
+IF	_nml.tab.h	/^     IF = 274,$/;"	e	enum:yytokentype
+IMAGE	_nml.tab.c	/^     IMAGE = 275,$/;"	e	enum:yytokentype	file:
+IMAGE	_nml.tab.h	/^     IMAGE = 275,$/;"	e	enum:yytokentype
+IMAGE	nml.tab.c	/^     IMAGE = 291,$/;"	e	enum:yytokentype	file:
+IMAGE	nml.tab.h	/^     IMAGE = 291,$/;"	e	enum:yytokentype
+ING	drt.cpp	38;"	d	file:
+ING	drt.h	36;"	d
+INITIAL	lex.yy.c	593;"	d	file:
+INPORT	_nml.tab.c	/^     INPORT = 276,$/;"	e	enum:yytokentype	file:
+INPORT	_nml.tab.h	/^     INPORT = 276,$/;"	e	enum:yytokentype
+INT16_MAX	lex.yy.c	71;"	d	file:
+INT16_MIN	lex.yy.c	62;"	d	file:
+INT32_MAX	lex.yy.c	74;"	d	file:
+INT32_MIN	lex.yy.c	65;"	d	file:
+INT8_MAX	lex.yy.c	68;"	d	file:
+INT8_MIN	lex.yy.c	59;"	d	file:
+INT_CONST	_nml.tab.c	/^     INT_CONST = 312,$/;"	e	enum:yytokentype	file:
+INT_CONST	_nml.tab.h	/^     INT_CONST = 312,$/;"	e	enum:yytokentype
+INT_CONST	nml.tab.c	/^     INT_CONST = 277,$/;"	e	enum:yytokentype	file:
+INT_CONST	nml.tab.h	/^     INT_CONST = 277,$/;"	e	enum:yytokentype
+INT_CONSTANT_E	token.h	/^  INT_CONSTANT_E,$/;"	e	enum:__anon1
+INVALID_E	token.h	/^  INVALID_E$/;"	e	enum:__anon1
+IN_COMMENT	lex.yy.c	594;"	d	file:
+IS_EXCLUSIVE	_nml.tab.c	/^     IS_EXCLUSIVE = 307,$/;"	e	enum:yytokentype	file:
+IS_EXCLUSIVE	_nml.tab.h	/^     IS_EXCLUSIVE = 307,$/;"	e	enum:yytokentype
+Identifier	_nml.y	/^Identifier : IDENTIFIER{$$=$1;}$/;"	l
+Image_nr	_nml.y	/^Image_nr : POINT Integer{$$=$2;}$/;"	l
+Image_nr_opt	_nml.y	/^Image_nr_opt :	{$$=(mpz_class)0;}$/;"	l
+Init_opt	_nml.y	/^Init_opt : {$$=(mpz_class)-1;}$/;"	l
+Instr_properties	_nml.y	/^Instr_properties: Instr_property$/;"	l
+Instr_properties_opt	_nml.y	/^Instr_properties_opt:$/;"	l
+Instr_property	_nml.y	/^Instr_property:$/;"	l
+Integer	_nml.y	/^Integer : INT_CONST{($$).set_str($1);}$/;"	l
+Integer_expression	_nml.y	/^Integer_expression : Integer_expression PLUS Integer_expression{ $$ = $1 + $3 ; }$/;"	l
+LBRACE	_nml.tab.c	/^     LBRACE = 323,$/;"	e	enum:yytokentype	file:
+LBRACE	_nml.tab.h	/^     LBRACE = 323,$/;"	e	enum:yytokentype
+LBRACE	nml.tab.c	/^     LBRACE = 268,$/;"	e	enum:yytokentype	file:
+LBRACE	nml.tab.h	/^     LBRACE = 268,$/;"	e	enum:yytokentype
+LBRACE_E	token.h	/^  LBRACE_E,$/;"	e	enum:__anon1
+LBRACK	_nml.tab.c	/^     LBRACK = 325,$/;"	e	enum:yytokentype	file:
+LBRACK	_nml.tab.h	/^     LBRACK = 325,$/;"	e	enum:yytokentype
+LBRACK	nml.tab.c	/^     LBRACK = 283,$/;"	e	enum:yytokentype	file:
+LBRACK	nml.tab.h	/^     LBRACK = 283,$/;"	e	enum:yytokentype
+LBRACK_E	token.h	/^  LBRACK_E,$/;"	e	enum:__anon1
+LESS	_nml.tab.c	/^     LESS = 331,$/;"	e	enum:yytokentype	file:
+LESS	_nml.tab.h	/^     LESS = 331,$/;"	e	enum:yytokentype
+LESS	nml.tab.c	/^     LESS = 274,$/;"	e	enum:yytokentype	file:
+LESS	nml.tab.h	/^     LESS = 274,$/;"	e	enum:yytokentype
+LESSE	_nml.tab.c	/^     LESSE = 332,$/;"	e	enum:yytokentype	file:
+LESSE	_nml.tab.h	/^     LESSE = 332,$/;"	e	enum:yytokentype
+LEX	makefile	/^LEX = flex -v$/;"	m
+LPAREN	_nml.tab.c	/^     LPAREN = 321,$/;"	e	enum:yytokentype	file:
+LPAREN	_nml.tab.h	/^     LPAREN = 321,$/;"	e	enum:yytokentype
+LPAREN	nml.tab.c	/^     LPAREN = 266,$/;"	e	enum:yytokentype	file:
+LPAREN	nml.tab.h	/^     LPAREN = 266,$/;"	e	enum:yytokentype
+LPAREN_E	token.h	/^  LPAREN_E,$/;"	e	enum:__anon1
+MAKE_EXCLUSIVE	_nml.tab.c	/^     MAKE_EXCLUSIVE = 308,$/;"	e	enum:yytokentype	file:
+MAKE_EXCLUSIVE	_nml.tab.h	/^     MAKE_EXCLUSIVE = 308,$/;"	e	enum:yytokentype
+MEM	_nml.tab.c	/^     MEM = 277,$/;"	e	enum:yytokentype	file:
+MEM	_nml.tab.h	/^     MEM = 277,$/;"	e	enum:yytokentype
+MEM	nml.tab.c	/^     MEM = 282,$/;"	e	enum:yytokentype	file:
+MEM	nml.tab.h	/^     MEM = 282,$/;"	e	enum:yytokentype
+MINUS	_nml.tab.c	/^     MINUS = 338,$/;"	e	enum:yytokentype	file:
+MINUS	_nml.tab.h	/^     MINUS = 338,$/;"	e	enum:yytokentype
+MINUS	nml.tab.c	/^     MINUS = 263,$/;"	e	enum:yytokentype	file:
+MINUS	nml.tab.h	/^     MINUS = 263,$/;"	e	enum:yytokentype
+MINUS_E	token.h	/^  MINUS_E,$/;"	e	enum:__anon1
+MODE	_nml.tab.c	/^     MODE = 278,$/;"	e	enum:yytokentype	file:
+MODE	_nml.tab.h	/^     MODE = 278,$/;"	e	enum:yytokentype
+MODE	nml.tab.c	/^     MODE = 304,$/;"	e	enum:yytokentype	file:
+MODE	nml.tab.h	/^     MODE = 304,$/;"	e	enum:yytokentype
+MODE_AND_NAME	_nml.tab.c	/^     MODE_AND_NAME = 347,$/;"	e	enum:yytokentype	file:
+MODE_AND_NAME	_nml.tab.h	/^     MODE_AND_NAME = 347,$/;"	e	enum:yytokentype
+MODE_AND_RULE	nml.tab.c	/^     MODE_AND_RULE = 297,$/;"	e	enum:yytokentype	file:
+MODE_AND_RULE	nml.tab.h	/^     MODE_AND_RULE = 297,$/;"	e	enum:yytokentype
+MODE_OR_RULE	nml.tab.c	/^     MODE_OR_RULE = 298,$/;"	e	enum:yytokentype	file:
+MODE_OR_RULE	nml.tab.h	/^     MODE_OR_RULE = 298,$/;"	e	enum:yytokentype
+MODE_RULE_NAME	_nml.tab.c	/^     MODE_RULE_NAME = 348,$/;"	e	enum:yytokentype	file:
+MODE_RULE_NAME	_nml.tab.h	/^     MODE_RULE_NAME = 348,$/;"	e	enum:yytokentype
+MUL	_nml.tab.c	/^     MUL = 341,$/;"	e	enum:yytokentype	file:
+MUL	_nml.tab.h	/^     MUL = 341,$/;"	e	enum:yytokentype
+MUL	nml.tab.c	/^     MUL = 306,$/;"	e	enum:yytokentype	file:
+MUL	nml.tab.h	/^     MUL = 306,$/;"	e	enum:yytokentype
+Match_cond	_nml.y	/^Match_cond : LESS Logic_expression GRT$/;"	l
+Memory_declaration	_nml.y	/^Memory_declaration : MEM Identifier Valid_address_declaration LESS TYPE_ID COMMA Address_type GRT$/;"	l
+Mnemonic_opt	_nml.y	/^Mnemonic_opt : {$$=0;}$/;"	l
+Mode_rule	_nml.y	/^Mode_rule : Or_mode_rule$/;"	l
+Mode_rule_name_list	_nml.y	/^Mode_rule_name_list : N_mode_rule_name$/;"	l
+Mode_rule_syntax_ref	_nml.y	/^Mode_rule_syntax_ref : Mode_rule_instant_name Syntax_nr_opt$/;"	l
+NEG	_nml.tab.c	/^     NEG = 352$/;"	e	enum:yytokentype	file:
+NEG	_nml.tab.h	/^     NEG = 352$/;"	e	enum:yytokentype
+NEG	nml.tab.c	/^     NEG = 307$/;"	e	enum:yytokentype	file:
+NEG	nml.tab.h	/^     NEG = 307$/;"	e	enum:yytokentype
+NEQU	_nml.tab.c	/^     NEQU = 330,$/;"	e	enum:yytokentype	file:
+NEQU	_nml.tab.h	/^     NEQU = 330,$/;"	e	enum:yytokentype
+NOT	_nml.tab.c	/^     NOT = 335,$/;"	e	enum:yytokentype	file:
+NOT	_nml.tab.h	/^     NOT = 335,$/;"	e	enum:yytokentype
+NOTYET	drt.cpp	39;"	d	file:
+NOTYET	drt.h	37;"	d
+NOT_E	token.h	/^  NOT_E,$/;"	e	enum:__anon1
+NUMBER_NAME	_nml.tab.c	/^     NUMBER_NAME = 350,$/;"	e	enum:yytokentype	file:
+NUMBER_NAME	_nml.tab.h	/^     NUMBER_NAME = 350,$/;"	e	enum:yytokentype
+NUM_TABLE_SIZE	num_table.cpp	12;"	d	file:
+NUM_TABLE_SIZE	num_table.h	10;"	d
+N_mode_rule_name	_nml.y	/^N_mode_rule_name : MODE_RULE_NAME{$/;"	l
+Number_declaration	_nml.y	/^Number_declaration : DEF Identifier ASSIGN Integer_expression SEMI{$/;"	l
+OP	_nml.tab.c	/^     OP = 279,$/;"	e	enum:yytokentype	file:
+OP	_nml.tab.h	/^     OP = 279,$/;"	e	enum:yytokentype
+OP	nml.tab.c	/^     OP = 288,$/;"	e	enum:yytokentype	file:
+OP	nml.tab.h	/^     OP = 288,$/;"	e	enum:yytokentype
+OP_AND_RULE	_nml.tab.c	/^     OP_AND_RULE = 309,$/;"	e	enum:yytokentype	file:
+OP_AND_RULE	_nml.tab.h	/^     OP_AND_RULE = 309,$/;"	e	enum:yytokentype
+OP_AND_RULE	nml.tab.c	/^     OP_AND_RULE = 296,$/;"	e	enum:yytokentype	file:
+OP_AND_RULE	nml.tab.h	/^     OP_AND_RULE = 296,$/;"	e	enum:yytokentype
+OP_OR_RULE	nml.tab.c	/^     OP_OR_RULE = 295,$/;"	e	enum:yytokentype	file:
+OP_OR_RULE	nml.tab.h	/^     OP_OR_RULE = 295,$/;"	e	enum:yytokentype
+OP_RULE_NAME	_nml.tab.c	/^     OP_RULE_NAME = 349,$/;"	e	enum:yytokentype	file:
+OP_RULE_NAME	_nml.tab.h	/^     OP_RULE_NAME = 349,$/;"	e	enum:yytokentype
+OR	_nml.tab.c	/^     OR = 328,$/;"	e	enum:yytokentype	file:
+OR	_nml.tab.h	/^     OR = 328,$/;"	e	enum:yytokentype
+OR_E	token.h	/^  OR_E,$/;"	e	enum:__anon1
+OTHERS	_nml.tab.c	/^     OTHERS = 280,$/;"	e	enum:yytokentype	file:
+OTHERS	_nml.tab.h	/^     OTHERS = 280,$/;"	e	enum:yytokentype
+OUTPORT	_nml.tab.c	/^     OUTPORT = 281,$/;"	e	enum:yytokentype	file:
+OUTPORT	_nml.tab.h	/^     OUTPORT = 281,$/;"	e	enum:yytokentype
+Offset_declaration	_nml.y	/^Offset_declaration : LBRACK Integer_expression RBRACK$/;"	l
+Op_rule	_nml.y	/^Op_rule : Or_op_rule$/;"	l
+Op_rule_image_ref	_nml.y	/^Op_rule_image_ref : Op_rule_instant_name Image_nr_opt$/;"	l
+Op_rule_instant_name	_nml.y	/^Op_rule_instant_name : Identifier{$$=$1;}$/;"	l
+Op_rule_name_list	_nml.y	/^Op_rule_name_list : OP_RULE_NAME{$/;"	l
+Op_rule_syntax_ref	_nml.y	/^Op_rule_syntax_ref : Op_rule_instant_name Poi_syn_opt Syntax_nr_opt{$/;"	l
+Opn_rule_image_ref	_nml.y	/^Opn_rule_image_ref :$/;"	l
+Or_encoding_list	_nml.y	/^Or_encoding_list : Or_field_encoding_list{ortab.finele();}$/;"	l
+Or_field_encoding	_nml.y	/^Or_field_encoding : Bit_string_literal{$/;"	l
+Or_field_encoding_list	_nml.y	/^Or_field_encoding_list : Or_field_encoding$/;"	l
+Or_image_attribute	_nml.y	/^Or_image_attribute : IMAGE COMMA Or_encoding_list COLON{$$=ortab.addent();}$/;"	l
+Or_image_attribute_list	_nml.y	/^Or_image_attribute_list : Or_image_attribute{$$=$1;}$/;"	l
+Or_mode_rule	_nml.y	/^Or_mode_rule : MODE Identifier Class_access_opt LPAREN Mode_rule_name_list RPAREN Exclusive_command_opt$/;"	l
+Or_op_rule	_nml.y	/^Or_op_rule : \/*OP Identifier LPAREN Op_rule_name_list RPAREN \/*exclusive_command_opt COLON$/;"	l
+PE	drt.cpp	16;"	d	file:
+PE	enum_table.cpp	8;"	d	file:
+PE	front.cpp	20;"	d	file:
+PE	integer_table.cpp	4;"	d	file:
+PE	lex.yy.c	588;"	d	file:
+PE	num_table.cpp	7;"	d	file:
+PE	op_image.cpp	5;"	d	file:
+PE	opn_table.cpp	5;"	d	file:
+PE	or_table.cpp	5;"	d	file:
+PE	ormode_table.cpp	5;"	d	file:
+PE	oropn_table.cpp	5;"	d	file:
+PE	outputf.cpp	6;"	d	file:
+PE	par_table.cpp	6;"	d	file:
+PE	string_table.cpp	6;"	d	file:
+PE	syntax_table.cpp	5;"	d	file:
+PE	type_table.cpp	6;"	d	file:
+PE	var_table.cpp	6;"	d	file:
+PIPE	_nml.tab.c	/^     PIPE = 282,$/;"	e	enum:yytokentype	file:
+PIPE	_nml.tab.h	/^     PIPE = 282,$/;"	e	enum:yytokentype
+PLUS	_nml.tab.c	/^     PLUS = 337,$/;"	e	enum:yytokentype	file:
+PLUS	_nml.tab.h	/^     PLUS = 337,$/;"	e	enum:yytokentype
+PLUS	nml.tab.c	/^     PLUS = 262,$/;"	e	enum:yytokentype	file:
+PLUS	nml.tab.h	/^     PLUS = 262,$/;"	e	enum:yytokentype
+PLUS_E	token.h	/^  PLUS_E,$/;"	e	enum:__anon1
+POINT	_nml.tab.c	/^     POINT = 336,$/;"	e	enum:yytokentype	file:
+POINT	_nml.tab.h	/^     POINT = 336,$/;"	e	enum:yytokentype
+POINT	nml.tab.c	/^     POINT = 292,$/;"	e	enum:yytokentype	file:
+POINT	nml.tab.h	/^     POINT = 292,$/;"	e	enum:yytokentype
+POINT_E	token.h	/^  POINT_E,$/;"	e	enum:__anon1
+POW	_nml.tab.c	/^     POW = 343,$/;"	e	enum:yytokentype	file:
+POW	_nml.tab.h	/^     POW = 343,$/;"	e	enum:yytokentype
+POW	nml.tab.c	/^     POW = 265,$/;"	e	enum:yytokentype	file:
+POW	nml.tab.h	/^     POW = 265,$/;"	e	enum:yytokentype
+PRIMITIVE	_nml.tab.c	/^     PRIMITIVE = 302,$/;"	e	enum:yytokentype	file:
+PRIMITIVE	_nml.tab.h	/^     PRIMITIVE = 302,$/;"	e	enum:yytokentype
+PROPERTIES	_nml.tab.c	/^     PROPERTIES = 283,$/;"	e	enum:yytokentype	file:
+PROPERTIES	_nml.tab.h	/^     PROPERTIES = 283,$/;"	e	enum:yytokentype
+PROPERTY	_nml.tab.c	/^     PROPERTY = 284,$/;"	e	enum:yytokentype	file:
+PROPERTY	_nml.tab.h	/^     PROPERTY = 284,$/;"	e	enum:yytokentype
+Parameter_declaration	_nml.y	/^Parameter_declaration : Op_rule_instant_name COLON OP_RULE_NAME{$/;"	l
+Parameter_declaration_list	_nml.y	/^Parameter_declaration_list : Parameter_declaration$/;"	l
+Pipe_declaration	_nml.y	/^Pipe_declaration : PIPE Identifier LESS TYPE_ID GRT Record_declaration_opt SEMI$/;"	l
+Pipe_name	_nml.y	/^Pipe_name : Identifier*\/$/;"	l
+Poi_syn_opt	_nml.y	/^Poi_syn_opt: $/;"	l
+Port_declaration	_nml.y	/^Port_declaration : INPORT Identifier LESS TYPE_ID GRT Record_declaration_opt SEMI$/;"	l
+Quoted_char_list	_nml.y	/^Quoted_char_list :$/;"	l
+RBRACE	_nml.tab.c	/^     RBRACE = 324,$/;"	e	enum:yytokentype	file:
+RBRACE	_nml.tab.h	/^     RBRACE = 324,$/;"	e	enum:yytokentype
+RBRACE	nml.tab.c	/^     RBRACE = 269,$/;"	e	enum:yytokentype	file:
+RBRACE	nml.tab.h	/^     RBRACE = 269,$/;"	e	enum:yytokentype
+RBRACE_E	token.h	/^  RBRACE_E,$/;"	e	enum:__anon1
+RBRACK	_nml.tab.c	/^     RBRACK = 326,$/;"	e	enum:yytokentype	file:
+RBRACK	_nml.tab.h	/^     RBRACK = 326,$/;"	e	enum:yytokentype
+RBRACK	nml.tab.c	/^     RBRACK = 284,$/;"	e	enum:yytokentype	file:
+RBRACK	nml.tab.h	/^     RBRACK = 284,$/;"	e	enum:yytokentype
+RBRACK_E	token.h	/^  RBRACK_E,$/;"	e	enum:__anon1
+READ	_nml.tab.c	/^     READ = 286,$/;"	e	enum:yytokentype	file:
+READ	_nml.tab.h	/^     READ = 286,$/;"	e	enum:yytokentype
+READ_ACTION	_nml.tab.c	/^     READ_ACTION = 285,$/;"	e	enum:yytokentype	file:
+READ_ACTION	_nml.tab.h	/^     READ_ACTION = 285,$/;"	e	enum:yytokentype
+REG	_nml.tab.c	/^     REG = 287,$/;"	e	enum:yytokentype	file:
+REG	_nml.tab.h	/^     REG = 287,$/;"	e	enum:yytokentype
+REG	nml.tab.c	/^     REG = 286,$/;"	e	enum:yytokentype	file:
+REG	nml.tab.h	/^     REG = 286,$/;"	e	enum:yytokentype
+REJECT	lex.yy.c	578;"	d	file:
+RPAREN	_nml.tab.c	/^     RPAREN = 322,$/;"	e	enum:yytokentype	file:
+RPAREN	_nml.tab.h	/^     RPAREN = 322,$/;"	e	enum:yytokentype
+RPAREN	nml.tab.c	/^     RPAREN = 267,$/;"	e	enum:yytokentype	file:
+RPAREN	nml.tab.h	/^     RPAREN = 267,$/;"	e	enum:yytokentype
+RPAREN_E	token.h	/^  RPAREN_E,$/;"	e	enum:__anon1
+RSRC	_nml.tab.c	/^     RSRC = 288,$/;"	e	enum:yytokentype	file:
+RSRC	_nml.tab.h	/^     RSRC = 288,$/;"	e	enum:yytokentype
+RULE_REF	_nml.tab.c	/^     RULE_REF = 310,$/;"	e	enum:yytokentype	file:
+RULE_REF	_nml.tab.h	/^     RULE_REF = 310,$/;"	e	enum:yytokentype
+RULE_REF	nml.tab.c	/^     RULE_REF = 289,$/;"	e	enum:yytokentype	file:
+RULE_REF	nml.tab.h	/^     RULE_REF = 289,$/;"	e	enum:yytokentype
+Read_access_transitory_list	_nml.y	/^Read_access_transitory_list : READ LPAREN Access_transitory_list RPAREN$/;"	l
+Read_access_transitory_list_opt	_nml.y	/^Read_access_transitory_list_opt : $/;"	l
+Record_declaration	_nml.y	/^Record_declaration : LBRACE Storage_element_list RBRACE$/;"	l
+Record_declaration_opt	_nml.y	/^Record_declaration_opt :$/;"	l
+Register_class_name	_nml.y	/^Register_class_name : Identifier$/;"	l
+Register_declaration	_nml.y	/^Register_declaration : REG Identifier Valid_address_declaration_opt LESS TYPE_ID COMMA Address_type GRT$/;"	l
+Rule	_nml.y	/^Rule : Op_rule$/;"	l
+Rule_image_ref	_nml.y	/^Rule_image_ref : Rule_instant_name Image_nr_opt{$/;"	l
+Rule_instant_name	_nml.y	/^Rule_instant_name : Identifier{$$=$1;}$/;"	l
+Rule_list	_nml.y	/^Rule_list : Rule$/;"	l
+Rule_syntax_ref	_nml.y	/^Rule_syntax_ref : Rule_instant_name Poi_syn_opt Syntax_nr_opt{$/;"	l
+SEMI	_nml.tab.c	/^     SEMI = 318,$/;"	e	enum:yytokentype	file:
+SEMI	_nml.tab.h	/^     SEMI = 318,$/;"	e	enum:yytokentype
+SEMI	nml.tab.c	/^     SEMI = 260,$/;"	e	enum:yytokentype	file:
+SEMI	nml.tab.h	/^     SEMI = 260,$/;"	e	enum:yytokentype
+SEMI_E	token.h	/^  SEMI_E,$/;"	e	enum:__anon1
+SETDONE	drt.cpp	40;"	d	file:
+SETDONE	drt.h	38;"	d
+SETING	drt.cpp	41;"	d	file:
+SETING	drt.h	39;"	d
+SETNOTYET	drt.cpp	42;"	d	file:
+SETNOTYET	drt.h	40;"	d
+STAGE	_nml.tab.c	/^     STAGE = 289,$/;"	e	enum:yytokentype	file:
+STAGE	_nml.tab.h	/^     STAGE = 289,$/;"	e	enum:yytokentype
+START	_nml.tab.c	/^     START = 290,$/;"	e	enum:yytokentype	file:
+START	_nml.tab.h	/^     START = 290,$/;"	e	enum:yytokentype
+START	nml.tab.c	/^     START = 287,$/;"	e	enum:yytokentype	file:
+START	nml.tab.h	/^     START = 287,$/;"	e	enum:yytokentype
+STRING_CONST	_nml.tab.c	/^     STRING_CONST = 313,$/;"	e	enum:yytokentype	file:
+STRING_CONST	_nml.tab.h	/^     STRING_CONST = 313,$/;"	e	enum:yytokentype
+STRING_CONST	nml.tab.c	/^     STRING_CONST = 271,$/;"	e	enum:yytokentype	file:
+STRING_CONST	nml.tab.h	/^     STRING_CONST = 271,$/;"	e	enum:yytokentype
+STRING_CONSTANT_E	token.h	/^  STRING_CONSTANT_E,$/;"	e	enum:__anon1
+STRING_TABLE_SIZE	string_table.cpp	38;"	d	file:
+SWITCH	_nml.tab.c	/^     SWITCH = 292,$/;"	e	enum:yytokentype	file:
+SWITCH	_nml.tab.h	/^     SWITCH = 292,$/;"	e	enum:yytokentype
+SW_STALL	_nml.tab.c	/^     SW_STALL = 291,$/;"	e	enum:yytokentype	file:
+SW_STALL	_nml.tab.h	/^     SW_STALL = 291,$/;"	e	enum:yytokentype
+SYNTAX	_nml.tab.c	/^     SYNTAX = 293,$/;"	e	enum:yytokentype	file:
+SYNTAX	_nml.tab.h	/^     SYNTAX = 293,$/;"	e	enum:yytokentype
+SYNTAX	nml.tab.c	/^     SYNTAX = 281,$/;"	e	enum:yytokentype	file:
+SYNTAX	nml.tab.h	/^     SYNTAX = 281,$/;"	e	enum:yytokentype
+Start_declaration	_nml.y	/^Start_declaration:$/;"	l
+Storage_declaration	_nml.y	/^Storage_declaration : Memory_declaration$/;"	l
+Storage_element_list	_nml.y	/^Storage_element_list : Identifier SEMI$/;"	l
+String	_nml.y	/^String : STRING_CONST{$$=$1;}$/;"	l
+Syntax_attribute	_nml.y	/^Syntax_attribute : SYNTAX COLON Syntax_encoding_list SEMI{$/;"	l
+Syntax_attribute_list	_nml.y	/^Syntax_attribute_list: {$$=0;}$/;"	l
+Syntax_encoding	_nml.y	/^Syntax_encoding : Syntax_encoding_element{$/;"	l
+Syntax_encoding_element	_nml.y	/^Syntax_encoding_element: String{syntab.addele(syn_ref_c(STRING_CONST,strtab.addstr($1),0));}$/;"	l
+Syntax_encoding_list	_nml.y	/^Syntax_encoding_list : Syntax_encoding{$/;"	l
+Syntax_nr	_nml.y	/^Syntax_nr : POINT Integer{$$=$2;}$/;"	l
+Syntax_nr_opt	_nml.y	/^Syntax_nr_opt :	{$$=0;}$/;"	l
+TOKEN_H	token.h	2;"	d
+TRN	_nml.tab.c	/^     TRN = 294,$/;"	e	enum:yytokentype	file:
+TRN	_nml.tab.h	/^     TRN = 294,$/;"	e	enum:yytokentype
+TS	outputf.cpp	4;"	d	file:
+TYPE	nml.tab.c	/^     TYPE = 276,$/;"	e	enum:yytokentype	file:
+TYPE	nml.tab.h	/^     TYPE = 276,$/;"	e	enum:yytokentype
+TYPE_ID	_nml.tab.c	/^     TYPE_ID = 351,$/;"	e	enum:yytokentype	file:
+TYPE_ID	_nml.tab.h	/^     TYPE_ID = 351,$/;"	e	enum:yytokentype
+Transitory_declaration	_nml.y	/^Transitory_declaration : TRN Identifier LESS TYPE_ID GRT Record_declaration_opt SEMI$/;"	l
+Transitory_name	_nml.y	/^Transitory_name : Identifier$/;"	l
+Transitory_name_Pipe_name	_nml.y	/^Transitory_name_Pipe_name: Identifier$/;"	l
+UINT16_MAX	lex.yy.c	80;"	d	file:
+UINT32_MAX	lex.yy.c	83;"	d	file:
+UINT8_MAX	lex.yy.c	77;"	d	file:
+UNKNOWN_E	token.h	/^  UNKNOWN_E,$/;"	e	enum:__anon1
+VALUE	_nml.tab.c	/^     VALUE = 295,$/;"	e	enum:yytokentype	file:
+VALUE	_nml.tab.h	/^     VALUE = 295,$/;"	e	enum:yytokentype
+VAL_TYPE	nml.tab.c	/^     VAL_TYPE = 280,$/;"	e	enum:yytokentype	file:
+VAL_TYPE	nml.tab.h	/^     VAL_TYPE = 280,$/;"	e	enum:yytokentype
+Valid_address_declaration	_nml.y	/^Valid_address_declaration : $/;"	l
+Valid_address_declaration_opt	_nml.y	/^Valid_address_declaration_opt : $/;"	l
+WORDS	_nml.tab.c	/^     WORDS = 296,$/;"	e	enum:yytokentype	file:
+WORDS	_nml.tab.h	/^     WORDS = 296,$/;"	e	enum:yytokentype
+WRITE	_nml.tab.c	/^     WRITE = 299,$/;"	e	enum:yytokentype	file:
+WRITE	_nml.tab.h	/^     WRITE = 299,$/;"	e	enum:yytokentype
+WRITE_ACTION	_nml.tab.c	/^     WRITE_ACTION = 297,$/;"	e	enum:yytokentype	file:
+WRITE_ACTION	_nml.tab.h	/^     WRITE_ACTION = 297,$/;"	e	enum:yytokentype
+WRITE_VALUE	_nml.tab.c	/^     WRITE_VALUE = 298,$/;"	e	enum:yytokentype	file:
+WRITE_VALUE	_nml.tab.h	/^     WRITE_VALUE = 298,$/;"	e	enum:yytokentype
+Write_access_transitory_list	_nml.y	/^Write_access_transitory_list : WRITE LPAREN Access_transitory_list RPAREN$/;"	l
+Write_access_transitory_list_opt	_nml.y	/^Write_access_transitory_list_opt :$/;"	l
+YACC	makefile	/^YACC = bison -dv$/;"	m
+YYABORT	_nml.tab.c	1007;"	d	file:
+YYABORT	nml.tab.c	822;"	d	file:
+YYACCEPT	_nml.tab.c	1006;"	d	file:
+YYACCEPT	nml.tab.c	821;"	d	file:
+YYBACKUP	_nml.tab.c	1028;"	d	file:
+YYBACKUP	nml.tab.c	843;"	d	file:
+YYBISON	_nml.tab.c	45;"	d	file:
+YYBISON	nml.tab.c	45;"	d	file:
+YYBISON_VERSION	_nml.tab.c	48;"	d	file:
+YYBISON_VERSION	nml.tab.c	48;"	d	file:
+YYBYACC	y.tab.c	6;"	d	file:
+YYCOPY	_nml.tab.c	410;"	d	file:
+YYCOPY	_nml.tab.c	413;"	d	file:
+YYCOPY	nml.tab.c	371;"	d	file:
+YYCOPY	nml.tab.c	374;"	d	file:
+YYDEBUG	_nml.tab.c	82;"	d	file:
+YYDEBUG	nml.tab.c	88;"	d	file:
+YYDPRINTF	_nml.tab.c	1108;"	d	file:
+YYDPRINTF	_nml.tab.c	1257;"	d	file:
+YYDPRINTF	nml.tab.c	1072;"	d	file:
+YYDPRINTF	nml.tab.c	923;"	d	file:
+YYEMPTY	_nml.tab.c	1003;"	d	file:
+YYEMPTY	nml.tab.c	818;"	d	file:
+YYEOF	_nml.tab.c	1004;"	d	file:
+YYEOF	nml.tab.c	819;"	d	file:
+YYERRCODE	_nml.tab.c	1047;"	d	file:
+YYERRCODE	nml.tab.c	862;"	d	file:
+YYERROR	_nml.tab.c	1008;"	d	file:
+YYERROR	nml.tab.c	823;"	d	file:
+YYERROR_VERBOSE	_nml.tab.c	87;"	d	file:
+YYERROR_VERBOSE	_nml.tab.c	88;"	d	file:
+YYERROR_VERBOSE	_nml.tab.c	90;"	d	file:
+YYERROR_VERBOSE	nml.tab.c	93;"	d	file:
+YYERROR_VERBOSE	nml.tab.c	94;"	d	file:
+YYERROR_VERBOSE	nml.tab.c	96;"	d	file:
+YYFAIL	_nml.tab.c	1018;"	d	file:
+YYFAIL	nml.tab.c	833;"	d	file:
+YYFINAL	_nml.tab.c	443;"	d	file:
+YYFINAL	nml.tab.c	404;"	d	file:
+YYFPRINTF	_nml.tab.c	1105;"	d	file:
+YYFPRINTF	nml.tab.c	920;"	d	file:
+YYFREE	_nml.tab.c	376;"	d	file:
+YYFREE	nml.tab.c	337;"	d	file:
+YYID	_nml.tab.c	/^YYID (int yyi)$/;"	f	file:
+YYID	_nml.tab.c	300;"	d	file:
+YYID	nml.tab.c	/^YYID (int yyi)$/;"	f	file:
+YYID	nml.tab.c	261;"	d	file:
+YYINITDEPTH	_nml.tab.c	1266;"	d	file:
+YYINITDEPTH	nml.tab.c	1081;"	d	file:
+YYLAST	_nml.tab.c	445;"	d	file:
+YYLAST	nml.tab.c	406;"	d	file:
+YYLEX	_nml.tab.c	1095;"	d	file:
+YYLEX	_nml.tab.c	1097;"	d	file:
+YYLEX	nml.tab.c	910;"	d	file:
+YYLEX	nml.tab.c	912;"	d	file:
+YYLLOC_DEFAULT	_nml.tab.c	1056;"	d	file:
+YYLLOC_DEFAULT	nml.tab.c	871;"	d	file:
+YYLSP_NEEDED	_nml.tab.c	63;"	d	file:
+YYLSP_NEEDED	nml.tab.c	63;"	d	file:
+YYMAJOR	y.tab.c	7;"	d	file:
+YYMALLOC	_nml.tab.c	369;"	d	file:
+YYMALLOC	nml.tab.c	330;"	d	file:
+YYMAXDEPTH	_nml.tab.c	1277;"	d	file:
+YYMAXDEPTH	nml.tab.c	1092;"	d	file:
+YYMAXUTOK	_nml.tab.c	458;"	d	file:
+YYMAXUTOK	nml.tab.c	419;"	d	file:
+YYMINOR	y.tab.c	8;"	d	file:
+YYNNTS	_nml.tab.c	450;"	d	file:
+YYNNTS	nml.tab.c	411;"	d	file:
+YYNRULES	_nml.tab.c	452;"	d	file:
+YYNRULES	nml.tab.c	413;"	d	file:
+YYNSTATES	_nml.tab.c	454;"	d	file:
+YYNSTATES	nml.tab.c	415;"	d	file:
+YYNTOKENS	_nml.tab.c	448;"	d	file:
+YYNTOKENS	nml.tab.c	409;"	d	file:
+YYPACT_NINF	_nml.tab.c	804;"	d	file:
+YYPACT_NINF	nml.tab.c	674;"	d	file:
+YYPOPSTACK	_nml.tab.c	1617;"	d	file:
+YYPOPSTACK	nml.tab.c	1432;"	d	file:
+YYPULL	_nml.tab.c	60;"	d	file:
+YYPULL	nml.tab.c	60;"	d	file:
+YYPURE	_nml.tab.c	54;"	d	file:
+YYPURE	nml.tab.c	54;"	d	file:
+YYPUSH	_nml.tab.c	57;"	d	file:
+YYPUSH	nml.tab.c	57;"	d	file:
+YYRECOVERING	_nml.tab.c	1026;"	d	file:
+YYRECOVERING	nml.tab.c	841;"	d	file:
+YYRECOVERING	y.tab.c	11;"	d	file:
+YYRHSLOC	_nml.tab.c	1054;"	d	file:
+YYRHSLOC	nml.tab.c	869;"	d	file:
+YYSIZE_MAXIMUM	_nml.tab.c	277;"	d	file:
+YYSIZE_MAXIMUM	nml.tab.c	238;"	d	file:
+YYSIZE_T	_nml.tab.c	265;"	d	file:
+YYSIZE_T	_nml.tab.c	267;"	d	file:
+YYSIZE_T	_nml.tab.c	271;"	d	file:
+YYSIZE_T	_nml.tab.c	273;"	d	file:
+YYSIZE_T	nml.tab.c	226;"	d	file:
+YYSIZE_T	nml.tab.c	228;"	d	file:
+YYSIZE_T	nml.tab.c	232;"	d	file:
+YYSIZE_T	nml.tab.c	234;"	d	file:
+YYSKELETON_NAME	_nml.tab.c	51;"	d	file:
+YYSKELETON_NAME	nml.tab.c	51;"	d	file:
+YYSTACK_ALLOC	_nml.tab.c	323;"	d	file:
+YYSTACK_ALLOC	_nml.tab.c	327;"	d	file:
+YYSTACK_ALLOC	_nml.tab.c	332;"	d	file:
+YYSTACK_ALLOC	_nml.tab.c	355;"	d	file:
+YYSTACK_ALLOC	nml.tab.c	284;"	d	file:
+YYSTACK_ALLOC	nml.tab.c	288;"	d	file:
+YYSTACK_ALLOC	nml.tab.c	293;"	d	file:
+YYSTACK_ALLOC	nml.tab.c	316;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	_nml.tab.c	352;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	_nml.tab.c	358;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	nml.tab.c	313;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	nml.tab.c	319;"	d	file:
+YYSTACK_BYTES	_nml.tab.c	402;"	d	file:
+YYSTACK_BYTES	nml.tab.c	363;"	d	file:
+YYSTACK_FREE	_nml.tab.c	346;"	d	file:
+YYSTACK_FREE	_nml.tab.c	356;"	d	file:
+YYSTACK_FREE	nml.tab.c	307;"	d	file:
+YYSTACK_FREE	nml.tab.c	317;"	d	file:
+YYSTACK_GAP_MAXIMUM	_nml.tab.c	398;"	d	file:
+YYSTACK_GAP_MAXIMUM	nml.tab.c	359;"	d	file:
+YYSTACK_RELOCATE	_nml.tab.c	429;"	d	file:
+YYSTACK_RELOCATE	nml.tab.c	390;"	d	file:
+YYSTATE	lex.yy.c	132;"	d	file:
+YYSTYPE	_nml.tab.c	/^typedef union YYSTYPE$/;"	u	file:
+YYSTYPE	_nml.tab.c	/^} YYSTYPE;$/;"	t	typeref:union:YYSTYPE	file:
+YYSTYPE	_nml.tab.h	/^typedef union YYSTYPE$/;"	u
+YYSTYPE	_nml.tab.h	/^} YYSTYPE;$/;"	t	typeref:union:YYSTYPE
+YYSTYPE	nml.tab.c	/^typedef union YYSTYPE$/;"	u	file:
+YYSTYPE	nml.tab.c	/^} YYSTYPE;$/;"	t	typeref:union:YYSTYPE	file:
+YYSTYPE	nml.tab.h	/^typedef union YYSTYPE$/;"	u
+YYSTYPE	nml.tab.h	/^} YYSTYPE;$/;"	t	typeref:union:YYSTYPE
+YYSTYPE_IS_DECLARED	_nml.tab.c	222;"	d	file:
+YYSTYPE_IS_DECLARED	_nml.tab.h	158;"	d
+YYSTYPE_IS_DECLARED	nml.tab.c	183;"	d	file:
+YYSTYPE_IS_DECLARED	nml.tab.h	113;"	d
+YYSTYPE_IS_TRIVIAL	_nml.tab.c	220;"	d	file:
+YYSTYPE_IS_TRIVIAL	_nml.tab.h	156;"	d
+YYSTYPE_IS_TRIVIAL	nml.tab.c	181;"	d	file:
+YYSTYPE_IS_TRIVIAL	nml.tab.h	111;"	d
+YYTABLES_NAME	lex.yy.c	2188;"	d	file:
+YYTABLE_NINF	_nml.tab.c	865;"	d	file:
+YYTABLE_NINF	nml.tab.c	720;"	d	file:
+YYTERROR	_nml.tab.c	1046;"	d	file:
+YYTERROR	nml.tab.c	861;"	d	file:
+YYTOKENTYPE	_nml.tab.c	101;"	d	file:
+YYTOKENTYPE	_nml.tab.h	37;"	d
+YYTOKENTYPE	nml.tab.c	107;"	d	file:
+YYTOKENTYPE	nml.tab.h	37;"	d
+YYTOKEN_TABLE	_nml.tab.c	95;"	d	file:
+YYTOKEN_TABLE	nml.tab.c	101;"	d	file:
+YYTRANSLATE	_nml.tab.c	460;"	d	file:
+YYTRANSLATE	nml.tab.c	421;"	d	file:
+YYUNDEFTOK	_nml.tab.c	457;"	d	file:
+YYUNDEFTOK	nml.tab.c	418;"	d	file:
+YYUSE	_nml.tab.c	293;"	d	file:
+YYUSE	_nml.tab.c	295;"	d	file:
+YYUSE	nml.tab.c	254;"	d	file:
+YYUSE	nml.tab.c	256;"	d	file:
+YY_	_nml.tab.c	283;"	d	file:
+YY_	_nml.tab.c	287;"	d	file:
+YY_	nml.tab.c	244;"	d	file:
+YY_	nml.tab.c	248;"	d	file:
+YY_AT_BOL	lex.yy.c	352;"	d	file:
+YY_BREAK	lex.yy.c	765;"	d	file:
+YY_BUFFER_EOF_PENDING	lex.yy.c	268;"	d	file:
+YY_BUFFER_NEW	lex.yy.c	256;"	d	file:
+YY_BUFFER_NORMAL	lex.yy.c	257;"	d	file:
+YY_BUFFER_STATE	lex.yy.c	/^typedef struct yy_buffer_state *YY_BUFFER_STATE;$/;"	t	typeref:struct:yy_buffer_state	file:
+YY_BUF_SIZE	lex.yy.c	149;"	d	file:
+YY_BUF_SIZE	lex.yy.c	151;"	d	file:
+YY_CHAR	lex.yy.c	/^typedef unsigned char YY_CHAR;$/;"	t	file:
+YY_CURRENT_BUFFER	lex.yy.c	284;"	d	file:
+YY_CURRENT_BUFFER_LVALUE	lex.yy.c	291;"	d	file:
+YY_DECL	lex.yy.c	753;"	d	file:
+YY_DECL_IS_OURS	lex.yy.c	749;"	d	file:
+YY_DO_BEFORE_ACTION	lex.yy.c	377;"	d	file:
+YY_END_OF_BUFFER	lex.yy.c	385;"	d	file:
+YY_END_OF_BUFFER_CHAR	lex.yy.c	140;"	d	file:
+YY_EXIT_FAILURE	lex.yy.c	1983;"	d	file:
+YY_EXTRA_TYPE	lex.yy.c	605;"	d	file:
+YY_FATAL_ERROR	lex.yy.c	740;"	d	file:
+YY_FLEX_MAJOR_VERSION	lex.yy.c	9;"	d	file:
+YY_FLEX_MINOR_VERSION	lex.yy.c	10;"	d	file:
+YY_FLEX_SUBMINOR_VERSION	lex.yy.c	11;"	d	file:
+YY_FLUSH_BUFFER	lex.yy.c	320;"	d	file:
+YY_INPUT	lex.yy.c	693;"	d	file:
+YY_INT_ALIGNED	lex.yy.c	4;"	d	file:
+YY_LESS_LINENO	lex.yy.c	179;"	d	file:
+YY_LOCATION_PRINT	_nml.tab.c	1082;"	d	file:
+YY_LOCATION_PRINT	_nml.tab.c	1087;"	d	file:
+YY_LOCATION_PRINT	nml.tab.c	897;"	d	file:
+YY_LOCATION_PRINT	nml.tab.c	902;"	d	file:
+YY_MORE_ADJ	lex.yy.c	580;"	d	file:
+YY_NEW_FILE	lex.yy.c	138;"	d	file:
+YY_NULL	lex.yy.c	112;"	d	file:
+YY_NUM_RULES	lex.yy.c	384;"	d	file:
+YY_READ_BUF_SIZE	lex.yy.c	675;"	d	file:
+YY_READ_BUF_SIZE	lex.yy.c	677;"	d	file:
+YY_REDUCE_PRINT	_nml.tab.c	1247;"	d	file:
+YY_REDUCE_PRINT	_nml.tab.c	1260;"	d	file:
+YY_REDUCE_PRINT	nml.tab.c	1062;"	d	file:
+YY_REDUCE_PRINT	nml.tab.c	1075;"	d	file:
+YY_RESTORE_YY_MORE_OFFSET	lex.yy.c	581;"	d	file:
+YY_RULE_SETUP	lex.yy.c	768;"	d	file:
+YY_SC_TO_UI	lex.yy.c	119;"	d	file:
+YY_STACK_PRINT	_nml.tab.c	1209;"	d	file:
+YY_STACK_PRINT	_nml.tab.c	1259;"	d	file:
+YY_STACK_PRINT	nml.tab.c	1024;"	d	file:
+YY_STACK_PRINT	nml.tab.c	1074;"	d	file:
+YY_START	lex.yy.c	131;"	d	file:
+YY_START_STACK_INCR	lex.yy.c	735;"	d	file:
+YY_STATE_BUF_SIZE	lex.yy.c	157;"	d	file:
+YY_STATE_EOF	lex.yy.c	135;"	d	file:
+YY_STRUCT_YY_BUFFER_STATE	lex.yy.c	209;"	d	file:
+YY_SYMBOL_PRINT	_nml.tab.c	1114;"	d	file:
+YY_SYMBOL_PRINT	_nml.tab.c	1258;"	d	file:
+YY_SYMBOL_PRINT	nml.tab.c	1073;"	d	file:
+YY_SYMBOL_PRINT	nml.tab.c	929;"	d	file:
+YY_TYPEDEF_YY_BUFFER_STATE	lex.yy.c	160;"	d	file:
+YY_TYPEDEF_YY_SIZE_T	lex.yy.c	204;"	d	file:
+YY_USER_ACTION	lex.yy.c	760;"	d	file:
+YY_USE_CONST	lex.yy.c	100;"	d	file:
+YY_USE_CONST	lex.yy.c	93;"	d	file:
+_STDLIB_H	_nml.tab.c	337;"	d	file:
+_STDLIB_H	_nml.tab.c	365;"	d	file:
+_STDLIB_H	nml.tab.c	298;"	d	file:
+_STDLIB_H	nml.tab.c	326;"	d	file:
+_ZL15hash_table_size	hash.s	/^_ZL15hash_table_size:$/;"	l
+_ZN12hash_control4findEPKc	hash.s	/^_ZN12hash_control4findEPKc:$/;"	l
+_ZN12hash_control4initEv	hash.s	/^_ZN12hash_control4initEv:$/;"	l
+_ZN12hash_control5eraseEPKc	hash.s	/^_ZN12hash_control5eraseEPKc:$/;"	l
+_ZN12hash_control6insertEPKci	hash.s	/^_ZN12hash_control6insertEPKci:$/;"	l
+_ZN12hash_control6loopupEPKcjPPP10hash_entryPm	hash.s	/^_ZN12hash_control6loopupEPKcjPPP10hash_entryPm:$/;"	l
+_ZN12hash_control7replaceEPKci	hash.s	/^_ZN12hash_control7replaceEPKci:$/;"	l
+_ZN12hash_control8get_sizeEv	hash.s	/^_ZN12hash_control8get_sizeEv:$/;"	l
+_ZN12hash_control8set_sizeEm	hash.s	/^_ZN12hash_control8set_sizeEm:$/;"	l
+_ZN12hash_controlC2Ej	hash.s	/^_ZN12hash_controlC2Ej:$/;"	l
+_ZN12hash_controlC2Ev	hash.s	/^_ZN12hash_controlC2Ev:$/;"	l
+_ZN12hash_controlD2Ev	hash.s	/^_ZN12hash_controlD2Ev:$/;"	l
+_ZZN12hash_control8get_sizeEvE16hash_size_primes	hash.s	/^_ZZN12hash_control8get_sizeEvE16hash_size_primes:$/;"	l
+__ADDRESS_RANGE_C__	address_range_c.h	2;"	d
+__ADDRESS_TABLE__	address_table.h	2;"	d
+__CST_TABLE__	cst_table.h	2;"	d
+__DRT_H__	drt.h	2;"	d
+__ENUM_TABLE__	enum_table.h	2;"	d
+__INTEGER_TABLE__	integer_table.h	2;"	d
+__MEM_TABLE__	mem_table (copy).cpp	2;"	d	file:
+__MEM_TABLE__	mem_table.h	2;"	d
+__NUM_TABLE__	num_table.h	2;"	d
+__OPN_TABLE__	opn_table.h	2;"	d
+__OP_IMAGE__	op_image.h	2;"	d
+__ORMODE_TABLE__	ormode_table.h	2;"	d
+__OROPN_TABLE__	oropn_table.h	2;"	d
+__OR_TABLE__	or_table.h	2;"	d
+__OUTPUTF__	outputf.h	2;"	d
+__PAR_TABLE__	par_table.h	2;"	d
+__STDC_LIMIT_MACROS	lex.yy.c	39;"	d	file:
+__STRING_TABLE__	string_table.h	2;"	d
+__SYNTAX_TABLE__	syntax_table.h	2;"	d
+__TYPE_TABLE__	type_table.h	2;"	d
+__VAR_TABLE__	var_table.h	2;"	d
+__front_H__	front.h	2;"	d
+a	hash (copy).cpp	/^class a$/;"	c	file:
+aaa	untitled folder/tmp.y	/^aaa: ta tb{};$/;"	l
+add	address_range_c.cpp	/^int address_range_c::add(int b,int e)$/;"	f	class:address_range_c
+add	address_table.cpp	/^int address_table::add(int addrange,int step)$/;"	f	class:address_table
+add	cst_table.cpp	/^int cst_table::add(int t,int v)$/;"	f	class:cst_table
+add	integer_table.cpp	/^int integer_table::add(const char *v)$/;"	f	class:integer_table
+add	integer_table.cpp	/^int integer_table::add(mpz_class v)$/;"	f	class:integer_table
+add	mem_table.cpp	/^int mem_table::add(int a,int t,int at,int t9,int t10,int t11,int t12)$/;"	f	class:mem_table
+add	num_table.cpp	/^int num_table::add(mpz_class num)$/;"	f	class:num_table
+add	opn_table.cpp	/^int opn_table::add(int p,int s,int i)$/;"	f	class:opn_table
+add	ormode_table.cpp	/^int ormode_table::add(int p,int v)$/;"	f	class:ormode_table
+add	oropn_table.cpp	/^int oropn_table::add(int p,int v)$/;"	f	class:oropn_table
+add	par_table.cpp	/^int par_table::add(const char *n,const char *v)$/;"	f	class:par_table
+add	type_table.cpp	/^int type_table::add(const char *n,bool s,size_t w)$/;"	f	class:type_table
+add	var_table.cpp	/^int var_table::add(const char * n,int t,int v,int d)$/;"	f	class:var_table
+addalt	op_image.cpp	/^int op_image::addalt()$/;"	f	class:op_image
+addalt	op_image.cpp	/^int op_img_alt::addalt()$/;"	f	class:op_img_alt
+addalt	syntax_table.cpp	/^int syntax_alt_c::addalt()$/;"	f	class:syntax_alt_c
+addalt	syntax_table.cpp	/^int syntax_trm_c::addalt()$/;"	f	class:syntax_trm_c
+addele	op_image.cpp	/^int op_image::addele(int t,int v,int i)$/;"	f	class:op_image
+addele	op_image.cpp	/^int op_img_alt::addele(int t,int v,int i)$/;"	f	class:op_img_alt
+addele	op_image.cpp	/^int op_img_ent::addele(int v,int t,int i)$/;"	f	class:op_img_ent
+addele	or_table.cpp	/^int or_table::addele(int t,int v,int i)$/;"	f	class:or_table
+addele	or_table.cpp	/^int or_table_ent::addele(int t,int v,int i)$/;"	f	class:or_table_ent
+addele	or_table.cpp	/^int or_table_entry::addele(int t,int v,int i)$/;"	f	class:or_table_entry
+addele	syntax_table.cpp	/^int syntax_alt_c::addele(syntax_ref_c src)$/;"	f	class:syntax_alt_c
+addele	syntax_table.cpp	/^int syntax_ent_c::addele(syntax_ref_c src)$/;"	f	class:syntax_ent_c
+addele	syntax_table.cpp	/^int syntax_trm_c::addele(syntax_ref_c src)$/;"	f	class:syntax_trm_c
+addent	enum_table.cpp	/^int enum_table::addent(const char * n,const char * m,int v)$/;"	f	class:enum_table
+addent	enum_table.cpp	/^int enum_table_term::addent(const char * n,const char * m,int v)$/;"	f	class:enum_table_term
+addent	or_table.cpp	/^int or_table::addent()$/;"	f	class:or_table
+addentfin	enum_table.cpp	/^int enum_table::addentfin()$/;"	f	class:enum_table
+addid	outputf.cpp	/^void addid()$/;"	f
+addrangetab	front.cpp	/^address_range_c addrangetab;$/;"	v
+address_ent	address_table.cpp	/^	address_ent(int r,int s){range=r,step=s;};$/;"	f	class:address_ent
+address_ent	address_table.cpp	/^class address_ent$/;"	c	file:
+address_ent	address_table.h	/^	address_ent(int r,int s){range=r,step=s;};$/;"	f	class:address_ent
+address_ent	address_table.h	/^class address_ent$/;"	c
+address_range	nml.y	/^address_range : integer_expression {$/;"	l
+address_range_c	address_range_c.cpp	/^	address_range_c(){list.push_back(address_range_c_ent(0,0));};$/;"	f	class:address_range_c
+address_range_c	address_range_c.cpp	/^class address_range_c$/;"	c	file:
+address_range_c	address_range_c.h	/^	address_range_c(){list.push_back(address_range_c_ent(0,0));};$/;"	f	class:address_range_c
+address_range_c	address_range_c.h	/^class address_range_c$/;"	c
+address_range_c_ent	address_range_c.cpp	/^	address_range_c_ent(int b,int e){beg=b,end=e;};$/;"	f	class:address_range_c_ent
+address_range_c_ent	address_range_c.cpp	/^class address_range_c_ent$/;"	c	file:
+address_range_c_ent	address_range_c.h	/^	address_range_c_ent(int b,int e){beg=b,end=e;};$/;"	f	class:address_range_c_ent
+address_range_c_ent	address_range_c.h	/^class address_range_c_ent$/;"	c
+address_step_opt	nml.y	/^address_step_opt :{$$=numtab.add(1);}$/;"	l
+address_table	address_table.cpp	/^	address_table(){list.push_back(address_ent(0,0));};$/;"	f	class:address_table
+address_table	address_table.cpp	/^class address_table$/;"	c	file:
+address_table	address_table.h	/^	address_table(){list.push_back(address_ent(0,0));};$/;"	f	class:address_table
+address_table	address_table.h	/^class address_table$/;"	c
+address_type	nml.y	/^address_type: type_id{$$=$1;};$/;"	l
+addrng	mem_table (copy).cpp	/^	int addrng;$/;"	m	class:mem_ent	file:
+addrng	mem_table.cpp	/^	int addrng;$/;"	m	class:mem_ent	file:
+addrng	mem_table.h	/^	int addrng;$/;"	m	class:mem_ent
+addrtab	front.cpp	/^address_table addrtab;$/;"	v
+addrtype	mem_table (copy).cpp	/^	int addrtype;$/;"	m	class:mem_ent	file:
+addrtype	mem_table.cpp	/^	int addrtype;$/;"	m	class:mem_ent	file:
+addrtype	mem_table.h	/^	int addrtype;$/;"	m	class:mem_ent
+addstr	string_table.cpp	/^int string_table::addstr(const char * string)$/;"	f	class:string_table
+addtrm	op_image.cpp	/^int op_image::addtrm()$/;"	f	class:op_image
+addtrm	syntax_table.cpp	/^int syntax_trm_c::addtrm()$/;"	f	class:syntax_trm_c
+addx	outputf.cpp	/^void addx(int x)$/;"	f
+alloca	_nml.tab.c	330;"	d	file:
+alloca	nml.tab.c	291;"	d	file:
+and_field_encoding	nml.y	/^and_field_encoding: STRING_CONST {opimg.addele(STRING_CONST,strtab.addstr($1),0);}$/;"	l
+and_field_encoding_list	nml.y	/^and_field_encoding_list: and_field_encoding enc_alias_opt$/;"	l
+and_image_attribute	nml.y	/^and_image_attribute: IMAGE COLON and_field_encoding_list instr_properties_opt SEMI{$/;"	l
+and_image_attribute_list	nml.y	/^and_image_attribute_list: {}$/;"	l
+and_mode_rule	nml.y	/^and_mode_rule: MODE IDENTIFIER LPAREN parameter_declaration_list RPAREN$/;"	l
+and_op_rule	nml.y	/^and_op_rule: OP IDENTIFIER LPAREN parameter_declaration_list RPAREN$/;"	l
+ar	drt.cpp	/^	opn_table * ar;$/;"	m	class:rule	file:
+ar	drt.h	/^	opn_table * ar;$/;"	m	class:rule
+b	hash (copy).cpp	/^class b$/;"	c	file:
+beg	address_range_c.cpp	/^	int beg;$/;"	m	class:address_range_c_ent	file:
+beg	address_range_c.h	/^	int beg;$/;"	m	class:address_range_c_ent
+bit_string_literal	nml.y	/^bit_string_literal: STRING_CONST{$$=$1;};$/;"	l
+charP	_nml.tab.c	/^char *charP;$/;"	m	union:YYSTYPE	file:
+charP	_nml.tab.h	/^char *charP;$/;"	m	union:YYSTYPE
+charP	nml.tab.c	/^const char* charP;$/;"	m	union:YYSTYPE	file:
+charP	nml.tab.h	/^const char* charP;$/;"	m	union:YYSTYPE
+chgval	var_table.cpp	/^int var_table::chgval(int n,int v)$/;"	f	class:var_table
+clear	integer_table.cpp	/^void integer_table::clear()$/;"	f	class:integer_table
+clear	par_table.cpp	/^int par_table::clear()$/;"	f	class:par_table
+clearent	enum_table.cpp	/^void enum_table::clearent()$/;"	f	class:enum_table
+clearent	enum_table.cpp	/^void enum_table_term::clearent()$/;"	f	class:enum_table_term
+count	par_table.cpp	/^	int count;$/;"	m	class:par_table	file:
+count	par_table.h	/^	int count;$/;"	m	class:par_table
+cst_declaration	nml.y	/^cst_declaration: CST IDENTIFIER LESS type_id GRT cst_value_opt SEMI{$/;"	l
+cst_table	cst_table.cpp	/^	cst_table(){list.push_back(cst_table_ent(0,0));};$/;"	f	class:cst_table
+cst_table	cst_table.cpp	/^class cst_table$/;"	c	file:
+cst_table	cst_table.h	/^	cst_table(){list.push_back(cst_table_ent(0,0));};$/;"	f	class:cst_table
+cst_table	cst_table.h	/^class cst_table$/;"	c
+cst_table_ent	cst_table.cpp	/^	cst_table_ent(int t,int v){type=t,val=v;};\/*TODO check*\/$/;"	f	class:cst_table_ent
+cst_table_ent	cst_table.cpp	/^class cst_table_ent$/;"	c	file:
+cst_table_ent	cst_table.h	/^	cst_table_ent(int t,int v){type=t,val=v;};\/*TODO check*\/$/;"	f	class:cst_table_ent
+cst_table_ent	cst_table.h	/^class cst_table_ent$/;"	c
+cst_value_opt	nml.y	/^cst_value_opt : {$$=numtab.add(0);}$/;"	l
+csttab	front.cpp	/^cst_table csttab;$/;"	v
+data	hash.cpp	/^  int data;	\/*[void *data;]*\/$/;"	m	class:hash_entry	file:
+declaration	nml.y	/^declaration: number_declaration$/;"	l
+declaration_list	nml.y	/^declaration_list: declaration$/;"	l
+defline	var_table.cpp	/^	int defline;$/;"	m	class:var_entry	file:
+defline	var_table.h	/^	int defline;$/;"	m	class:var_entry
+deletions	hash.cpp	/^  unsigned long deletions;$/;"	m	class:hash_control	file:
+deletions	hash.h	/^  unsigned long deletions;$/;"	m	class:hash_control
+delid	outputf.cpp	/^void delid()$/;"	f
+delx	outputf.cpp	/^void delx(int x)$/;"	f
+enc_alias	nml.y	/^enc_alias: LESS ALIAS \/*and_field_encoding*\/ GRT;$/;"	l
+enc_alias_opt	nml.y	/^enc_alias_opt:$/;"	l
+end	address_range_c.cpp	/^	int end;$/;"	m	class:address_range_c_ent	file:
+end	address_range_c.h	/^	int end;$/;"	m	class:address_range_c_ent
+enum_declaration	nml.y	/^enum_declaration: ENUM IDENTIFIER LBRACE enum_list RBRACE SEMI{$/;"	l
+enum_element	nml.y	/^enum_element: IDENTIFIER mnemonic_opt init_opt{$/;"	l
+enum_element_name	nml.y	/^enum_element_name: IDENTIFIER{$/;"	l
+enum_list	nml.y	/^enum_list: enum_element$/;"	l
+enum_table	enum_table.cpp	/^class enum_table$/;"	c	file:
+enum_table	enum_table.cpp	/^enum_table::enum_table()$/;"	f	class:enum_table
+enum_table	enum_table.h	/^class enum_table$/;"	c
+enum_table_ent	enum_table.cpp	/^	enum_table_ent(const char * n,const char * m,int v){name=n,mnemonic=m,val=v;};$/;"	f	class:enum_table_ent
+enum_table_ent	enum_table.cpp	/^class enum_table_ent$/;"	c	file:
+enum_table_ent	enum_table.h	/^	enum_table_ent(const char * n,const char * m,int v){name=n,mnemonic=m,val=v;};$/;"	f	class:enum_table_ent
+enum_table_ent	enum_table.h	/^class enum_table_ent$/;"	c
+enum_table_term	enum_table.cpp	/^	enum_table_term(){width=1;list.push_back(enum_table_ent(NULL,NULL,0));};$/;"	f	class:enum_table_term
+enum_table_term	enum_table.cpp	/^class enum_table_term$/;"	c	file:
+enum_table_term	enum_table.h	/^	enum_table_term(){width=1;list.push_back(enum_table_ent(NULL,NULL,0));};$/;"	f	class:enum_table_term
+enum_table_term	enum_table.h	/^class enum_table_term$/;"	c
+enumtab	front.cpp	/^enum_table enumtab;$/;"	v
+erase	hash.cpp	/^int hash_control::erase (const char *key)$/;"	f	class:hash_control
+et	drt.cpp	/^	enum_table * et;$/;"	m	class:rule	file:
+et	drt.h	/^	enum_table * et;$/;"	m	class:rule
+fgx	front.cpp	/^void fgx(FILE *file)$/;"	f
+fin	enum_table.cpp	/^void enum_table_term::fin()$/;"	f	class:enum_table_term
+find	hash.cpp	/^int hash_control::find (const char *key)$/;"	f	class:hash_control
+find	par_table.cpp	/^int par_table::find(const char *n)$/;"	f	class:par_table
+find	type_table.cpp	/^int type_table::find(const char *n)$/;"	f	class:type_table
+find	var_table.cpp	/^int var_table::find(const char *str)$/;"	f	class:var_table
+findent	enum_table.cpp	/^int enum_table::findent(int i,const char * n)$/;"	f	class:enum_table
+findent	enum_table.cpp	/^int enum_table_term::findent(const char *n)$/;"	f	class:enum_table_term
+finele	or_table.cpp	/^int or_table::finele()$/;"	f	class:or_table
+finele	or_table.cpp	/^int or_table_entry::finele()$/;"	f	class:or_table_entry
+flex_int16_t	lex.yy.c	/^typedef int16_t flex_int16_t;$/;"	t	file:
+flex_int16_t	lex.yy.c	/^typedef short int flex_int16_t;$/;"	t	file:
+flex_int32_t	lex.yy.c	/^typedef int flex_int32_t;$/;"	t	file:
+flex_int32_t	lex.yy.c	/^typedef int32_t flex_int32_t;$/;"	t	file:
+flex_int8_t	lex.yy.c	/^typedef int8_t flex_int8_t;$/;"	t	file:
+flex_int8_t	lex.yy.c	/^typedef signed char flex_int8_t;$/;"	t	file:
+flex_uint16_t	lex.yy.c	/^typedef uint16_t flex_uint16_t;$/;"	t	file:
+flex_uint16_t	lex.yy.c	/^typedef unsigned short int flex_uint16_t;$/;"	t	file:
+flex_uint32_t	lex.yy.c	/^typedef uint32_t flex_uint32_t;$/;"	t	file:
+flex_uint32_t	lex.yy.c	/^typedef unsigned int flex_uint32_t;$/;"	t	file:
+flex_uint8_t	lex.yy.c	/^typedef uint8_t flex_uint8_t;$/;"	t	file:
+flex_uint8_t	lex.yy.c	/^typedef unsigned char flex_uint8_t; $/;"	t	file:
+gen	drt.cpp	/^void rule::gen()$/;"	f	class:rule
+gen_and_rule	drt.cpp	/^void rule::gen_and_rule(int k)$/;"	f	class:rule
+gen_andrule_img_beg	drt.cpp	/^void rule::gen_andrule_img_beg(int num)$/;"	f	class:rule
+gen_andrule_img_end	drt.cpp	/^void rule::gen_andrule_img_end()$/;"	f	class:rule
+gen_enum	drt.cpp	/^int rule::gen_enum(int v)$/;"	f	class:rule
+gen_or_rule	drt.cpp	/^void rule::gen_or_rule(int k)$/;"	f	class:rule
+gen_ot_ref	drt.cpp	/^int rule::gen_ot_ref(const char * name)$/;"	f	class:rule
+gen_rule_beg	drt.cpp	/^void rule::gen_rule_beg(const char *type,const char *n)$/;"	f	class:rule
+gen_rule_end	drt.cpp	/^void rule::gen_rule_end()$/;"	f	class:rule
+gen_ruleref	drt.cpp	/^int rule::gen_ruleref(const char * name)$/;"	f	class:rule
+gen_ruleref_r	drt.cpp	/^int rule::gen_ruleref_r(int v){}$/;"	f	class:rule
+gen_str	drt.cpp	/^int rule::gen_str(const char *v)$/;"	f	class:rule
+gen_str_r	drt.cpp	/^int rule::gen_str_r(const char *c){$/;"	f	class:rule
+get_size	hash.cpp	/^get_size (void)$/;"	f	class:hash_control
+get_width	enum_table.cpp	/^size_t enum_table_ent::get_width()$/;"	f	class:enum_table_ent
+getaddrng	mem_table.cpp	/^	int getaddrng(){return addrng;};$/;"	f	class:mem_ent
+getaddrng	mem_table.h	/^	int getaddrng(){return addrng;};$/;"	f	class:mem_ent
+getaddrtype	mem_table.cpp	/^	int getaddrtype(){return addrtype;};$/;"	f	class:mem_ent
+getaddrtype	mem_table.h	/^	int getaddrtype(){return addrtype;};$/;"	f	class:mem_ent
+getaltidx	op_image.cpp	/^int op_image::getaltidx(int t,int a,int i)$/;"	f	class:op_image
+getaltsize	op_image.cpp	/^int op_image::getaltsize(int a,int i)$/;"	f	class:op_image
+getalttype	op_image.cpp	/^int op_image::getalttype(int t,int a,int i)$/;"	f	class:op_image
+getaltval	op_image.cpp	/^int op_image::getaltval(int t,int a,int i)$/;"	f	class:op_image
+getans	integer_table.cpp	/^mpz_class integer_table::getans()$/;"	f	class:integer_table
+getbeg	address_range_c.cpp	/^	int getbeg(){return beg;};$/;"	f	class:address_range_c_ent
+getbeg	address_range_c.h	/^	int getbeg(){return beg;};$/;"	f	class:address_range_c_ent
+getdefline	var_table.cpp	/^int var_table::getdefline(int i)$/;"	f	class:var_table
+getelesize	syntax_table.cpp	/^int syntax_alt_c::getelesize(int a)$/;"	f	class:syntax_alt_c
+getelesize	syntax_table.cpp	/^int syntax_trm_c::getelesize(int t,int a)$/;"	f	class:syntax_trm_c
+geteletype	syntax_table.cpp	/^int syntax_alt_c::geteletype(int a,int i)$/;"	f	class:syntax_alt_c
+geteletype	syntax_table.cpp	/^int syntax_ent_c::geteletype(int i)$/;"	f	class:syntax_ent_c
+geteletype	syntax_table.cpp	/^int syntax_trm_c::geteletype(int t,int a,int i)$/;"	f	class:syntax_trm_c
+geteleval	syntax_table.cpp	/^int syntax_alt_c::geteleval(int a,int i)$/;"	f	class:syntax_alt_c
+geteleval	syntax_table.cpp	/^int syntax_ent_c::geteleval(int i)$/;"	f	class:syntax_ent_c
+geteleval	syntax_table.cpp	/^int syntax_trm_c::geteleval(int t,int a,int i)$/;"	f	class:syntax_trm_c
+getend	address_range_c.cpp	/^	int getend(){return end;};$/;"	f	class:address_range_c_ent
+getend	address_range_c.h	/^	int getend(){return end;};$/;"	f	class:address_range_c_ent
+getentidx	op_image.cpp	/^int op_img_alt::getentidx(int a,int i)$/;"	f	class:op_img_alt
+getentrysize	or_table.cpp	/^int or_table::getentrysize(int t)$/;"	f	class:or_table
+getentsize	enum_table.cpp	/^int enum_table::getentsize(int i)$/;"	f	class:enum_table
+getentsize	enum_table.cpp	/^int enum_table_term::getentsize()$/;"	f	class:enum_table_term
+getentsize	op_image.cpp	/^int op_img_alt::getentsize(int i)$/;"	f	class:op_img_alt
+getentsize	or_table.cpp	/^int or_table::getentsize(int t,int e)$/;"	f	class:or_table
+getentsize	or_table.cpp	/^int or_table_entry::getentsize(int e)$/;"	f	class:or_table_entry
+getenttype	op_image.cpp	/^int op_img_alt::getenttype(int a,int i)$/;"	f	class:op_img_alt
+getentval	op_image.cpp	/^int op_img_alt::getentval(int a,int i)$/;"	f	class:op_img_alt
+getidx	op_image.cpp	/^	int getidx(){return idx;};$/;"	f	class:op_img_ele
+getidx	op_image.cpp	/^int op_img_ent::getidx(int i)$/;"	f	class:op_img_ent
+getidx	op_image.h	/^	int getidx(){return idx;};$/;"	f	class:op_img_ele
+getidx	or_table.cpp	/^	int getidx(){return idx;};$/;"	f	class:or_table_ele
+getidx	or_table.cpp	/^int or_table_ent::getidx(int i)$/;"	f	class:or_table_ent
+getidx	or_table.cpp	/^int or_table_entry::getidx(int t,int i)$/;"	f	class:or_table_entry
+getidx	or_table.cpp	/^}int or_table::getidx(int e,int t,int i)$/;"	f	class:or_table
+getidx	or_table.h	/^	int getidx(){return idx;};$/;"	f	class:or_table_ele
+getidx	syntax_table.cpp	/^	int getidx(){return idx;};$/;"	f	class:syntax_ref_c
+getidx	syntax_table.h	/^	int getidx(){return idx;};$/;"	f	class:syntax_ref_c
+getimg	opn_table.cpp	/^	int getimg(){return img;};$/;"	f	class:opn_tab_entry
+getimg	opn_table.cpp	/^int opn_table::getimg(int i)$/;"	f	class:opn_table
+getimg	opn_table.h	/^	int getimg(){return img;};$/;"	f	class:opn_tab_entry
+getinfo	enum_table.cpp	/^void enum_table::getinfo(int e,int i,int *v,const char **n,const char **m)$/;"	f	class:enum_table
+getinfo	enum_table.cpp	/^void enum_table_ent::getinfo(int *v,const char **n,const char **m)$/;"	f	class:enum_table_ent
+getinfo	enum_table.cpp	/^void enum_table_term::getinfo(int i,int *v,const char **n,const char **m)$/;"	f	class:enum_table_term
+getlineno	var_table.cpp	/^int var_entry::getlineno()$/;"	f	class:var_entry
+getmne	enum_table.cpp	/^const char * enum_table::getmne(int e,int i)$/;"	f	class:enum_table
+getmne	enum_table.cpp	/^const char * enum_table_ent::getmne()$/;"	f	class:enum_table_ent
+getmne	enum_table.cpp	/^const char * enum_table_term::getmne(int i)$/;"	f	class:enum_table_term
+getname	enum_table.cpp	/^const char * enum_table::getname(int e,int i)$/;"	f	class:enum_table
+getname	enum_table.cpp	/^const char * enum_table_ent::getname()$/;"	f	class:enum_table_ent
+getname	enum_table.cpp	/^const char * enum_table_term::getname(int i)$/;"	f	class:enum_table_term
+getname	par_table.cpp	/^	const char * getname(){return name;};$/;"	f	class:param_entry
+getname	par_table.cpp	/^const char * par_table::getname(int idx)$/;"	f	class:par_table
+getname	par_table.h	/^	const char * getname(){return name;};$/;"	f	class:param_entry
+getname	var_table.cpp	/^	const char * getname(){return name;};$/;"	f	class:var_entry
+getname	var_table.cpp	/^const char * var_table::getname(int i)$/;"	f	class:var_table
+getname	var_table.h	/^	const char * getname(){return name;};$/;"	f	class:var_entry
+getpara	opn_table.cpp	/^	int getpara(){return para;};$/;"	f	class:opn_tab_entry
+getpara	opn_table.cpp	/^int opn_table::getpara(int i)$/;"	f	class:opn_table
+getpara	opn_table.h	/^	int getpara(){return para;};$/;"	f	class:opn_tab_entry
+getpara	oropn_table.cpp	/^int oropn_table::getpara(int i)$/;"	f	class:oropn_table
+getparam	ormode_table.cpp	/^	int getparam(){return param;};$/;"	f	class:ormode_table_ent
+getparam	ormode_table.h	/^	int getparam(){return param;};$/;"	f	class:ormode_table_ent
+getparam	oropn_table.cpp	/^	int getparam(){return param;};$/;"	f	class:oropn_table_ent
+getparam	oropn_table.h	/^	int getparam(){return param;};$/;"	f	class:oropn_table_ent
+getrange	address_table.cpp	/^	int getrange(){return range;};$/;"	f	class:address_ent
+getrange	address_table.h	/^	int getrange(){return range;};$/;"	f	class:address_ent
+getsize	op_image.cpp	/^int op_img_ent::getsize()$/;"	f	class:op_img_ent
+getsize	opn_table.cpp	/^int opn_table::getsize()$/;"	f	class:opn_table
+getsize	or_table.cpp	/^int or_table_ent::getsize()$/;"	f	class:or_table_ent
+getsize	or_table.cpp	/^int or_table_entry::getsize()$/;"	f	class:or_table_entry
+getsize	syntax_table.cpp	/^int syntax_ent_c::getsize()$/;"	f	class:syntax_ent_c
+getstart	front.cpp	/^const char * getstart()$/;"	f
+getstep	address_table.cpp	/^	int getstep(){return step;};$/;"	f	class:address_ent
+getstep	address_table.h	/^	int getstep(){return step;};$/;"	f	class:address_ent
+getstr	num_table.cpp	/^const char * num_table::getstr(int idx)$/;"	f	class:num_table
+getstr	string_table.cpp	/^const char * string_table::getstr(int idx)$/;"	f	class:string_table
+getsyn	opn_table.cpp	/^	int getsyn(){return syn;};$/;"	f	class:opn_tab_entry
+getsyn	opn_table.cpp	/^int opn_table::getsyn(int i)$/;"	f	class:opn_table
+getsyn	opn_table.h	/^	int getsyn(){return syn;};$/;"	f	class:opn_tab_entry
+gettype	cst_table.cpp	/^	int gettype(){return type;};$/;"	f	class:cst_table_ent
+gettype	cst_table.h	/^	int gettype(){return type;};$/;"	f	class:cst_table_ent
+gettype	mem_table.cpp	/^	int gettype(){return type;};$/;"	f	class:mem_ent
+gettype	mem_table.h	/^	int gettype(){return type;};$/;"	f	class:mem_ent
+gettype	op_image.cpp	/^	int gettype(){return type;};$/;"	f	class:op_img_ele
+gettype	op_image.cpp	/^int op_img_ent::gettype(int i)$/;"	f	class:op_img_ent
+gettype	op_image.h	/^	int gettype(){return type;};$/;"	f	class:op_img_ele
+gettype	or_table.cpp	/^	int gettype(){return type;};$/;"	f	class:or_table_ele
+gettype	or_table.cpp	/^int or_table::gettype(int e,int t,int i)$/;"	f	class:or_table
+gettype	or_table.cpp	/^int or_table_ent::gettype(int i)$/;"	f	class:or_table_ent
+gettype	or_table.cpp	/^int or_table_entry::gettype(int t,int i)$/;"	f	class:or_table_entry
+gettype	or_table.h	/^	int gettype(){return type;};$/;"	f	class:or_table_ele
+gettype	syntax_table.cpp	/^	int gettype(){return type;};$/;"	f	class:syntax_ref_c
+gettype	syntax_table.h	/^	int gettype(){return type;};$/;"	f	class:syntax_ref_c
+gettype	var_table.cpp	/^int var_entry::gettype()$/;"	f	class:var_entry
+gettype	var_table.cpp	/^int var_table::gettype(int i)$/;"	f	class:var_table
+getval	cst_table.cpp	/^	int getval(){return val;};$/;"	f	class:cst_table_ent
+getval	cst_table.h	/^	int getval(){return val;};$/;"	f	class:cst_table_ent
+getval	enum_table.cpp	/^	int getval(){return val;};$/;"	f	class:enum_table_ent
+getval	enum_table.cpp	/^int enum_table::getval(int e,int i)$/;"	f	class:enum_table
+getval	enum_table.cpp	/^int enum_table_term::getval(int i)$/;"	f	class:enum_table_term
+getval	enum_table.h	/^	int getval(){return val;};$/;"	f	class:enum_table_ent
+getval	num_table.cpp	/^mpz_class num_table::getval(int idx)$/;"	f	class:num_table
+getval	op_image.cpp	/^	int getval(){return val;};$/;"	f	class:op_img_ele
+getval	op_image.cpp	/^int op_img_ent::getval(int i)$/;"	f	class:op_img_ent
+getval	op_image.h	/^	int getval(){return val;};$/;"	f	class:op_img_ele
+getval	or_table.cpp	/^	int getval(){return val;};$/;"	f	class:or_table_ele
+getval	or_table.cpp	/^int or_table::getval(int e,int t,int i)$/;"	f	class:or_table
+getval	or_table.cpp	/^int or_table_ent::getval(int i)$/;"	f	class:or_table_ent
+getval	or_table.cpp	/^int or_table_entry::getval(int t,int i)$/;"	f	class:or_table_entry
+getval	or_table.h	/^	int getval(){return val;};$/;"	f	class:or_table_ele
+getval	ormode_table.cpp	/^	int getval(){return val;};$/;"	f	class:ormode_table_ent
+getval	ormode_table.h	/^	int getval(){return val;};$/;"	f	class:ormode_table_ent
+getval	oropn_table.cpp	/^	int getval(){return val;};$/;"	f	class:oropn_table_ent
+getval	oropn_table.cpp	/^int oropn_table::getval(int i)$/;"	f	class:oropn_table
+getval	oropn_table.h	/^	int getval(){return val;};$/;"	f	class:oropn_table_ent
+getval	par_table.cpp	/^	const char * getval(){return val;};$/;"	f	class:param_entry
+getval	par_table.cpp	/^const char * par_table::getval(int idx)$/;"	f	class:par_table
+getval	par_table.h	/^	const char * getval(){return val;};$/;"	f	class:param_entry
+getval	syntax_table.cpp	/^	int getval(){return val;};$/;"	f	class:syntax_ref_c
+getval	syntax_table.h	/^	int getval(){return val;};$/;"	f	class:syntax_ref_c
+getval	var_table.cpp	/^int var_entry::getval()$/;"	f	class:var_entry
+getval	var_table.cpp	/^int var_table::getval(int i)$/;"	f	class:var_table
+getwidth	enum_table.cpp	/^int enum_table::getwidth(int i)$/;"	f	class:enum_table
+getwidth	enum_table.cpp	/^int enum_table_term::getwidth()$/;"	f	class:enum_table_term
+getwidth	num_table.cpp	/^int num_table::getwidth(int idx)$/;"	f	class:num_table
+getwidth	type_table.cpp	/^int type_table::getwidth(int idx)$/;"	f	class:type_table
+hash	hash.cpp	/^  unsigned long hash;$/;"	m	class:hash_entry	file:
+hash_compares	hash.cpp	/^  unsigned long hash_compares;$/;"	m	class:hash_control	file:
+hash_compares	hash.h	/^  unsigned long hash_compares;$/;"	m	class:hash_control
+hash_control	hash.cpp	/^class hash_control {$/;"	c	file:
+hash_control	hash.cpp	/^hash_control::hash_control(unsigned int table_size)$/;"	f	class:hash_control
+hash_control	hash.h	/^class hash_control {$/;"	c
+hash_entry	hash.cpp	/^class hash_entry {$/;"	c	file:
+idlist	outputf.cpp	/^static bool idlist[1000];$/;"	v	file:
+idx	op_image.cpp	/^	int idx;$/;"	m	class:op_img_ele	file:
+idx	op_image.h	/^	int idx;$/;"	m	class:op_img_ele
+idx	or_table.cpp	/^	int idx;$/;"	m	class:or_table_ele	file:
+idx	or_table.h	/^	int idx;$/;"	m	class:or_table_ele
+idx	syntax_table.cpp	/^	int idx;$/;"	m	class:syntax_ref_c	file:
+idx	syntax_table.h	/^	int idx;$/;"	m	class:syntax_ref_c
+image_nr	nml.y	/^image_nr: POINT integer{$/;"	l
+image_nr_opt	nml.y	/^image_nr_opt: {$$=0;}$/;"	l
+img	opn_table.cpp	/^	int img;$/;"	m	class:opn_tab_entry	file:
+img	opn_table.h	/^	int img;$/;"	m	class:opn_tab_entry
+indent	outputf.cpp	/^static int indent=0;$/;"	v	file:
+index	nml.tab.c	/^int index;$/;"	m	union:YYSTYPE	file:
+index	nml.tab.h	/^int index;$/;"	m	union:YYSTYPE
+init	hash.cpp	/^void hash_control::init ()$/;"	f	class:hash_control
+init_opt	nml.y	/^init_opt: {$$=-1;}$/;"	l
+insert	hash.cpp	/^const char * hash_control::insert (const char *key, int val \/*[void *val]*\/)$/;"	f	class:hash_control
+insertions	hash.cpp	/^  unsigned long insertions;$/;"	m	class:hash_control	file:
+insertions	hash.h	/^  unsigned long insertions;$/;"	m	class:hash_control
+instr_properties	nml.y	/^instr_properties: instr_property$/;"	l
+instr_properties_opt	nml.y	/^instr_properties_opt:$/;"	l
+instr_property	nml.y	/^instr_property:$/;"	l
+integer	nml.y	/^integer: INT_CONST{$/;"	l
+integer_expression	nml.y	/^integer_expression : integer_expression PLUS integer_expression{ inttab.vadd(); }$/;"	l
+integer_table	integer_table.cpp	/^class integer_table$/;"	c	file:
+integer_table	integer_table.h	/^class integer_table$/;"	c
+inttab	front.cpp	/^integer_table inttab;$/;"	v
+lexfile	drt.cpp	/^	FILE * lexfile;$/;"	m	class:rule	file:
+lexfile	drt.h	/^	FILE * lexfile;$/;"	m	class:rule
+list	address_range_c.cpp	/^	vector<address_range_c_ent> list;$/;"	m	class:address_range_c	file:
+list	address_range_c.h	/^	vector<address_range_c_ent> list;$/;"	m	class:address_range_c
+list	address_table.cpp	/^	vector<address_ent> list;$/;"	m	class:address_table	file:
+list	address_table.h	/^	vector<address_ent> list;$/;"	m	class:address_table
+list	cst_table.cpp	/^	vector<cst_table_ent> list;$/;"	m	class:cst_table	file:
+list	cst_table.h	/^	vector<cst_table_ent> list;$/;"	m	class:cst_table
+list	enum_table.cpp	/^	vector < enum_table_term > list;$/;"	m	class:enum_table	file:
+list	enum_table.cpp	/^	vector< enum_table_ent > list;$/;"	m	class:enum_table_term	file:
+list	enum_table.h	/^	vector < enum_table_term > list;$/;"	m	class:enum_table
+list	enum_table.h	/^	vector< enum_table_ent > list;$/;"	m	class:enum_table_term
+list	integer_table.cpp	/^	vector<mpz_class> list;$/;"	m	class:integer_table	file:
+list	integer_table.h	/^	vector<mpz_class> list;$/;"	m	class:integer_table
+list	mem_table (copy).cpp	/^	vector<mem_ent> list;$/;"	m	class:mem_table	file:
+list	mem_table.cpp	/^	vector<mem_ent> list;$/;"	m	class:mem_table	file:
+list	mem_table.h	/^	vector<mem_ent> list;$/;"	m	class:mem_table
+list	op_image.cpp	/^	vector <op_img_alt> list;$/;"	m	class:op_image	file:
+list	op_image.cpp	/^	vector<op_img_ele> list;$/;"	m	class:op_img_ent	file:
+list	op_image.cpp	/^	vector<op_img_ent> list;$/;"	m	class:op_img_alt	file:
+list	op_image.h	/^	vector <op_img_alt> list;$/;"	m	class:op_image
+list	op_image.h	/^	vector<op_img_ele> list;$/;"	m	class:op_img_ent
+list	op_image.h	/^	vector<op_img_ent> list;$/;"	m	class:op_img_alt
+list	opn_table.cpp	/^	vector<opn_tab_entry> list;$/;"	m	class:opn_table	file:
+list	opn_table.h	/^	vector<opn_tab_entry> list;$/;"	m	class:opn_table
+list	or_table.cpp	/^	vector<or_table_ele> list;$/;"	m	class:or_table_ent	file:
+list	or_table.cpp	/^	vector<or_table_ent> list;$/;"	m	class:or_table_entry	file:
+list	or_table.cpp	/^	vector<or_table_entry> list;$/;"	m	class:or_table	file:
+list	or_table.h	/^	vector<or_table_ele> list;$/;"	m	class:or_table_ent
+list	or_table.h	/^	vector<or_table_ent> list;$/;"	m	class:or_table_entry
+list	or_table.h	/^	vector<or_table_entry> list;$/;"	m	class:or_table
+list	ormode_table.cpp	/^	vector<ormode_table_ent> list;$/;"	m	class:ormode_table	file:
+list	ormode_table.h	/^	vector<ormode_table_ent> list;$/;"	m	class:ormode_table
+list	oropn_table.cpp	/^	vector<oropn_table_ent> list;$/;"	m	class:oropn_table	file:
+list	oropn_table.h	/^	vector<oropn_table_ent> list;$/;"	m	class:oropn_table
+list	par_table.cpp	/^	vector <param_entry>list;$/;"	m	class:par_table	file:
+list	par_table.h	/^	vector <param_entry>list;$/;"	m	class:par_table
+list	syntax_table.cpp	/^	vector <syntax_alt_c> list;$/;"	m	class:syntax_trm_c	file:
+list	syntax_table.cpp	/^	vector<syntax_ent_c> list;$/;"	m	class:syntax_alt_c	file:
+list	syntax_table.cpp	/^	vector<syntax_ref_c> list;$/;"	m	class:syntax_ent_c	file:
+list	syntax_table.h	/^	vector <syntax_alt_c> list;$/;"	m	class:syntax_trm_c
+list	syntax_table.h	/^	vector<syntax_ent_c> list;$/;"	m	class:syntax_alt_c
+list	syntax_table.h	/^	vector<syntax_ref_c> list;$/;"	m	class:syntax_ent_c
+list	type_table.cpp	/^	vector<type_ent> list;$/;"	m	class:type_table	file:
+list	type_table.h	/^	vector<type_ent> list;$/;"	m	class:type_table
+lookups	hash.cpp	/^  unsigned long lookups;$/;"	m	class:hash_control	file:
+lookups	hash.h	/^  unsigned long lookups;$/;"	m	class:hash_control
+loopup	hash.cpp	/^loopup (const char *key, size_t len,$/;"	f	class:hash_control
+main	hash (copy).cpp	/^int main()$/;"	f
+main	main.cpp	/^int main()$/;"	f
+main	new file.cpp	/^int main()$/;"	f
+main	test.cpp	/^int main()$/;"	f
+main	tmp.cpp	/^int main()$/;"	f
+main	untitled folder/tmp.cpp	/^int main()$/;"	f
+main	untitled folder/tmp.tab.c	/^int main()$/;"	f
+mem_ent	mem_table (copy).cpp	/^	mem_ent(int a,int t,int at){addrng=a,type=t,addrtype=at;};$/;"	f	class:mem_ent
+mem_ent	mem_table (copy).cpp	/^class mem_ent$/;"	c	file:
+mem_ent	mem_table.cpp	/^	mem_ent(int a,int t,int at){addrng=a,type=t,addrtype=at;};$/;"	f	class:mem_ent
+mem_ent	mem_table.cpp	/^class mem_ent$/;"	c	file:
+mem_ent	mem_table.h	/^	mem_ent(int a,int t,int at){addrng=a,type=t,addrtype=at;};$/;"	f	class:mem_ent
+mem_ent	mem_table.h	/^class mem_ent$/;"	c
+mem_table	mem_table (copy).cpp	/^	mem_table(){list.push_back(mem_ent(0,0,0));}$/;"	f	class:mem_table
+mem_table	mem_table (copy).cpp	/^class mem_table$/;"	c	file:
+mem_table	mem_table.cpp	/^	mem_table(){list.push_back(mem_ent(0,0,0));}$/;"	f	class:mem_table
+mem_table	mem_table.cpp	/^class mem_table$/;"	c	file:
+mem_table	mem_table.h	/^	mem_table(){list.push_back(mem_ent(0,0,0));}$/;"	f	class:mem_table
+mem_table	mem_table.h	/^class mem_table$/;"	c
+memory_declaration	nml.y	/^memory_declaration: MEM IDENTIFIER valid_address_declaration LESS type_id COMMA address_type GRT$/;"	l
+memtab	front.cpp	/^mem_table memtab;$/;"	v
+mnemonic	enum_table.cpp	/^	const char * mnemonic;$/;"	m	class:enum_table_ent	file:
+mnemonic	enum_table.h	/^	const char * mnemonic;$/;"	m	class:enum_table_ent
+mnemonic_opt	nml.y	/^mnemonic_opt: {$$=NULL;}$/;"	l
+mode_rule	nml.y	/^mode_rule: or_mode_rule$/;"	l
+mode_rule_name	nml.y	/^mode_rule_name: IDENTIFIER{$/;"	l
+mode_rule_name_list	nml.y	/^mode_rule_name_list: mode_rule_name$/;"	l
+mprint	outputf.cpp	/^void mprint(int pos,bool h,FILE *file ,const char * fmt, ...)$/;"	f
+name	enum_table.cpp	/^	const char * name;$/;"	m	class:enum_table_ent	file:
+name	enum_table.h	/^	const char * name;$/;"	m	class:enum_table_ent
+name	par_table.cpp	/^	const char *name;$/;"	m	class:param_entry	file:
+name	par_table.h	/^	const char *name;$/;"	m	class:param_entry
+name	var_table.cpp	/^	const char * name;$/;"	m	class:var_entry	file:
+name	var_table.h	/^	const char * name;$/;"	m	class:var_entry
+nametable	var_table.cpp	/^	class hash_control nametable;$/;"	m	class:var_table	typeref:class:var_table::hash_control	file:
+nametable	var_table.h	/^	class hash_control nametable;$/;"	m	class:var_table	typeref:class:var_table::hash_control
+nchars	outputf.cpp	/^void nchars(FILE *file,int n,const char *c)$/;"	f
+next	hash.cpp	/^  class hash_entry *next;$/;"	m	class:hash_entry	typeref:class:hash_entry::hash_entry	file:
+nml_description	_nml.y	/^nml_description : Declaration_list Rule_list$/;"	l
+nml_description	nml.y	/^nml_description: declaration_list rule_list$/;"	l
+num_table	num_table.cpp	/^	num_table(){numlist.push_back(mpz_class(0));};$/;"	f	class:num_table
+num_table	num_table.cpp	/^class num_table$/;"	c	file:
+num_table	num_table.h	/^	num_table(){numlist.push_back(mpz_class(0));};$/;"	f	class:num_table
+num_table	num_table.h	/^class num_table$/;"	c
+number_declaration	nml.y	/^number_declaration: DEF IDENTIFIER ASSIGN integer_expression SEMI{$/;"	l
+number_name	nml.y	/^number_name: IDENTIFIER{$/;"	l
+numlist	num_table.cpp	/^	vector<mpz_class> numlist;$/;"	m	class:num_table	file:
+numlist	num_table.h	/^	vector<mpz_class> numlist;$/;"	m	class:num_table
+numtab	front.cpp	/^num_table numtab;$/;"	v
+oi	drt.cpp	/^	op_image * oi;$/;"	m	class:rule	file:
+oi	drt.h	/^	op_image * oi;$/;"	m	class:rule
+op_image	op_image.cpp	/^	op_image(){list.push_back(op_img_alt());list.push_back(op_img_alt());};$/;"	f	class:op_image
+op_image	op_image.cpp	/^class op_image$/;"	c	file:
+op_image	op_image.h	/^	op_image(){list.push_back(op_img_alt());list.push_back(op_img_alt());};$/;"	f	class:op_image
+op_image	op_image.h	/^class op_image$/;"	c
+op_img_alt	op_image.cpp	/^	op_img_alt(){list.push_back(op_img_ent());list.push_back(op_img_ent());};$/;"	f	class:op_img_alt
+op_img_alt	op_image.cpp	/^class op_img_alt$/;"	c	file:
+op_img_alt	op_image.h	/^	op_img_alt(){list.push_back(op_img_ent());list.push_back(op_img_ent());};$/;"	f	class:op_img_alt
+op_img_alt	op_image.h	/^class op_img_alt$/;"	c
+op_img_ele	op_image.cpp	/^	op_img_ele(int t,int v,int i){type=t,val=v,idx=i;};$/;"	f	class:op_img_ele
+op_img_ele	op_image.cpp	/^class op_img_ele$/;"	c	file:
+op_img_ele	op_image.h	/^	op_img_ele(int t,int v,int i){type=t,val=v,idx=i;};$/;"	f	class:op_img_ele
+op_img_ele	op_image.h	/^class op_img_ele$/;"	c
+op_img_ent	op_image.cpp	/^	op_img_ent(){list.push_back(op_img_ele(0,0,0));};$/;"	f	class:op_img_ent
+op_img_ent	op_image.cpp	/^class op_img_ent$/;"	c	file:
+op_img_ent	op_image.h	/^	op_img_ent(){list.push_back(op_img_ele(0,0,0));};$/;"	f	class:op_img_ent
+op_img_ent	op_image.h	/^class op_img_ent$/;"	c
+op_rule	nml.y	/^op_rule: and_op_rule$/;"	l
+op_rule_name	nml.y	/^op_rule_name: IDENTIFIER{$/;"	l
+op_rule_name_list	nml.y	/^op_rule_name_list: op_rule_name{$/;"	l
+opimg	front.cpp	/^op_image opimg;$/;"	v
+opn_tab_entry	opn_table.cpp	/^	opn_tab_entry(int p,int s,int i){para=p,syn=s,img=i;};$/;"	f	class:opn_tab_entry
+opn_tab_entry	opn_table.cpp	/^class opn_tab_entry$/;"	c	file:
+opn_tab_entry	opn_table.h	/^	opn_tab_entry(int p,int s,int i){para=p,syn=s,img=i;};$/;"	f	class:opn_tab_entry
+opn_tab_entry	opn_table.h	/^class opn_tab_entry$/;"	c
+opn_table	opn_table.cpp	/^	opn_table(){list.push_back(opn_tab_entry(0,0,0));};$/;"	f	class:opn_table
+opn_table	opn_table.cpp	/^class opn_table$/;"	c	file:
+opn_table	opn_table.h	/^	opn_table(){list.push_back(opn_tab_entry(0,0,0));};$/;"	f	class:opn_table
+opn_table	opn_table.h	/^class opn_table$/;"	c
+opntab	front.cpp	/^opn_table opntab;$/;"	v
+or_encoding_list	nml.y	/^or_encoding_list: or_field_encoding_list{ortab.finele();}$/;"	l
+or_field_encoding	nml.y	/^or_field_encoding: bit_string_literal{$/;"	l
+or_field_encoding_list	nml.y	/^or_field_encoding_list: or_field_encoding$/;"	l
+or_image_attribute	nml.y	/^or_image_attribute: IMAGE COLON or_encoding_list SEMI{$/;"	l
+or_image_attribute_list	nml.y	/^or_image_attribute_list: or_image_attribute{$$=$1;};$/;"	l
+or_mode_rule	nml.y	/^or_mode_rule: MODE IDENTIFIER LPAREN mode_rule_name_list RPAREN $/;"	l
+or_op_rule	nml.y	/^or_op_rule:  OP IDENTIFIER LPAREN op_rule_name_list RPAREN $/;"	l
+or_table	or_table.cpp	/^	or_table(){list.push_back(or_table_entry());list.push_back(or_table_entry());};$/;"	f	class:or_table
+or_table	or_table.cpp	/^class or_table$/;"	c	file:
+or_table	or_table.h	/^	or_table(){list.push_back(or_table_entry());list.push_back(or_table_entry());};$/;"	f	class:or_table
+or_table	or_table.h	/^class or_table$/;"	c
+or_table_ele	or_table.cpp	/^	or_table_ele(int t,int v,int i){type=t,val=v,idx=i;};$/;"	f	class:or_table_ele
+or_table_ele	or_table.cpp	/^class or_table_ele$/;"	c	file:
+or_table_ele	or_table.h	/^	or_table_ele(int t,int v,int i){type=t,val=v,idx=i;};$/;"	f	class:or_table_ele
+or_table_ele	or_table.h	/^class or_table_ele$/;"	c
+or_table_ent	or_table.cpp	/^	or_table_ent(){list.push_back(or_table_ele(0,0,0));};$/;"	f	class:or_table_ent
+or_table_ent	or_table.cpp	/^class or_table_ent$/;"	c	file:
+or_table_ent	or_table.h	/^	or_table_ent(){list.push_back(or_table_ele(0,0,0));};$/;"	f	class:or_table_ent
+or_table_ent	or_table.h	/^class or_table_ent$/;"	c
+or_table_entry	or_table.cpp	/^	or_table_entry(){list.push_back(or_table_ent());list.push_back(or_table_ent());};$/;"	f	class:or_table_entry
+or_table_entry	or_table.cpp	/^class or_table_entry$/;"	c	file:
+or_table_entry	or_table.h	/^	or_table_entry(){list.push_back(or_table_ent());list.push_back(or_table_ent());};$/;"	f	class:or_table_entry
+or_table_entry	or_table.h	/^class or_table_entry$/;"	c
+orm	drt.cpp	/^	ormode_table *orm;$/;"	m	class:rule	file:
+orm	drt.h	/^	ormode_table *orm;$/;"	m	class:rule
+ormode_table	ormode_table.cpp	/^	ormode_table(){list.push_back(ormode_table_ent(0,0));};$/;"	f	class:ormode_table
+ormode_table	ormode_table.cpp	/^class ormode_table$/;"	c	file:
+ormode_table	ormode_table.h	/^	ormode_table(){list.push_back(ormode_table_ent(0,0));};$/;"	f	class:ormode_table
+ormode_table	ormode_table.h	/^class ormode_table$/;"	c
+ormode_table_ent	ormode_table.cpp	/^	ormode_table_ent(int p,int v){param=p,val=v;};$/;"	f	class:ormode_table_ent
+ormode_table_ent	ormode_table.cpp	/^class ormode_table_ent$/;"	c	file:
+ormode_table_ent	ormode_table.h	/^	ormode_table_ent(int p,int v){param=p,val=v;};$/;"	f	class:ormode_table_ent
+ormode_table_ent	ormode_table.h	/^class ormode_table_ent$/;"	c
+ormodetab	front.cpp	/^ormode_table ormodetab;$/;"	v
+oro	drt.cpp	/^	oropn_table *oro;$/;"	m	class:rule	file:
+oro	drt.h	/^	oropn_table *oro;$/;"	m	class:rule
+oropn_table	oropn_table.cpp	/^	oropn_table(){list.push_back(oropn_table_ent(0,0));};$/;"	f	class:oropn_table
+oropn_table	oropn_table.cpp	/^class oropn_table$/;"	c	file:
+oropn_table	oropn_table.h	/^	oropn_table(){list.push_back(oropn_table_ent(0,0));};$/;"	f	class:oropn_table
+oropn_table	oropn_table.h	/^class oropn_table$/;"	c
+oropn_table_ent	oropn_table.cpp	/^	oropn_table_ent(int p,int v){param=p,val=v;};$/;"	f	class:oropn_table_ent
+oropn_table_ent	oropn_table.cpp	/^class oropn_table_ent$/;"	c	file:
+oropn_table_ent	oropn_table.h	/^	oropn_table_ent(int p,int v){param=p,val=v;};$/;"	f	class:oropn_table_ent
+oropn_table_ent	oropn_table.h	/^class oropn_table_ent$/;"	c
+oroptab	front.cpp	/^oropn_table oroptab;$/;"	v
+ortab	front.cpp	/^or_table ortab;$/;"	v
+ot	drt.cpp	/^	or_table * ot;$/;"	m	class:rule	file:
+ot	drt.h	/^	or_table * ot;$/;"	m	class:rule
+output_h	address_range_c.cpp	/^void address_range_c::output_h(FILE *file,int l,bool h)$/;"	f	class:address_range_c
+output_h	address_table.cpp	/^void address_table::output_h(FILE *file,int l,bool h)$/;"	f	class:address_table
+output_h	cst_table.cpp	/^void cst_table::output_h(FILE *file,int l,bool h)$/;"	f	class:cst_table
+output_h	enum_table.cpp	/^void enum_table::output_h(FILE *file,int l,bool h)$/;"	f	class:enum_table
+output_h	enum_table.cpp	/^void enum_table_term::output_h(FILE *file,int l,bool h)$/;"	f	class:enum_table_term
+output_h	front.cpp	/^int output_h(const char * filename,bool h=true)$/;"	f
+output_h	mem_table.cpp	/^void mem_table::output_h(FILE *file,int l,bool h)$/;"	f	class:mem_table
+output_h	num_table.cpp	/^void num_table::output_h(FILE *file,int l,bool h)$/;"	f	class:num_table
+output_h	op_image.cpp	/^void op_image::output_h(FILE *file,int l,bool h)$/;"	f	class:op_image
+output_h	op_image.cpp	/^void op_img_alt::output_h(FILE *file,int l,bool h)$/;"	f	class:op_img_alt
+output_h	op_image.cpp	/^void op_img_ent::output_h(FILE *file,int l,bool h)$/;"	f	class:op_img_ent
+output_h	opn_table.cpp	/^void opn_table::output_h(FILE *file,int l,bool h)$/;"	f	class:opn_table
+output_h	or_table.cpp	/^void or_table::output_h(FILE *file,int l,bool h)$/;"	f	class:or_table
+output_h	or_table.cpp	/^void or_table_ent::output_h(FILE *file,int l,bool h)$/;"	f	class:or_table_ent
+output_h	or_table.cpp	/^void or_table_entry::output_h(FILE *file,int l,bool h)$/;"	f	class:or_table_entry
+output_h	ormode_table.cpp	/^void ormode_table::output_h(FILE *file,int l,bool h)$/;"	f	class:ormode_table
+output_h	oropn_table.cpp	/^void oropn_table::output_h(FILE *file,int l,bool h)$/;"	f	class:oropn_table
+output_h	par_table.cpp	/^void par_table::output_h(FILE *file,int l,bool h)$/;"	f	class:par_table
+output_h	string_table.cpp	/^void string_table::output_h(FILE *file,int l,bool h)$/;"	f	class:string_table
+output_h	syntax_table.cpp	/^void syntax_alt_c::output_h(FILE *file,int l,bool h)$/;"	f	class:syntax_alt_c
+output_h	syntax_table.cpp	/^void syntax_ent_c::output_h(FILE *file,int l,bool h)$/;"	f	class:syntax_ent_c
+output_h	syntax_table.cpp	/^void syntax_trm_c::output_h(FILE *file,int l,bool h)$/;"	f	class:syntax_trm_c
+output_h	type_table.cpp	/^void type_table::output_h(FILE *file,int l,bool h)$/;"	f	class:type_table
+output_h	var_table.cpp	/^void var_table::output_h(FILE *file,int l,bool h)$/;"	f	class:var_table
+par_table	par_table.cpp	/^	par_table(){count=0;list.push_back(param_entry(0,0));};$/;"	f	class:par_table
+par_table	par_table.cpp	/^class par_table$/;"	c	file:
+par_table	par_table.h	/^	par_table(){count=0;list.push_back(param_entry(0,0));};$/;"	f	class:par_table
+par_table	par_table.h	/^class par_table$/;"	c
+para	opn_table.cpp	/^	int para;$/;"	m	class:opn_tab_entry	file:
+para	opn_table.h	/^	int para;$/;"	m	class:opn_tab_entry
+param	ormode_table.cpp	/^	int param;$/;"	m	class:ormode_table_ent	file:
+param	ormode_table.h	/^	int param;$/;"	m	class:ormode_table_ent
+param	oropn_table.cpp	/^	int param;$/;"	m	class:oropn_table_ent	file:
+param	oropn_table.h	/^	int param;$/;"	m	class:oropn_table_ent
+param_entry	par_table.cpp	/^	param_entry(const char *n,const char * v){name=n,val=v;};$/;"	f	class:param_entry
+param_entry	par_table.cpp	/^class param_entry$/;"	c	file:
+param_entry	par_table.h	/^	param_entry(const char *n,const char * v){name=n,val=v;};$/;"	f	class:param_entry
+param_entry	par_table.h	/^class param_entry$/;"	c
+parameter_declaration	nml.y	/^parameter_declaration: IDENTIFIER COLON r_name{$/;"	l
+parameter_declaration_list	nml.y	/^parameter_declaration_list: $/;"	l
+partab	front.cpp	/^par_table partab;$/;"	v
+poi	string_table.cpp	/^	int poi;$/;"	m	class:string_table	file:
+poi	string_table.h	/^	int poi;$/;"	m	class:string_table
+poi_syntax_opt	nml.y	/^poi_syntax_opt:$/;"	l
+pr	drt.cpp	/^	par_table * pr;$/;"	m	class:rule	file:
+pr	drt.h	/^	par_table * pr;$/;"	m	class:rule
+r_name	nml.y	/^r_name: IDENTIFIER{$/;"	l
+range	address_table.cpp	/^	int range;$/;"	m	class:address_ent	file:
+range	address_table.h	/^	int range;$/;"	m	class:address_ent
+ref	rule_ref.cpp	/^	int ref;$/;"	m	class:rule_ref	file:
+register_declaration	nml.y	/^register_declaration: REG IDENTIFIER valid_address_declaration LESS type_id COMMA address_type GRT$/;"	l
+replace	hash.cpp	/^int hash_control::replace (const char *key, int value$/;"	f	class:hash_control
+replacements	hash.cpp	/^  unsigned long replacements;$/;"	m	class:hash_control	file:
+replacements	hash.h	/^  unsigned long replacements;$/;"	m	class:hash_control
+rule	drt.cpp	/^class rule$/;"	c	file:
+rule	drt.cpp	/^rule::rule(opn_table * ont,var_table * vt,par_table * pt,syntax_trm_c * stc,const char * sr,op_image * oit,or_table * otable,enum_table * etable,string_table * stable,oropn_table *ortable)$/;"	f	class:rule
+rule	drt.h	/^class rule$/;"	c
+rule	nml.y	/^rule: op_rule$/;"	l
+rule_instant_name	nml.y	/^rule_instant_name: IDENTIFIER{$/;"	l
+rule_list	nml.y	/^rule_list: rule$/;"	l
+rule_ref	rule_ref.cpp	/^class rule_ref$/;"	c	file:
+rulefile	drt.cpp	/^	FILE * rulefile;$/;"	m	class:rule	file:
+rulefile	drt.h	/^	FILE * rulefile;$/;"	m	class:rule
+setmne	enum_table.cpp	/^	void setmne(const char *n){mnemonic=n;};$/;"	f	class:enum_table_ent
+setmne	enum_table.h	/^	void setmne(const char *n){mnemonic=n;};$/;"	f	class:enum_table_ent
+setname	enum_table.cpp	/^	void setname(const char * n){name=n;};$/;"	f	class:enum_table_ent
+setname	enum_table.h	/^	void setname(const char * n){name=n;};$/;"	f	class:enum_table_ent
+setstart	front.cpp	/^void setstart(const char * v)$/;"	f
+setval	enum_table.cpp	/^	void setval(int v){val=v;};$/;"	f	class:enum_table_ent
+setval	enum_table.h	/^	void setval(int v){val=v;};$/;"	f	class:enum_table_ent
+setval	var_table.cpp	/^	void setval(int v){val=v;};$/;"	f	class:var_entry
+setval	var_table.h	/^	void setval(int v){val=v;};$/;"	f	class:var_entry
+short	_nml.tab.c	233;"	d	file:
+short	nml.tab.c	194;"	d	file:
+sign	type_table.cpp	/^	bool sign;$/;"	m	class:type_ent	file:
+sign	type_table.h	/^	bool sign;$/;"	m	class:type_ent
+size	hash.cpp	/^  unsigned int size;$/;"	m	class:hash_control	file:
+size	hash.h	/^  unsigned int size;$/;"	m	class:hash_control
+spr	drt.cpp	/^int rule::spr(int k)$/;"	f	class:rule
+st	drt.cpp	/^	string_table * st;$/;"	m	class:rule	file:
+st	drt.h	/^	string_table * st;$/;"	m	class:rule
+start_declaration	nml.y	/^start_declaration: START IDENTIFIER\/*op_rule_name exclusive_command_opt*\/ SEMI{$/;"	l
+startrule	drt.cpp	/^	const char * startrule;$/;"	m	class:rule	file:
+startrule	drt.h	/^	const char * startrule;$/;"	m	class:rule
+startrule	front.cpp	/^static const char * startrule;$/;"	v	file:
+step	address_table.cpp	/^	int step;$/;"	m	class:address_ent	file:
+step	address_table.h	/^	int step;$/;"	m	class:address_ent
+storage_declaration	nml.y	/^storage_declaration: memory_declaration$/;"	l
+str	string_table.cpp	/^	char * str;$/;"	m	class:string_table	file:
+str	string_table.h	/^	char * str;$/;"	m	class:string_table
+string	hash.cpp	/^  const char *string;$/;"	m	class:hash_entry	file:
+string_compares	hash.cpp	/^  unsigned long string_compares;$/;"	m	class:hash_control	file:
+string_compares	hash.h	/^  unsigned long string_compares;$/;"	m	class:hash_control
+string_table	string_table.cpp	/^class string_table$/;"	c	file:
+string_table	string_table.cpp	/^string_table::string_table()$/;"	f	class:string_table
+string_table	string_table.h	/^class string_table$/;"	c
+strtab	front.cpp	/^string_table strtab;$/;"	v
+syn	opn_table.cpp	/^	int syn;$/;"	m	class:opn_tab_entry	file:
+syn	opn_table.h	/^	int syn;$/;"	m	class:opn_tab_entry
+sync	drt.cpp	/^	syntax_trm_c * sync;$/;"	m	class:rule	file:
+sync	drt.h	/^	syntax_trm_c * sync;$/;"	m	class:rule
+syntab	front.cpp	/^syntax_trm_c syntab;$/;"	v
+syntax_alt_c	syntax_table.cpp	/^	syntax_alt_c(){list.push_back(syntax_ent_c());list.push_back(syntax_ent_c());};$/;"	f	class:syntax_alt_c
+syntax_alt_c	syntax_table.cpp	/^class syntax_alt_c$/;"	c	file:
+syntax_alt_c	syntax_table.h	/^	syntax_alt_c(){list.push_back(syntax_ent_c());list.push_back(syntax_ent_c());};$/;"	f	class:syntax_alt_c
+syntax_alt_c	syntax_table.h	/^class syntax_alt_c$/;"	c
+syntax_attribute	nml.y	/^syntax_attribute: SYNTAX COLON syntax_encoding_list SEMI{$/;"	l
+syntax_attribute_list	nml.y	/^syntax_attribute_list:$/;"	l
+syntax_encoding	nml.y	/^syntax_encoding: syntax_encoding_element{}$/;"	l
+syntax_encoding_element	nml.y	/^syntax_encoding_element: STRING_CONST{syntab.addele(syntax_ref_c(STRING_CONST,strtab.addstr($1),0));}$/;"	l
+syntax_encoding_list	nml.y	/^syntax_encoding_list: syntax_encoding{$/;"	l
+syntax_ent_c	syntax_table.cpp	/^	syntax_ent_c(){list.push_back(syntax_ref_c(0,0,0));};$/;"	f	class:syntax_ent_c
+syntax_ent_c	syntax_table.cpp	/^class syntax_ent_c$/;"	c	file:
+syntax_ent_c	syntax_table.h	/^	syntax_ent_c(){list.push_back(syntax_ref_c(0,0,0));};$/;"	f	class:syntax_ent_c
+syntax_ent_c	syntax_table.h	/^class syntax_ent_c$/;"	c
+syntax_nr	nml.y	/^syntax_nr: POINT integer{$/;"	l
+syntax_nr_opt	nml.y	/^syntax_nr_opt: {$$=0;}$/;"	l
+syntax_ref_c	syntax_table.cpp	/^	syntax_ref_c(int t=0,int v=0,int i=0){type=t,val=v,idx=i;};$/;"	f	class:syntax_ref_c
+syntax_ref_c	syntax_table.cpp	/^class syntax_ref_c$/;"	c	file:
+syntax_ref_c	syntax_table.h	/^	syntax_ref_c(int t=0,int v=0,int i=0){type=t,val=v,idx=i;};$/;"	f	class:syntax_ref_c
+syntax_ref_c	syntax_table.h	/^class syntax_ref_c$/;"	c
+syntax_trm_c	syntax_table.cpp	/^	syntax_trm_c(){list.push_back(syntax_alt_c());list.push_back(syntax_alt_c());};$/;"	f	class:syntax_trm_c
+syntax_trm_c	syntax_table.cpp	/^class syntax_trm_c$/;"	c	file:
+syntax_trm_c	syntax_table.h	/^	syntax_trm_c(){list.push_back(syntax_alt_c());list.push_back(syntax_alt_c());};$/;"	f	class:syntax_trm_c
+syntax_trm_c	syntax_table.h	/^class syntax_trm_c$/;"	c
+t	hash (copy).cpp	/^	class a t;$/;"	m	class:b	typeref:class:b::a	file:
+table	hash.cpp	/^  class hash_entry **table;$/;"	m	class:hash_control	typeref:class:hash_control::hash_entry	file:
+table	hash.h	/^  class hash_entry **table;$/;"	m	class:hash_control	typeref:class:hash_control::hash_entry
+table	par_table.cpp	/^	hash_control table;$/;"	m	class:par_table	file:
+table	par_table.h	/^	hash_control table;$/;"	m	class:par_table
+table	string_table.cpp	/^	class hash_control table;$/;"	m	class:string_table	typeref:class:string_table::hash_control	file:
+table	string_table.h	/^	class hash_control table;$/;"	m	class:string_table	typeref:class:string_table::hash_control
+table	type_table.cpp	/^	class hash_control table;$/;"	m	class:type_table	typeref:class:type_table::hash_control	file:
+table	type_table.h	/^	class hash_control table;$/;"	m	class:type_table	typeref:class:type_table::hash_control
+tokenfile	drt.cpp	/^	FILE * tokenfile;$/;"	m	class:rule	file:
+tokenfile	drt.h	/^	FILE * tokenfile;$/;"	m	class:rule
+tokengen	drt.cpp	/^	hash_control tokengen;$/;"	m	class:rule	file:
+tokengen	drt.h	/^	hash_control tokengen;$/;"	m	class:rule
+type	cst_table.cpp	/^	int type;$/;"	m	class:cst_table_ent	file:
+type	cst_table.h	/^	int type;$/;"	m	class:cst_table_ent
+type	mem_table (copy).cpp	/^	int type;$/;"	m	class:mem_ent	file:
+type	mem_table.cpp	/^	int type;$/;"	m	class:mem_ent	file:
+type	mem_table.h	/^	int type;$/;"	m	class:mem_ent
+type	op_image.cpp	/^	int type;$/;"	m	class:op_img_ele	file:
+type	op_image.h	/^	int type;$/;"	m	class:op_img_ele
+type	or_table.cpp	/^	int type;$/;"	m	class:or_table_ele	file:
+type	or_table.h	/^	int type;$/;"	m	class:or_table_ele
+type	syntax_table.cpp	/^	int type;$/;"	m	class:syntax_ref_c	file:
+type	syntax_table.h	/^	int type;$/;"	m	class:syntax_ref_c
+type	var_table.cpp	/^	int type;$/;"	m	class:var_entry	file:
+type	var_table.h	/^	int type;$/;"	m	class:var_entry
+type_declaration	nml.y	/^type_declaration: TYPE IDENTIFIER LESS integer COMMA val_type GRT SEMI{$/;"	l
+type_ent	type_table.cpp	/^	type_ent(bool s,size_t w){sign=s,width=w;};$/;"	f	class:type_ent
+type_ent	type_table.cpp	/^class type_ent$/;"	c	file:
+type_ent	type_table.h	/^	type_ent(bool s,size_t w){sign=s,width=w;};$/;"	f	class:type_ent
+type_ent	type_table.h	/^class type_ent$/;"	c
+type_id	nml.y	/^type_id: IDENTIFIER{$/;"	l
+type_table	type_table.cpp	/^	type_table(){list.push_back(type_ent(0,0));};$/;"	f	class:type_table
+type_table	type_table.cpp	/^class type_table$/;"	c	file:
+type_table	type_table.h	/^	type_table(){list.push_back(type_ent(0,0));};$/;"	f	class:type_table
+type_table	type_table.h	/^class type_table$/;"	c
+typefile	drt.cpp	/^	FILE * typefile;$/;"	m	class:rule	file:
+typefile	drt.h	/^	FILE * typefile;$/;"	m	class:rule
+typetab	front.cpp	/^type_table typetab;$/;"	v
+unput	lex.yy.c	201;"	d	file:
+v	drt.cpp	/^	int *v;$/;"	m	class:rule	file:
+v	drt.h	/^	int *v;$/;"	m	class:rule
+vadd	integer_table.cpp	/^void integer_table::vadd()$/;"	f	class:integer_table
+val	cst_table.cpp	/^	int val;\/\/->numtab$/;"	m	class:cst_table_ent	file:
+val	cst_table.h	/^	int val;$/;"	m	class:cst_table_ent
+val	enum_table.cpp	/^	int val;$/;"	m	class:enum_table_ent	file:
+val	enum_table.h	/^	int val;$/;"	m	class:enum_table_ent
+val	op_image.cpp	/^	int val;$/;"	m	class:op_img_ele	file:
+val	op_image.h	/^	int val;$/;"	m	class:op_img_ele
+val	or_table.cpp	/^	int val;$/;"	m	class:or_table_ele	file:
+val	or_table.h	/^	int val;$/;"	m	class:or_table_ele
+val	ormode_table.cpp	/^	int val;$/;"	m	class:ormode_table_ent	file:
+val	ormode_table.h	/^	int val;$/;"	m	class:ormode_table_ent
+val	oropn_table.cpp	/^	int val;$/;"	m	class:oropn_table_ent	file:
+val	oropn_table.h	/^	int val;$/;"	m	class:oropn_table_ent
+val	par_table.cpp	/^	const char * val;$/;"	m	class:param_entry	file:
+val	par_table.h	/^	const char * val;$/;"	m	class:param_entry
+val	rule_ref.cpp	/^	int val;$/;"	m	class:rule_ref	file:
+val	syntax_table.cpp	/^	int val;$/;"	m	class:syntax_ref_c	file:
+val	syntax_table.h	/^	int val;$/;"	m	class:syntax_ref_c
+val	var_table.cpp	/^	int val;$/;"	m	class:var_entry	file:
+val	var_table.h	/^	int val;$/;"	m	class:var_entry
+val_type	nml.y	/^val_type: VAL_TYPE{$/;"	l
+valid_address_declaration	nml.y	/^valid_address_declaration: {$$=0;}$/;"	l
+var	drt.cpp	/^	var_table * var;$/;"	m	class:rule	file:
+var	drt.h	/^	var_table * var;$/;"	m	class:rule
+var_entry	var_table.cpp	/^	var_entry(const char * n,int t,int v,int d){name=n,type=t,val=v,defline=d;};$/;"	f	class:var_entry
+var_entry	var_table.cpp	/^class var_entry$/;"	c	file:
+var_entry	var_table.h	/^	var_entry(const char * n,int t,int v,int d){name=n,type=t,val=v,defline=d;};$/;"	f	class:var_entry
+var_entry	var_table.h	/^class var_entry$/;"	c
+var_table	var_table.cpp	/^	var_table(){varlist.push_back( var_entry( NULL,0,0,0 ));};$/;"	f	class:var_table
+var_table	var_table.cpp	/^class var_table$/;"	c	file:
+var_table	var_table.h	/^	var_table(){varlist.push_back( var_entry( NULL,0,0,0 ));};$/;"	f	class:var_table
+var_table	var_table.h	/^class var_table$/;"	c
+varlist	var_table.cpp	/^	vector<var_entry> varlist;$/;"	m	class:var_table	file:
+varlist	var_table.h	/^	vector<var_entry> varlist;$/;"	m	class:var_table
+vartab	front.cpp	/^var_table vartab;$/;"	v
+vdiv	integer_table.cpp	/^void integer_table::vdiv()$/;"	f	class:integer_table
+vmul	integer_table.cpp	/^void integer_table::vmul()$/;"	f	class:integer_table
+vneg	integer_table.cpp	/^void integer_table::vneg()$/;"	f	class:integer_table
+vpow	integer_table.cpp	/^void integer_table::vpow()$/;"	f	class:integer_table
+vsub	integer_table.cpp	/^void integer_table::vsub()$/;"	f	class:integer_table
+width	enum_table.cpp	/^	size_t width;$/;"	m	class:enum_table_term	file:
+width	enum_table.h	/^	size_t width;$/;"	m	class:enum_table_term
+width	type_table.cpp	/^	size_t width;$/;"	m	class:type_ent	file:
+width	type_table.h	/^	size_t width;$/;"	m	class:type_ent
+yy_accept	lex.yy.c	/^static yyconst flex_int16_t yy_accept[144] =$/;"	v	file:
+yy_at_bol	lex.yy.c	/^	int yy_at_bol;$/;"	m	struct:yy_buffer_state	file:
+yy_base	lex.yy.c	/^static yyconst flex_int16_t yy_base[153] =$/;"	v	file:
+yy_bs_column	lex.yy.c	/^    int yy_bs_column; \/**< The column count. *\/$/;"	m	struct:yy_buffer_state	file:
+yy_bs_lineno	lex.yy.c	/^    int yy_bs_lineno; \/**< The line count. *\/$/;"	m	struct:yy_buffer_state	file:
+yy_buf_pos	lex.yy.c	/^	char *yy_buf_pos;		\/* current position in input buffer *\/$/;"	m	struct:yy_buffer_state	file:
+yy_buf_size	lex.yy.c	/^	yy_size_t yy_buf_size;$/;"	m	struct:yy_buffer_state	file:
+yy_buffer_stack	lex.yy.c	/^static YY_BUFFER_STATE * yy_buffer_stack = 0; \/**< Stack as an array. *\/$/;"	v	file:
+yy_buffer_stack_max	lex.yy.c	/^static size_t yy_buffer_stack_max = 0; \/**< capacity of stack. *\/$/;"	v	file:
+yy_buffer_stack_top	lex.yy.c	/^static size_t yy_buffer_stack_top = 0; \/**< index of top of stack. *\/$/;"	v	file:
+yy_buffer_state	lex.yy.c	/^struct yy_buffer_state$/;"	s	file:
+yy_buffer_status	lex.yy.c	/^	int yy_buffer_status;$/;"	m	struct:yy_buffer_state	file:
+yy_c_buf_p	lex.yy.c	/^static char *yy_c_buf_p = (char *) 0;$/;"	v	file:
+yy_ch_buf	lex.yy.c	/^	char *yy_ch_buf;		\/* input buffer *\/$/;"	m	struct:yy_buffer_state	file:
+yy_chk	lex.yy.c	/^static yyconst flex_int16_t yy_chk[263] =$/;"	v	file:
+yy_create_buffer	lex.yy.c	/^    YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )$/;"	f
+yy_def	lex.yy.c	/^static yyconst flex_int16_t yy_def[153] =$/;"	v	file:
+yy_delete_buffer	lex.yy.c	/^    void yy_delete_buffer (YY_BUFFER_STATE  b )$/;"	f
+yy_did_buffer_switch_on_eof	lex.yy.c	/^static int yy_did_buffer_switch_on_eof;$/;"	v	file:
+yy_ec	lex.yy.c	/^static yyconst flex_int32_t yy_ec[256] =$/;"	v	file:
+yy_fatal_error	lex.yy.c	/^static void yy_fatal_error (yyconst char* msg )$/;"	f	file:
+yy_fill_buffer	lex.yy.c	/^	int yy_fill_buffer;$/;"	m	struct:yy_buffer_state	file:
+yy_flex_debug	lex.yy.c	/^int yy_flex_debug = 0;$/;"	v
+yy_flex_strlen	lex.yy.c	/^static int yy_flex_strlen (yyconst char * s )$/;"	f	file:
+yy_flex_strncpy	lex.yy.c	/^static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )$/;"	f	file:
+yy_flush_buffer	lex.yy.c	/^    void yy_flush_buffer (YY_BUFFER_STATE  b )$/;"	f
+yy_get_next_buffer	lex.yy.c	/^static int yy_get_next_buffer (void)$/;"	f	file:
+yy_get_previous_state	lex.yy.c	/^    static yy_state_type yy_get_previous_state (void)$/;"	f	file:
+yy_hold_char	lex.yy.c	/^static char yy_hold_char;$/;"	v	file:
+yy_init	lex.yy.c	/^static int yy_init = 0;		\/* whether we need to initialize *\/$/;"	v	file:
+yy_init_buffer	lex.yy.c	/^    static void yy_init_buffer  (YY_BUFFER_STATE  b, FILE * file )$/;"	f	file:
+yy_init_globals	lex.yy.c	/^static int yy_init_globals (void)$/;"	f	file:
+yy_input_file	lex.yy.c	/^	FILE *yy_input_file;$/;"	m	struct:yy_buffer_state	file:
+yy_is_interactive	lex.yy.c	/^	int yy_is_interactive;$/;"	m	struct:yy_buffer_state	file:
+yy_is_our_buffer	lex.yy.c	/^	int yy_is_our_buffer;$/;"	m	struct:yy_buffer_state	file:
+yy_last_accepting_cpos	lex.yy.c	/^static char *yy_last_accepting_cpos;$/;"	v	file:
+yy_last_accepting_state	lex.yy.c	/^static yy_state_type yy_last_accepting_state;$/;"	v	file:
+yy_load_buffer_state	lex.yy.c	/^static void yy_load_buffer_state  (void)$/;"	f	file:
+yy_meta	lex.yy.c	/^static yyconst flex_int32_t yy_meta[50] =$/;"	v	file:
+yy_n_chars	lex.yy.c	/^	int yy_n_chars;$/;"	m	struct:yy_buffer_state	file:
+yy_n_chars	lex.yy.c	/^static int yy_n_chars;		\/* number of characters read into yy_ch_buf *\/$/;"	v	file:
+yy_new_buffer	lex.yy.c	330;"	d	file:
+yy_nxt	lex.yy.c	/^	flex_int32_t yy_nxt;$/;"	m	struct:yy_trans_info	file:
+yy_nxt	lex.yy.c	/^static yyconst flex_int16_t yy_nxt[263] =$/;"	v	file:
+yy_reduce_print	_nml.tab.c	/^yy_reduce_print (YYSTYPE *yyvsp, int yyrule)$/;"	f	file:
+yy_reduce_print	nml.tab.c	/^yy_reduce_print (YYSTYPE *yyvsp, int yyrule)$/;"	f	file:
+yy_rule_can_match_eol	lex.yy.c	/^static yyconst flex_int32_t yy_rule_can_match_eol[56] =$/;"	v	file:
+yy_scan_buffer	lex.yy.c	/^YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )$/;"	f
+yy_scan_bytes	lex.yy.c	/^YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, int  _yybytes_len )$/;"	f
+yy_scan_string	lex.yy.c	/^YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )$/;"	f
+yy_set_bol	lex.yy.c	342;"	d	file:
+yy_set_interactive	lex.yy.c	332;"	d	file:
+yy_size_t	lex.yy.c	/^typedef size_t yy_size_t;$/;"	t	file:
+yy_stack_print	_nml.tab.c	/^yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)$/;"	f	file:
+yy_stack_print	nml.tab.c	/^yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)$/;"	f	file:
+yy_start	lex.yy.c	/^static int yy_start = 0;	\/* start state number *\/$/;"	v	file:
+yy_state_type	lex.yy.c	/^typedef int yy_state_type;$/;"	t	file:
+yy_switch_to_buffer	lex.yy.c	/^    void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )$/;"	f
+yy_symbol_print	_nml.tab.c	/^yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_symbol_print	nml.tab.c	/^yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_symbol_value_print	_nml.tab.c	/^yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_symbol_value_print	nml.tab.c	/^yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_trans_info	lex.yy.c	/^struct yy_trans_info$/;"	s	file:
+yy_try_NUL_trans	lex.yy.c	/^    static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )$/;"	f	file:
+yy_verify	lex.yy.c	/^	flex_int32_t yy_verify;$/;"	m	struct:yy_trans_info	file:
+yyalloc	_nml.tab.c	/^union yyalloc$/;"	u	file:
+yyalloc	lex.yy.c	/^void *yyalloc (yy_size_t  size )$/;"	f
+yyalloc	nml.tab.c	/^union yyalloc$/;"	u	file:
+yychar	_nml.tab.c	/^int yychar;$/;"	v
+yychar	nml.tab.c	/^int yychar;$/;"	v
+yycheck	_nml.tab.c	/^static const yytype_int16 yycheck[] =$/;"	v	file:
+yycheck	nml.tab.c	/^static const yytype_int16 yycheck[] =$/;"	v	file:
+yyclearin	_nml.tab.c	1002;"	d	file:
+yyclearin	nml.tab.c	817;"	d	file:
+yyclearin	y.tab.c	9;"	d	file:
+yyconst	lex.yy.c	106;"	d	file:
+yyconst	lex.yy.c	108;"	d	file:
+yydebug	_nml.tab.c	/^int yydebug;$/;"	v
+yydebug	nml.tab.c	/^int yydebug;$/;"	v
+yydefact	_nml.tab.c	/^static const yytype_uint8 yydefact[] =$/;"	v	file:
+yydefact	nml.tab.c	/^static const yytype_uint8 yydefact[] =$/;"	v	file:
+yydefgoto	_nml.tab.c	/^static const yytype_int16 yydefgoto[] =$/;"	v	file:
+yydefgoto	nml.tab.c	/^static const yytype_int16 yydefgoto[] =$/;"	v	file:
+yydestruct	_nml.tab.c	/^yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)$/;"	f	file:
+yydestruct	nml.tab.c	/^yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)$/;"	f	file:
+yyensure_buffer_stack	lex.yy.c	/^static void yyensure_buffer_stack (void)$/;"	f	file:
+yyerrok	_nml.tab.c	1001;"	d	file:
+yyerrok	nml.tab.c	816;"	d	file:
+yyerrok	y.tab.c	10;"	d	file:
+yyerror	nml.tab.c	/^void yyerror(const char *s)$/;"	f
+yyfree	lex.yy.c	/^void yyfree (void * ptr )$/;"	f
+yyget_debug	lex.yy.c	/^int yyget_debug  (void)$/;"	f
+yyget_in	lex.yy.c	/^FILE *yyget_in  (void)$/;"	f
+yyget_leng	lex.yy.c	/^int yyget_leng  (void)$/;"	f
+yyget_lineno	lex.yy.c	/^int yyget_lineno  (void)$/;"	f
+yyget_out	lex.yy.c	/^FILE *yyget_out  (void)$/;"	f
+yyget_text	lex.yy.c	/^char *yyget_text  (void)$/;"	f
+yyin	lex.yy.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
+yyinput	lex.yy.c	/^    static int yyinput (void)$/;"	f	file:
+yyleng	lex.yy.c	/^int yyleng;$/;"	v
+yyless	lex.yy.c	188;"	d	file:
+yyless	lex.yy.c	1994;"	d	file:
+yyless	lex.yy.c	1995;"	d	file:
+yylex_destroy	lex.yy.c	/^int yylex_destroy  (void)$/;"	f
+yylineno	lex.yy.c	/^int yylineno = 1;$/;"	v
+yylval	_nml.tab.c	/^YYSTYPE yylval;$/;"	v
+yylval	nml.tab.c	/^YYSTYPE yylval;$/;"	v
+yymore	lex.yy.c	579;"	d	file:
+yynerrs	_nml.tab.c	/^int yynerrs;$/;"	v
+yynerrs	nml.tab.c	/^int yynerrs;$/;"	v
+yyout	lex.yy.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
+yypact	_nml.tab.c	/^static const yytype_int16 yypact[] =$/;"	v	file:
+yypact	nml.tab.c	/^static const yytype_int16 yypact[] =$/;"	v	file:
+yyparse	_nml.tab.c	/^yyparse (void *YYPARSE_PARAM)$/;"	f
+yyparse	nml.tab.c	/^yyparse (void *YYPARSE_PARAM)$/;"	f
+yypgoto	_nml.tab.c	/^static const yytype_int16 yypgoto[] =$/;"	v	file:
+yypgoto	nml.tab.c	/^static const yytype_int16 yypgoto[] =$/;"	v	file:
+yypop_buffer_state	lex.yy.c	/^void yypop_buffer_state (void)$/;"	f
+yyprhs	_nml.tab.c	/^static const yytype_uint16 yyprhs[] =$/;"	v	file:
+yyprhs	nml.tab.c	/^static const yytype_uint16 yyprhs[] =$/;"	v	file:
+yypush_buffer_state	lex.yy.c	/^void yypush_buffer_state (YY_BUFFER_STATE new_buffer )$/;"	f
+yyr1	_nml.tab.c	/^static const yytype_uint8 yyr1[] =$/;"	v	file:
+yyr1	nml.tab.c	/^static const yytype_uint8 yyr1[] =$/;"	v	file:
+yyr2	_nml.tab.c	/^static const yytype_uint8 yyr2[] =$/;"	v	file:
+yyr2	nml.tab.c	/^static const yytype_uint8 yyr2[] =$/;"	v	file:
+yyrcsid	y.tab.c	/^static char yyrcsid[] = "$Id: skeleton.c,v 1.2 1997\/06\/23 02:51:17 tdukes Exp $";$/;"	v	file:
+yyrealloc	lex.yy.c	/^void *yyrealloc  (void * ptr, yy_size_t  size )$/;"	f
+yyrestart	lex.yy.c	/^    void yyrestart  (FILE * input_file )$/;"	f
+yyrhs	_nml.tab.c	/^static const yytype_int16 yyrhs[] =$/;"	v	file:
+yyrhs	nml.tab.c	/^static const yytype_int8 yyrhs[] =$/;"	v	file:
+yyrline	_nml.tab.c	/^static const yytype_uint16 yyrline[] =$/;"	v	file:
+yyrline	nml.tab.c	/^static const yytype_uint16 yyrline[] =$/;"	v	file:
+yyset_debug	lex.yy.c	/^void yyset_debug (int  bdebug )$/;"	f
+yyset_in	lex.yy.c	/^void yyset_in (FILE *  in_str )$/;"	f
+yyset_lineno	lex.yy.c	/^void yyset_lineno (int  line_number )$/;"	f
+yyset_out	lex.yy.c	/^void yyset_out (FILE *  out_str )$/;"	f
+yyss_alloc	_nml.tab.c	/^  yytype_int16 yyss_alloc;$/;"	m	union:yyalloc	file:
+yyss_alloc	nml.tab.c	/^  yytype_int16 yyss_alloc;$/;"	m	union:yyalloc	file:
+yystos	_nml.tab.c	/^static const yytype_uint8 yystos[] =$/;"	v	file:
+yystos	nml.tab.c	/^static const yytype_uint8 yystos[] =$/;"	v	file:
+yystpcpy	_nml.tab.c	/^yystpcpy (char *yydest, const char *yysrc)$/;"	f	file:
+yystpcpy	_nml.tab.c	1309;"	d	file:
+yystpcpy	nml.tab.c	/^yystpcpy (char *yydest, const char *yysrc)$/;"	f	file:
+yystpcpy	nml.tab.c	1124;"	d	file:
+yystrlen	_nml.tab.c	/^yystrlen (const char *yystr)$/;"	f	file:
+yystrlen	_nml.tab.c	1286;"	d	file:
+yystrlen	nml.tab.c	/^yystrlen (const char *yystr)$/;"	f	file:
+yystrlen	nml.tab.c	1101;"	d	file:
+yystype	_nml.tab.c	221;"	d	file:
+yystype	_nml.tab.h	157;"	d
+yystype	nml.tab.c	182;"	d	file:
+yystype	nml.tab.h	112;"	d
+yysyntax_error	_nml.tab.c	/^yysyntax_error (char *yyresult, int yystate, int yychar)$/;"	f	file:
+yysyntax_error	nml.tab.c	/^yysyntax_error (char *yyresult, int yystate, int yychar)$/;"	f	file:
+yytable	_nml.tab.c	/^static const yytype_int16 yytable[] =$/;"	v	file:
+yytable	nml.tab.c	/^static const yytype_uint8 yytable[] =$/;"	v	file:
+yyterminate	lex.yy.c	730;"	d	file:
+yytext	lex.yy.c	/^char *yytext;$/;"	v
+yytext_ptr	lex.yy.c	367;"	d	file:
+yytname	_nml.tab.c	/^static const char *const yytname[] =$/;"	v	file:
+yytname	nml.tab.c	/^static const char *const yytname[] =$/;"	v	file:
+yytnamerr	_nml.tab.c	/^yytnamerr (char *yyres, const char *yystr)$/;"	f	file:
+yytnamerr	nml.tab.c	/^yytnamerr (char *yyres, const char *yystr)$/;"	f	file:
+yytokentype	_nml.tab.c	/^   enum yytokentype {$/;"	g	file:
+yytokentype	_nml.tab.h	/^   enum yytokentype {$/;"	g
+yytokentype	nml.tab.c	/^   enum yytokentype {$/;"	g	file:
+yytokentype	nml.tab.h	/^   enum yytokentype {$/;"	g
+yytoknum	_nml.tab.c	/^static const yytype_uint16 yytoknum[] =$/;"	v	file:
+yytoknum	nml.tab.c	/^static const yytype_uint16 yytoknum[] =$/;"	v	file:
+yytranslate	_nml.tab.c	/^static const yytype_uint8 yytranslate[] =$/;"	v	file:
+yytranslate	nml.tab.c	/^static const yytype_uint8 yytranslate[] =$/;"	v	file:
+yytype_int16	_nml.tab.c	/^typedef YYTYPE_INT16 yytype_int16;$/;"	t	file:
+yytype_int16	_nml.tab.c	/^typedef short int yytype_int16;$/;"	t	file:
+yytype_int16	nml.tab.c	/^typedef YYTYPE_INT16 yytype_int16;$/;"	t	file:
+yytype_int16	nml.tab.c	/^typedef short int yytype_int16;$/;"	t	file:
+yytype_int8	_nml.tab.c	/^typedef YYTYPE_INT8 yytype_int8;$/;"	t	file:
+yytype_int8	_nml.tab.c	/^typedef short int yytype_int8;$/;"	t	file:
+yytype_int8	_nml.tab.c	/^typedef signed char yytype_int8;$/;"	t	file:
+yytype_int8	nml.tab.c	/^typedef YYTYPE_INT8 yytype_int8;$/;"	t	file:
+yytype_int8	nml.tab.c	/^typedef short int yytype_int8;$/;"	t	file:
+yytype_int8	nml.tab.c	/^typedef signed char yytype_int8;$/;"	t	file:
+yytype_uint16	_nml.tab.c	/^typedef YYTYPE_UINT16 yytype_uint16;$/;"	t	file:
+yytype_uint16	_nml.tab.c	/^typedef unsigned short int yytype_uint16;$/;"	t	file:
+yytype_uint16	nml.tab.c	/^typedef YYTYPE_UINT16 yytype_uint16;$/;"	t	file:
+yytype_uint16	nml.tab.c	/^typedef unsigned short int yytype_uint16;$/;"	t	file:
+yytype_uint8	_nml.tab.c	/^typedef YYTYPE_UINT8 yytype_uint8;$/;"	t	file:
+yytype_uint8	_nml.tab.c	/^typedef unsigned char yytype_uint8;$/;"	t	file:
+yytype_uint8	nml.tab.c	/^typedef YYTYPE_UINT8 yytype_uint8;$/;"	t	file:
+yytype_uint8	nml.tab.c	/^typedef unsigned char yytype_uint8;$/;"	t	file:
+yyunput	lex.yy.c	/^    static void yyunput (int c, register char * yy_bp )$/;"	f	file:
+yyvs_alloc	_nml.tab.c	/^  YYSTYPE yyvs_alloc;$/;"	m	union:yyalloc	file:
+yyvs_alloc	nml.tab.c	/^  YYSTYPE yyvs_alloc;$/;"	m	union:yyalloc	file:
+yywrap	lex.yy.c	/^int yywrap()$/;"	f
+~a	hash (copy).cpp	/^	~a(){printf("~a\\n");};$/;"	f	class:a
+~b	hash (copy).cpp	/^	~b(){printf("~b\\n");};$/;"	f	class:b
+~hash_control	hash.cpp	/^hash_control::~hash_control()$/;"	f	class:hash_control
+~rule	drt.cpp	/^rule::~rule()$/;"	f	class:rule
+~string_table	string_table.cpp	/^string_table::~string_table()$/;"	f	class:string_table

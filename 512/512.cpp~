@@ -1,0 +1,56 @@
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <utility>
+#include <iostream>
+#include <map>
+using namespace std;
+typedef long long ll;
+typedef pair<int,int> pp;
+#define N 100000
+ll q[N+1][2];
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int n;
+  scanf("%d",&n);
+  typedef pair<int,int> pp;
+  vector<pp> p;
+  p.resize(n);
+  map<int,int> mapp;
+  for(int i=0;i<n;++i)
+    {
+      int x,y;
+      scanf("%d%d",&x,&y);
+      p[i].first=x,p[i].second=y;
+      mapp[y]=0;
+    }
+  int num(0);
+  map<int,int>::iterator ite;
+  for(ite=mapp.begin();ite!=mapp.end();++ite)
+    ite->second=num++;
+  for(int i=0;i<n;++i)
+    p[i].second=mapp[p[i].second];
+  sort(p.begin(),p.end());
+  map<pp,int> mappp;
+  for(int i=0;i<n;++i)
+    mapp[pp(p[i].second,i)]=i;
+  for(int i=0;i<n;++i)
+    {
+      int j=i;
+      for(;j<n && p[j].first==p[i].first;++j)
+	mapp.erase(pp(p[j].second,j));
+      map<pp,int>::iterator ii;
+      for(int k=i;k<j;++k)
+	{
+	  ii=mapp.upper_bound((p[k].second,-1));
+	  if(ii!=mapp.begin())
+	    {
+	      --ii;
+	      
+	    }
+	}
+    }
+  cout<<ans;
+  return 0;
+}

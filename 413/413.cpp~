@@ -1,0 +1,204 @@
+#include <cstdio>
+#include <iostream>
+#include <string.h>
+#include <cstdlib>
+#include <queue>
+#include <algorithm>
+using namespace std;
+#define N 100
+#define M 1000
+int p[M*2+1][4],poi;
+int s[N+1];
+int d[N+1];
+int fa[N+1];
+int seq[N+1];
+queue<int> que;
+void add(int f,int t)
+{
+  ++poi,p[poi][0]=t,p[poi][1]=s[f],s[f]=poi,p[s[f]][2]=poi,p[poi][2]=0,
+    p[poi][3]=f;
+  cout<<"!"<<poi<<' '<<f<<' '<<t<<endl;
+  if(f==2)
+    cout<<"!"<<s[2]<<'!'<<endl;
+  ++d[f];
+  ++poi,p[poi][0]=f,p[poi][1]=s[t],s[t]=poi,p[s[t]][2]=poi,p[poi][2]=0,
+    p[poi][3]=t;
+  if(t==2)
+    cout<<'!'<<s[2]<<'!'<<endl;
+  ++d[t];
+}
+void del(int i)
+{
+  cout<<"!!!"<<endl;
+  if(p[i][2]==0)
+    {
+  cout<<s[2]<<endl;
+      s[p[i][3]]=p[s[p[i][3]]][1],p[p[i][1]][2]=0;
+      if(s[p[i][3]]!=i)
+	{
+	  cout<<"!!!!"<<p[i][3]<<' '<<s[2]<<' '<<i<<' '<<p[i][0]<<endl;
+	  exit(1);
+	}
+    }
+  else
+    p[p[i][1]][2]=p[i][2],p[p[i][2]][1]=p[i][1];
+  cout<<"!!!"<<endl;
+}
+int query(int a)
+{
+  return fa[a]==a?a:fa[a]=query(fa[a]);
+}
+void joi(int a,int b)
+{
+  a=query(a),b=query(b);
+  if(a!=b)
+    fa[a]=b;
+}
+int main()
+{
+  freopen("in.txt","r",stdin);
+  int tst;
+  scanf("%d",&tst);
+  for(;tst--;)
+    {
+      int n,m;
+      scanf("%d%d",&n,&m);
+      memset(s,0,sizeof(s));
+      poi=0;
+      for(int j=0,f,t;j<m;++j)
+	{
+	  scanf("%d%d",&f,&t);
+	  add(f,t);
+	}
+      for(int i=1;i<=n;++i)
+	{
+	  if(d[i]==1)
+	    que.push(i);
+	  fa[i]=i;
+	}
+      for(;;)
+	{
+	  if(tst==0)
+	    {
+	      for(int i=1;i<=n;++i)
+		cout<<d[i]<<' ';
+	      cout<<endl;
+	    }
+	  if(!que.empty())
+	    {
+	      int v=0;
+	      for(;!que.empty();)
+		{
+		  int tmp=que.front();
+		  que.pop();
+		  if(d[tmp]==1)
+		    {
+		      v=tmp;
+		      break;
+		    }
+		}
+	      if(v)
+		{
+		  int k=p[s[v]][0];
+	  cout<<s[2]<<endl;
+		  del(s[v]+((s[v]&1)?1:-1));
+		  --d[k];
+		  del(s[v]);
+		  --d[v];
+		  joi(v,k);
+		  int num=2;
+		  for(int i=s[k];i;i=p[i][1])
+		    {
+		      int t=p[i][0];
+		      if(d[t]==1)
+			{
+			  joi(k,t);
+			  --d[k];
+			  --d[t];
+			  del(i);
+			  del(i+((i&1)?1:-1));
+			  ++num;
+			}
+		    }
+		  if((num&1)==0)
+		    {
+		      for(int i=s[k];i;i=p[i][1])
+			{
+			  int t=p[i][0];
+			  del(i);
+			  del(i+((i&1)?1:-1));
+			  --d[k];
+			  --d[t];
+			  if(d[t]==1)
+			    que.push(t);
+			}
+		    }
+		  else if(d[k]==1)
+		    que.push(k);
+		}
+	    }
+	  else
+	    {
+	      int v=0;
+	      for(int i=1;i<=n;++i)
+		if(d[i])
+		  {
+		    v=i;
+		    break;
+		  }
+	      if(tst==0)
+		cout<<"!"<<v<<' '<<d[v]<<endl;
+	      if(v)
+		{
+		  int k=p[s[v]][0];
+		  int cad1=k,cad2=v;
+		  for(int i=p[s[v]][1];i;i=p[i][1])
+		    {
+		      int t=p[i][0];
+		      if(d[t]==2)
+			{
+			  int a=p[s[v]][0];
+			  int b=p[p[s[v]][1]][0];
+			  if(min(a,b)==min(k,v) && max(a,b)==max(k,v))
+			    {
+			      if(d[k]>2)
+				cad1=t,cad2=v;
+			      else cad1=t,cad2=k;
+			      break;
+			    }
+			}
+		    }
+		  joi(cad1,cad2);
+		  for(int i=s[cad1];i;i=p[i][1])
+		    {
+		      int t=p[i][0];
+		      del(i);
+		      del(i+((i&1)?1:-1));
+		      --d[cad1],--d[t];
+		      if(d[t]==1)
+			que.push(t);
+		    }
+		  for(int i=s[cad2];i;i=p[i][1])
+		    {
+		      int t=p[i][0];
+		      del(i),del(i+((i&1)?1:-1));
+		      --d[cad2],--d[t];
+		      if(d[t]==1)
+			que.push(t);
+		    }
+		}
+	      else break;
+	    }
+	}
+      memset(seq,0,sizeof(seq));
+      for(int i=1,j=1;i<=n;++i)
+	{
+	  int t=query(i);
+	  if(seq[t]==0)
+	    seq[t]=j++;
+	  printf("%d ",seq[t]);
+	}
+      printf("\n");
+    }
+  return 0;
+}
