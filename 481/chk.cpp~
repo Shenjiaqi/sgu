@@ -1,0 +1,25 @@
+#include <iostream>
+#include "gmpxx.h"
+int main()
+{
+  int n;
+  scanf("%d",&n);
+  mpz_class ans(0);
+  if(n>3)
+    {
+      mpz_class a;
+      mpz_ui_pow_ui(a.get_mpz_t(),n,n-3);
+      map_class b(1);
+      b*=n,b*=n-1;
+      for(int i=3;i<n;++i)
+	{
+	  b*=(n-i+1);
+	  a/=n;
+	  ans+=a*b;
+	}
+      ans/=2;
+      cout<<ans<<endl;
+    }
+  else cout<<1<<endl;
+  return 0;
+}
