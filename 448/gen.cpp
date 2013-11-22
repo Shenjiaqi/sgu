@@ -5,7 +5,7 @@ using namespace std;
 int p[17][17];
 int main()
 {
-  int n=15;
+  int n=12;
   int m=1;
   freopen("in","w",stdout);
   cout<<n<<' '<<m<<endl;
