@@ -46,8 +46,8 @@ ll dfs(int msk,int v,int r)
 		ll v1=dfs(c,p1[j],jj);
 		if(v1)
 		  for(int k=0;k<p2.size();++k)
-		    for(int kk=mr[p2.size()];kk<min(r,(int)p2.size());++kk)
-		      if(jj==r-1 || kk==r-1)
+		    for(int kk=(jj==r-1?mr[p2.size()]:r-1);kk<min(r,(int)p2.size());++kk)
+		      //if(jj==r-1 || kk==r-1)
 			{
 			  ll tmp=v1*dfs(cc,p2[k],kk);
 			  dp[msk][cmp(p1[j],p2[k])][r]+=tmp;
