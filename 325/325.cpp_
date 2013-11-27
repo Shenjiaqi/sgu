@@ -1,0 +1,72 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+using namespace std;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+const int N=(1e6+7);
+char s[N];
+int cnt['Z'+1];
+int usd['Z'+1];
+int p[N];
+int to[N];
+queue<int> pos['Z'+1];
+int que(int i,int n)
+{
+  int r(0);
+  ++i,++n;
+  for(;i;i^=(i&(-i)))
+    r+=p[i];
+  return r;
+}
+void add(int i,int n,int v)
+{
+  ++i,++n;
+  for(;i<=n;i+=(i&(-i)))
+    p[i]+=v;
+}
+int main()
+{
+  scanf("%s",s);
+  int l=strlen(s);
+  FOR(i,0,l)
+    ++cnt[s[i]];
+  int odd(0);
+  FOR(i,'A','Z'+1)
+    if(cnt[i]&1)
+      ++odd;
+  if(odd>1)
+    printf("-1");
+  else
+    {
+      ll ans(0);
+      for(int i=l-1;i>=0;--i)
+	pos[s[i]].push_back(l-1-i);
+      for(int i=0;i<l/2;++i)
+	{
+	  ans+=f-que(f,l+1);
+	  add(f,l+1,1);
+	}
+      cout<<ans;
+    }
+  return 0;
+}
