@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <iostream>
 #include <cstring>
 #include <cstdlib>
 #include <algorithm>
@@ -270,7 +271,6 @@ void dfk(int a,int b)
 }
 int main()
 {
-    freopen("in.txt","r",stdin);
     scanf("%d %d\n",&n,&m);
     u['.']=0,u['#']=1,u['@']=0;
     u['P']=2,u['R']=3,u['K']=4,u['B']=5,u['Q']=6,u['M']=7;
@@ -293,6 +293,13 @@ int main()
     }
     memcpy(pp,p,sizeof(pp));
     cal();
+    for(int i=0;i<n;++i)
+      {
+	for(int j=0;j<m;++j)
+	  cout<<q[i][j]<<' ';
+	cout<<endl;
+      }
+    return 0;
     /*
     if(q[x][y])
     {

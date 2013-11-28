@@ -208,7 +208,7 @@ void dfr(int a,int b)
 }
 int main()
 {
-    freopen("in.txt","r",stdin);
+  //freopen("in.txt","r",stdin);
     scanf("%d %d\n",&n,&m);
     u['.']=0,u['#']=1,u['@']=0;
     u['P']=2,u['R']=3,u['K']=4,

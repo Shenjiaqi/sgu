@@ -326,7 +326,7 @@ void dfk(int a,int b)
 }
 int main()
 {
-    freopen("in.txt","r",stdin);
+  //freopen("in.txt","r",stdin);
     scanf("%d %d\n",&n,&m);
     u['.']=0,u['#']=1,u['@']=0;
     u['P']=2,u['R']=3,u['K']=4,u['B']=5,u['Q']=6,u['M']=7;
@@ -350,12 +350,12 @@ int main()
     memcpy(pp,p,sizeof(pp));
     cal();
 
-    for(int i=0;i<n;++i)
-    {
-        for(int j=0;j<m;++j)
-            printf("%d",(int)q[i][j]);
-        printf("\n");
-    }
+    // for(int i=0;i<n;++i)
+    // {
+    //     for(int j=0;j<m;++j)
+    //         printf("%d",(int)q[i][j]);
+    //     printf("\n");
+    // }
     if(q[x][y])
     {
         printf("0");

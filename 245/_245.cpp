@@ -32,11 +32,11 @@ int cnt[N][M];
 bool cg[N][M];
 int rx,ry;
 int n,m;
+int sc[400];
 bool inr(int x,int y)
 {
   return (x<n && x>=0 && y<m && y>=0);
 }
-int score[255];
 void calp(int x,int y,int c[N][M],int num,queue<ppi> &que)
 {
   if(inr(x-1,y-1))
@@ -71,7 +71,7 @@ const static int dirq[][2]={{1,0},{-1,0},{0,1},{0,-1},{1,1},{-1,-1},{-1,1},{1,-1
 void calq(int x,int y,int c[N][M],int num,queue<ppi> &que)
 {
   FOR(i,0,8)
-    for(int xx=x+dirq[i][0],yy=y+dirq[i][1];inr(xx,yy);xx+=dirq[i][0],yy+=dirq[i][1])
+    for(int xx=x+dirq[i][0],yy=y+dirq[i][1];inr(xx,yy)&& q[xx][yy]!='#';xx+=dirq[i][0],yy+=dirq[i][1])
       {
 	c[xx][yy]+=num;
 	if(c[xx][yy]==0)
@@ -84,7 +84,7 @@ const static int dirb[][2]={{1,1},{-1,-1},{1,-1},{-1,1}};
 void calb(int x,int y,int c[N][M],int num,queue<ppi> &que)
 {
   FOR(i,0,4)
-    for(int xx=x+dirb[i][0],yy=y+dirb[i][1];inr(xx,yy);xx+=dirb[i][0],yy+=dirb[i][1])
+    for(int xx=x+dirb[i][0],yy=y+dirb[i][1];inr(xx,yy)&& q[xx][yy]!='#';xx+=dirb[i][0],yy+=dirb[i][1])
       {
 	c[xx][yy]+=num;
 	if(c[xx][yy]==0)
@@ -111,7 +111,7 @@ const static int dirr[][2]={{1,0},{-1,0},{0,1},{0,-1}};
 void calr(int x,int y,int c[N][M],int num,queue<ppi> &que)
 {
   FOR(i,0,4)
-    for(int xx=x+dirr[i][0],yy=y+dirr[i][1];inr(xx,yy);xx+=dirr[i][0],yy+=dirr[i][1])
+    for(int xx=x+dirr[i][0],yy=y+dirr[i][1];inr(xx,yy) && q[xx][yy]!='#';xx+=dirr[i][0],yy+=dirr[i][1])
       {
 	c[xx][yy]+=num;
 	if(c[xx][yy]==0)
@@ -182,132 +182,94 @@ void cal(int x,int y,int c[N][M])
       break;
     }
 }
-bool add(int x,int y,int z[N][M],int count[N][M],queue<ppi> &que)
-{
-  int rz=z[x][y];
-  if(z[x][y]==0 && count[x][y]==0 && q[x][y]!='#')
-    {
-      que.push(ppi(x,y)),z[x][y]=1;
-      //return (q[x][y]=='.' || q[x][y]=='@');
-    }
-  if(q[x][y]!='#')
-    cg[x][y]=true;
-  return q[x][y]!='#' && rz==0 && (q[x][y]=='.' || q[x][y]=='@');//*
-}
-void fill(int x,int y,int z[N][M],int count[N][M],queue<ppi> &que,int queen)
-{
-  if(queen)
-    {
-      for(int k=0;k<8;++k)
-	for(int i=x+dirq[k][0],j=y+dirq[k][1];inr(i,j) && add(i,j,z,count,que);i+=dirq[k][0],j+=dirq[k][1])
-	  ;
-    }
-  else
-    {
-      FOR(i,0,8)
-	{
-	  int xx=x+dirk[i][0],yy=y+dirk[i][1];
-	  if(inr(xx,yy))
-	    add(xx,yy,z,count,que);
-	}
-    }
-}
-bool rh(int i,int j)
-{
-  return cg[i][j];
-  // if(queen)
-  //   {
-  //     FOR(k,0,8)
-  // 	for(int x=i+dirq[k][0],y=j+dirq[k][1];inr(x,y) && 
-  // 	      q[x][y]!='#';
-  // 	    x+=dirq[k][0],y+=dirq[k][1])
-  // 	  if(z[x][y])
-  // 	    {
-  // 	      return true;
-  // 	    }
-  // 	  else if(q[x][y]!='.' && q[x][y]!='@')
-  // 	    {
-  // 	      return false;
-  // 	    }
-  //   }
-  // else
-  //   FOR(k,0,8)
-  //     {
-  // 	int xx=i+dirk[k][0],yy=j+dirk[k][1];
-  // 	if(inr(xx,yy) && z[xx][yy])
-  // 	  {
-  // 	    return true;
-  // 	  }
-  //     }
-  // return false;
-}
-int att(int z[N][M],int queen,int mi,int c[N][M])
-{
-  int r(0);
-  int aadd(0);
-  FOR(i,0,n)
-    FOR(j,0,m)
-    if(q[i][j]!='.' && q[i][j]!='@' && q[i][j]!='#' && z[i][j]==0 && r<score[q[i][j]] && mi<score[q[i][j]])
-      if(rh(i,j))
-	{
-	  if(cnt[i][j]==0)
-	    assert(0);
-	  r=score[q[i][j]];
-	}
-  return r;
-}
+int c[N][M];
 int z[N][M];
-int ccnt[N][M];
-int an(int x,int y,int queen)
+int ans(int x,int y,int queen)
 {
-  if(cnt[x][y])
-    return 0;
-  int ans(0);
-  queue<ppi> que;
-  memset(z,0,sizeof(z));
-  memcpy(ccnt,cnt,sizeof(cnt));
   memset(cg,0,sizeof(cg));
-  cg[x][y]=true;
-  if(ccnt[x][y]==0)
-    {
-      z[x][y]=1,que.push(ppi(x,y));
-      fill(x,y,z,ccnt,que,queen);
-    }
-  //cout<<que.front().first<<' '<<que.front().second<<endl;
-  for(;!que.empty();)
+  memset(z,0,sizeof(z));
+  memcpy(c,cnt,sizeof(c));
+  queue<ppi> que;
+  z[x][y]=1;
+  que.push(ppi(x,y));
+  cg[x][y]=1;
+  int r(0);
+  for(;!que.empty();que.pop())
     {
       ppi v=que.front();
-      que.pop();
       int xx=v.first,yy=v.second;
-      cg[xx][yy]=true;
-       // cout<<"!"<<xx<<' '<<yy<<' '<<q[xx][yy]<<' '<<score[q[xx][yy]]<<endl;
-      fill(xx,yy,z,ccnt,que,queen);
-      if(q[xx][yy]!='@' && q[xx][yy]!='.')
-  	{
-	  queue<ppi> qq;
-  	  ans+=uncal(xx,yy,ccnt,qq);
-	  for(;!qq.empty();qq.pop())
+      if(queen)
+	{
+	  FOR(i,0,8)
 	    {
-	      ppi c=qq.front();
-	      int xxx=c.first,yyy=c.second;
-	      if(z[xxx,yyy]==0 && rh(xxx,yyy))
-		que.push(c),z[xxx][yyy]=1;
+	      for(int a=xx+dirq[i][0],b=yy+dirq[i][1];inr(a,b) && q[a][b]!='#' && z[a][b]==0;a+=dirq[i][0],b+=dirq[i][1])
+		{
+		  cg[a][b]=1;
+		  if(c[a][b]==0)
+		    que.push(ppi(a,b)),z[a][b]=1;
+		  else if(q[a][b]!='.' && q[a][b]!='@')
+		    {
+		      break;
+		    }
+		}
 	    }
-  	}
+	}
+      else
+	{
+	  FOR(i,0,8)
+	    {
+	      int a=xx+dirk[i][0],b=yy+dirk[i][1];
+	      if(inr(a,b) && q[a][b]!='#')
+		{
+		  cg[a][b]=1;
+		  if(z[a][b]==0 && c[a][b]==0)
+		    z[a][b]=1,que.push(ppi(a,b));
+		}
+	    }
+	}
+      if(q[xx][yy]!='.' && q[xx][yy]!='#' && q[xx][yy]!='@')
+	{
+	  // if(x==4&&y==2)
+	  //   cout<<q[xx][yy]<<' '<<sc[q[xx][yy]]<<endl;
+	  r+=sc[q[xx][yy]];
+	  queue<ppi> lst;
+	  uncal(xx,yy,c,lst);
+	  for(;!lst.empty();lst.pop())
+	    {
+	      ppi vv=lst.front();
+	      int vx=vv.first,vy=vv.second;
+	      if(cg[vx][vy])
+		que.push(ppi(vx,vy)),z[vx][vy]=1;
+	    }
+	}
     }
-  int ma=att(z,queen,p[6],ccnt);
-  if(ma>p[6])
-    ans+=ma-p[6];
-  return ans;
+  int add(0);
+  FOR(i,0,n)
+    FOR(j,0,m)
+    if(z[i][j]==0 && cg[i][j] && q[i][j]!='.' && q[i][j]!='#' && q[i][j]!='@' && add<sc[q[i][j]])
+      add=sc[q[i][j]];
+  if(add>p[6])
+    r+=(add-p[6]);
+  // if(r==125)
+  //   {
+  //     for(int i=0;i<n;++i)
+  // 	{
+  // 	  for(int j=0;j<m;++j)
+  // 	    cout<<z[i][j];
+  // 	  cout<<endl;
+  // 	}
+  //     cout<<x<<' '<<y<<endl;
+  //   }
+  // cout<<r<<endl<<endl<<endl;;
+  return r;
 }
-//"P" - pawn, "R" - rook, "K" - knight, "B" - bishop, "Q" - queen, "M" - king, "@" - your starting point 
 int main()
 {
-  scanf("%d %d\n",&n,&m);
+  scanf("%d%d",&n,&m);
   FOR(i,0,7)
     scanf("%d",p+i);
-  score['P']=p[0],score['R']=p[1],score['K']=p[2],
-    score['B']=p[3],score['Q']=p[4],score['M']=p[5];
+  sc['P']=p[0],sc['R']=p[1],sc['K']=p[2],sc['B']=p[3],
+    sc['Q']=p[4],sc['M']=p[5];
   FOR(i,0,n)
     scanf("\n%s",q+i);
   FOR(i,0,n)
@@ -316,46 +278,43 @@ int main()
   // FOR(i,0,n)
   //   {
   //     FOR(j,0,m)
-  // 	cout<<q[i][j]<<cnt[i][j]<<' ';
-  //     cout<<endl<<endl;
+  // 	cout<<cnt[i][j]<<' ';
+  //     cout<<endl;
   //   }
   if(cnt[rx][ry]==0)
     {
-      printf("%d",max(an(rx,ry,0),an(rx,ry,1)));
+      printf("%d",max(ans(rx,ry,1),ans(rx,ry,0)));
     }
   else
     {
-      int ans(0);
+      int aa(0);
       FOR(i,0,8)
-	for(int xx=rx+dirq[i][0],yy=ry+dirq[i][1];
-	    inr(xx,yy) && q[xx][yy]!='#';xx+=dirq[i][0],yy+=dirq[i][1])
-	  if(cnt[xx][yy]==0)
-	    {
-	      ans=max(ans,an(xx,yy,1));
-	      break;
-	    }
-	  else if(q[xx][yy]!='.' && q[xx][yy]!='@')
-	    {
-	      if(q[xx][yy]!='#')
-		ans=max(ans,score[q[xx][yy]]-p[6]);
-	      break;
-	    }
+	for(int a=rx+dirq[i][0],b=ry+dirq[i][1];inr(a,b) && q[a][b]!='#';a+=dirq[i][0],b+=dirq[i][1])
+	  {
+	    if(cnt[a][b]==0)
+	      {
+		//cout<<a<<' '<<b<<endl;
+		aa=max(aa,ans(a,b,1));
+		break;
+	      }
+	    if(q[a][b]!='.' && q[a][b]!='@')
+	      aa=max(aa,sc[q[a][b]]-p[6]);
+	  }
       FOR(i,0,8)
-	{
-	  int xx=rx+dirk[i][0],yy=ry+dirk[i][1];
-	  if(inr(xx,yy) && q[xx][yy]!='#')
-	    {
-	      if(cnt[xx][yy]==0)
-		{
-		  ans=max(ans,an(xx,yy,0));
-		}
-	      else if(q[xx][yy]!='.')
-		{
-		  ans=max(ans,score[q[xx][yy]]-p[6]);
-		}
-	    }
+      	{
+      	  int x=rx+dirk[i][0],y=ry+dirk[i][1];
+      	  if(inr(x,y) && q[x][y]!='#')
+      	    {
+      	      if(cnt[x][y]==0)
+      		{
+      		  // cout<<x<<' '<<y<<endl;
+      		  aa=max(aa,ans(x,y,0));
+      		}
+      	      else if(q[x][y]!='.' && q[x][y]!='#')
+      		aa=max(aa,sc[q[x][y]]-p[6]);
+      	    }
 	}
-      printf("%d",ans);
+      printf("%d\n",aa);
     }
   return 0;
 }
