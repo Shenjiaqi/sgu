@@ -26,7 +26,7 @@ typedef pair<ll,ll> ppl;
 #define N 307
 #define M 307
 //pawn, rook, knight, bishop, queen, and king
-int p[7];
+int p[70];
 char q[N][M];
 int cnt[N][M];
 bool cg[N][M];
@@ -39,13 +39,13 @@ bool inr(int x,int y)
 }
 void calp(int x,int y,int c[N][M],int num,queue<ppi> &que)
 {
-  if(inr(x-1,y-1))
+  if(inr(x-1,y-1) && q[x-1][y-1]!='#')
     {
       c[x-1][y-1]+=num;
       if(c[x-1][y-1]==0)
 	que.push(ppi(x-1,y-1));
     }
-  if(inr(x-1,y+1))
+  if(inr(x-1,y+1) && q[x-1][y+1]!='#')
     {
       c[x-1][y+1]+=num;
       if(c[x-1][y+1]==0)
@@ -59,7 +59,7 @@ void calm(int x,int y,int c[N][M],int num,queue<ppi> &que)
     if(i!=0 || j!=0)
       {
 	int xx=x+i,yy=y+j;
-	if(inr(xx,yy))
+	if(inr(xx,yy) && q[xx][yy]!='#')
 	  {
 	    c[xx][yy]+=num;
 	    if(c[xx][yy]==0)
@@ -99,7 +99,7 @@ void calk(int x,int y,int c[N][M],int num,queue<ppi> &que)
   FOR(i,0,8)
     {
       int xx=x+dirk[i][0],yy=y+dirk[i][1];
-      if(inr(xx,yy))
+      if(inr(xx,yy) && q[xx][yy]!='#')
 	{
 	  c[xx][yy]+=num;
 	  if(c[xx][yy]==0)
@@ -127,7 +127,7 @@ int uncal(int x,int y,int c[N][M],queue<ppi> &que)
     case 'P':
       calp(x,y,c,-1,que);
       return p[0];
-    case 'R':
+     case 'R':
       calr(x,y,c,-1,que);
       return p[1];
     case 'K':
@@ -143,7 +143,7 @@ int uncal(int x,int y,int c[N][M],queue<ppi> &que)
       calm(x,y,c,-1,que);
       return p[5];
     default:
-      //assert(0);
+      assert(0);
       break;
     }
   return 0;
@@ -184,7 +184,7 @@ void cal(int x,int y,int c[N][M])
 }
 int c[N][M];
 int z[N][M];
-int ans(int x,int y,int queen)
+int ans(int x,int y,char type)
 {
   memset(cg,0,sizeof(cg));
   memset(z,0,sizeof(z));
@@ -198,23 +198,48 @@ int ans(int x,int y,int queen)
     {
       ppi v=que.front();
       int xx=v.first,yy=v.second;
-      if(queen)
-	{
-	  FOR(i,0,8)
+      if(type=='R')
+	FOR(i,0,4)
+	  for(int a=xx+dirr[i][0],b=yy+dirr[i][1];inr(a,b) && q[a][b]!='#' && z[a][b]==0;a+=dirr[i][0],b+=dirr[i][1])
 	    {
-	      for(int a=xx+dirq[i][0],b=yy+dirq[i][1];inr(a,b) && q[a][b]!='#' && z[a][b]==0;a+=dirq[i][0],b+=dirq[i][1])
+	      cg[a][b]=1;
+	      if(c[a][b]==0)
 		{
-		  cg[a][b]=1;
-		  if(c[a][b]==0)
-		    que.push(ppi(a,b)),z[a][b]=1;
-		  else if(q[a][b]!='.' && q[a][b]!='@')
-		    {
-		      break;
-		    }
+		  que.push(ppi(a,b)),z[a][b]=1;
+		  break;
 		}
+	      if(q[a][b]!='.' && q[a][b]!='@')
+		break;
 	    }
+      else if(type=='B')
+	FOR(i,0,4)
+	  for(int a=xx+dirb[i][0],b=yy+dirb[i][1];inr(a,b) && q[a][b]!='#' && z[a][b]==0;a+=dirb[i][0],b+=dirb[i][1])
+	    {
+	      cg[a][b]=1;
+	      if(c[a][b]==0)
+		{
+		  que.push(ppi(a,b)),z[a][b]=1;
+		  break;
+		}
+	      if(q[a][b]!='.' && q[a][b]!='@')
+		break;
+	    }
+      else if(type=='M')
+	{
+	  FOR(i,-1,2)
+	    FOR(j,-1,2)
+	    if(i!=0 || j!=0)
+	      {
+		int a=i+xx,b=j+yy;
+		if(inr(a,b) && q[a][b]!='#')
+		  {
+		    cg[a][b]=1;
+		    if(z[a][b]==0 && c[a][b]==0)
+		      que.push(ppi(a,b)),z[a][b]=1;
+		  }
+	      }
 	}
-      else
+      else if(type=='K')
 	{
 	  FOR(i,0,8)
 	    {
@@ -227,6 +252,7 @@ int ans(int x,int y,int queen)
 		}
 	    }
 	}
+      else assert(0);
       if(q[xx][yy]!='.' && q[xx][yy]!='#' && q[xx][yy]!='@')
 	{
 	  // if(x==4&&y==2)
@@ -239,18 +265,24 @@ int ans(int x,int y,int queen)
 	      ppi vv=lst.front();
 	      int vx=vv.first,vy=vv.second;
 	      if(cg[vx][vy])
-		que.push(ppi(vx,vy)),z[vx][vy]=1;
+		{
+		  assert(z[vx][vy]==0);
+		  que.push(ppi(vx,vy)),z[vx][vy]=1;
+		}
 	    }
 	}
     }
   int add(0);
   FOR(i,0,n)
     FOR(j,0,m)
-    if(z[i][j]==0 && cg[i][j] && q[i][j]!='.' && q[i][j]!='#' && q[i][j]!='@' && add<sc[q[i][j]])
-      add=sc[q[i][j]];
+    if(z[i][j]==0 && cg[i][j] && q[i][j]!='.' && q[i][j]!='#' && q[i][j]!='@')// && add<sc[q[i][j]])
+      {
+	add=max(add,sc[q[i][j]]);
+	assert(c[i][j]>0);
+      }
   if(add>p[6])
     r+=(add-p[6]);
-  // if(r==125)
+  // if(r==1 && queen)
   //   {
   //     for(int i=0;i<n;++i)
   // 	{
@@ -258,7 +290,7 @@ int ans(int x,int y,int queen)
   // 	    cout<<z[i][j];
   // 	  cout<<endl;
   // 	}
-  //     cout<<x<<' '<<y<<endl;
+  //     cout<<x<<' '<<y<<' '<<queen<<endl;
   //   }
   // cout<<r<<endl<<endl<<endl;;
   return r;
@@ -283,23 +315,86 @@ int main()
   //   }
   if(cnt[rx][ry]==0)
     {
-      printf("%d",max(ans(rx,ry,1),ans(rx,ry,0)));
+      int aa=0;
+      aa=max(aa,ans(rx,ry,'R'));
+      aa=max(aa,ans(rx,ry,'K'));
+      aa=max(aa,ans(rx,ry,'B'));
+      aa=max(aa,ans(rx,ry,'M'));
+      printf("%d\n",aa);
     }
   else
     {
       int aa(0);
-      FOR(i,0,8)
-	for(int a=rx+dirq[i][0],b=ry+dirq[i][1];inr(a,b) && q[a][b]!='#';a+=dirq[i][0],b+=dirq[i][1])
+      bool vis[N][M];
+      memset(vis,0,sizeof(vis));
+      FOR(i,0,4)
+	for(int a=rx+dirb[i][0],b=ry+dirb[i][1];inr(a,b) && q[a][b]!='#';
+	    a+=dirb[i][0],b+=dirb[i][1])
+      {
+	if(cnt[a][b]==0)
 	  {
-	    if(cnt[a][b]==0)
+	    //cout<<a<<' '<<b<<endl;
+	    if(!vis[a][b])
 	      {
-		//cout<<a<<' '<<b<<endl;
-		aa=max(aa,ans(a,b,1));
-		break;
+		aa=max(aa,ans(a,b,'B'));
+		FOR(j,0,n)
+		  FOR(k,0,m)
+		  if(z[j][k])
+		    vis[j][k]=true;
 	      }
-	    if(q[a][b]!='.' && q[a][b]!='@')
-	      aa=max(aa,sc[q[a][b]]-p[6]);
+	    break;
 	  }
+	if(q[a][b]!='.' && q[a][b]!='@')
+	  {
+	    aa=max(aa,sc[q[a][b]]-p[6]);
+	    break;
+	  }
+      }
+      memset(vis,0,sizeof(vis));
+      FOR(i,0,4)
+	for(int a=rx+dirr[i][0],b=ry+dirr[i][1];inr(a,b) && q[a][b]!='#';
+	    a+=dirr[i][0],b+=dirr[i][1])
+	  if(cnt[a][b]==0)
+	    {
+	      if(!vis[a][b])
+		{
+		  aa=max(aa,ans(a,b,'R'));
+		  FOR(j,0,n)
+		    FOR(k,0,m)
+		    if(z[j][k])
+		      vis[j][k]=true;
+		}
+	      break;
+	    }
+	  else if(q[a][b]!='.' && q[a][b]!='@')
+	    {
+	      aa=max(aa,sc[q[a][b]]-p[6]);
+	      break;
+	    }
+      memset(vis,0,sizeof(vis));
+      FOR(i,-1,2)
+	FOR(j,-1,2)
+	if(i!=0 || j!=0)
+	  {
+	    int a=i+rx,b=j+ry;
+	    if(inr(a,b) && q[a][b]!='#')
+	      {
+		if(cnt[a][b]==0)
+		  {
+		    if(!vis[a][b])
+		      {
+			aa=max(aa,ans(a,b,'M'));
+			FOR(k,0,n)
+			  FOR(l,0,m)
+			  if(z[k][l])
+			    vis[k][l]=true;
+		      }
+		  }
+		else if(q[a][b]!='.' && q[a][b]!='@')
+		  aa=max(aa,sc[q[a][b]]-p[6]);
+	      }
+	  }
+      memset(vis,0,sizeof(vis));
       FOR(i,0,8)
       	{
       	  int x=rx+dirk[i][0],y=ry+dirk[i][1];
@@ -308,9 +403,16 @@ int main()
       	      if(cnt[x][y]==0)
       		{
       		  // cout<<x<<' '<<y<<endl;
-      		  aa=max(aa,ans(x,y,0));
+		  if(!vis[x][y])
+		    {
+		      aa=max(aa,ans(x,y,'K'));
+		      FOR(j,0,n)
+			FOR(k,0,m)
+			if(z[j][k])
+			  vis[j][k]=true;
+		    }
       		}
-      	      else if(q[x][y]!='.' && q[x][y]!='#')
+      	      else if(q[x][y]!='.' && q[x][y]!='@')
       		aa=max(aa,sc[q[x][y]]-p[6]);
       	    }
 	}

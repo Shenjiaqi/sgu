@@ -1,0 +1,20 @@
+#!/bin/bash
+g++ _245.cpp -o aa.out 
+g++ chk.cpp -o bb.out
+
+for (( i ;  i< 100; ++i))
+do
+ g++ gen.cpp && ./a.out > in 
+ a=`./aa.out < in`
+ b=`./bb.out < in`
+   echo $a $b
+ if(("$a" < "$b"))
+ then
+   break
+ elif(("$a" > "$b"))
+ then
+  echo " * "
+  break
+ fi
+ sleep 0.5
+done
