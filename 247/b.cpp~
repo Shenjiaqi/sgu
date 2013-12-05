@@ -1,0 +1,3 @@
+#include <cstdio>
+char * p[1001];
+int main()

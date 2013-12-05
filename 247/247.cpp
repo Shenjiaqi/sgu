@@ -5,7 +5,7 @@
 using namespace std;
 #define N 1001
 int pri[N];
-vector<int> dp[N][N];
+vector<int> dp[N][N/10];
 const int mod=1000000000;
 void add(vector<int> &a,vector<int> &b)
 {
