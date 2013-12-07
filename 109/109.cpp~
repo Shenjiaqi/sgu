@@ -1,0 +1,11 @@
+int n;
+int main()
+{
+  scanf("%d",&n);
+  printf("%d ",n);
+  for(int i=1;i<=n;++i)
+    for(int j=1;j<=n;++j)
+      if(i!=2 || j!=n)
+	printf("%d ",(i+(j-1)*n));
+  return 0;
+}
