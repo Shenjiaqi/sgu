@@ -159,28 +159,32 @@ void cal(int n1,int m1,int n2,int m2)
   // cout<<kk<<endl;
   FOR(l,0,m1+1)
     {
+      ll sum(0);
       FOR(k,0,m2+1)
 	{
 	  ll b=(n2-m2+k+1)*(n1-m1+l+n2-m2+k+2);
-	  ll r=1;
-	  for(ll i=1,j=10;i<=len-1;i<<=1,j=(j*j)%b)
-	    if(i&(len-1))
-	      r=(r*j)%b;
-	  r*=(((c[m2][k]%b)*(c[m1][l]%b))%b);
-	  r%=b;
-	  r=(r*PRE)/b;
+	  // ll r=1;
+	  // for(ll i=1,j=10;i<=len-1;i<<=1,j=(j*j)%b)
+	  //   if(i&(len-1))
+	  //     r=(r*j)%b;
+	  // r*=(((c[m2][k]%b)*(c[m1][l]%b))%b);
+	  // r%=b;
+	  // r=(r*PRE)/b;
+	  ll r=1e9/b;
+	  r*=cc[m2][k][cc[m2][k].size()-1];
 	  if((l+k)&1)
-	    ans+=(1-r);
-	  else ans+=r;
+	    ans+=(1-r),sum+=(1-r);
+	  else ans+=r,sum+=r;
 	  for(;ans<0;)
 	    ans+=PRE;
 	  ans%=PRE;
 	}
+      // cout<<l<<' '<<sum<<endl;
     }
   ans=(ans+PRE)%PRE;
-  cout<<ans<<endl;
-  cout<<"!"<<endl;
-  pt(a);
+  // cout<<ans<<endl;
+  // cout<<"!"<<endl;
+  // pt(a);
   mul(a,ans);
   prt(a,len);
 }

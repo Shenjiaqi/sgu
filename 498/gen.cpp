@@ -31,22 +31,20 @@ typedef pair<ld,ld> ppld;
 
 int main()
 {
-  int n=1000*51;
+  int n=10000;
   cout<<n<<endl;
-  FOR(i,1,1001)
-    FOR(j,0,min(i+1,51))
-    cout<<1<<' '<<0<<' '<<i<<' '<<j<<endl;
-  // for(int i=0;i<n;++i)
-  //   //cout<<"1000 50 1000 50\n";
-  //   {
-  //     // int a=rand()%1000,b=rand()%1000;
-  //     // ++a,++b;
-  //     // int c=min(50,rand()%a);
-  //     // int d=min(50,rand()%b);
-  //     int a=10,c=5;
-  //     int b=1000;
-  //     cout<<a<<' '<<c<<' '<<b<<' '<<i<<endl;
-  //   }
+
+  for(int i=0;i<n;++i)
+    //cout<<"1000 50 1000 50\n";
+    {
+      // int a=rand()%1000,b=rand()%1000;
+      // ++a,++b;
+      // int c=min(50,rand()%a);
+      // int d=min(50,rand()%b);
+      int a=1000,c=50;
+      int b=1000;
+      cout<<a<<' '<<c<<' '<<b<<' '<<c<<endl;
+    }
 
   return 0;
 }
