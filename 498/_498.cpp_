@@ -149,6 +149,7 @@ double cal(int n1,int m1,int n2,int m2)
   
   len=calLen(a);
   ll ans(0);
+  // ld kk=0;
   // FOR(k,0,m2+1)
   //   {
   //     ld tmp=(ld)c[m2][k]/(ld)(n1-m1+0+1+n2-m2+k+1);
@@ -167,6 +168,7 @@ double cal(int n1,int m1,int n2,int m2)
 	  for(ll i=1,j=10;i<=len-1;i<<=1,j=(j*j)%b)
 	    if(i&(len-1))
 	      r=(r*j)%b;
+	  
 	  r*=(((c[m2][k]%b)*(c[m1][l]%b))%b);
 	  r%=b;
 	  r=(r*PRE)/b;
@@ -179,13 +181,12 @@ double cal(int n1,int m1,int n2,int m2)
 	    ans+=PRE;
 	  ans%=PRE;
 	}
-      // cout <<l<<' '<<sum<<endl;
-      cout<<ans<<endl;
+      // cout<<l<<' '<<sum<<endl;
     }
   ans=(ans+PRE)%PRE;
-  cout<<ans<<' '<<endl;
+  // cout<<ans<<endl;
   // cout<<"!"<<endl;
-  pt(a);
+  // pt(a);
   mul(a,ans);
   return prt(a,len);
 }

@@ -32,12 +32,18 @@ typedef pair<ld,ld> ppld;
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
 #define N 1001
 #define M 51
+const ld eps=1e-13;
+const ll d12=1e12;
 const ll base=1e9;
 typedef vector<int> bn;
 const int prec=9;
 const ll PRE=(ll)(1e9);
+const ll d9=PRE;
+const ll d10=1e10;
 bn cc[N][M];
 ll c[M][M];
+ll det[N*2+1][M];
+ll ss[N*2+1][M];
 void mul(bn &t, bn &f, int v)
 {
   t.resize(0);
@@ -102,14 +108,6 @@ void div(bn &a,int b)
      a.resize(a.size()-1);
   assert(re==0);
 }
-int calLen(bn&a)
-{
-  int i=a.size()-1;
-  int r=i*9;
-  for(int j=a[i];j;j/=10)
-    ++r;
-  return r;
-}
 void pt(bn&a)
 {
   if(a.size())
@@ -122,75 +120,68 @@ void pt(bn&a)
   else printf("0");
   printf("\n");
 }
-double prt(bn&v,int l)
+int calLen(bn&v)
 {
-  int i=(l-1)/9;
-  double v1=v[i];
-  for(int j=(l-1)%9;j;--j)
-    v1/=10;
-  if(v.size()>i+1)
-    {
-      double c=v[i+1];
-      for(int j=9-((l-1)%9);j;--j)
-	c*=10;
-
-      v1+=c;
-    }
-  v1/=PRE;
-  return v1;
-  // printf("%.5lf\n",v1);
+  if(v.size()==0)
+    return 0;
+  int i=v.size()-1;
+  int r=i*9;
+  for(int c=v[i];c;c/=10)
+    ++r;
+  return r;
 }
-double cal(int n1,int m1,int n2,int m2)
+void cal(int n1,int m1,int n2,int m2)
 {
-  bn a;
-  int len(0);
-  mul(a,cc[n1][m1],cc[n2][m2]);
-  mul(a,(n1+1)*(n2+1));
-  
-  len=calLen(a);
+  bn nn;
+  mul(nn,cc[n1][m1],cc[n2][m2]);
+  mul(nn,(n1+1)*(n2+1));
+
   ll ans(0);
-  // FOR(k,0,m2+1)
-  //   {
-  //     ld tmp=(ld)c[m2][k]/(ld)(n1-m1+0+1+n2-m2+k+1);
-  //     if(k&1)
-  // 	kk+=1e-13-tmp;
-  //     else kk+=tmp;
-  //   }
-  // cout<<kk<<endl;
-  FOR(l,0,m1+1)
+
+  ll v=n1-m1+1+n2-m2+1;
+  ll kk=ss[v][m1];
+  int len=calLen(nn);
+  FOR(k,0,m2+1)
     {
-      ll sum(0);
-      FOR(k,0,m2+1)
+      ll d=n2-m2+k+1;
+      ll ki=c[m2][k];
+      ll kkk=(kk+500)/1000;
+      
+      if(len-1>9)
 	{
-	  ll b=(n2-m2+k+1)*(n1-m1+l+n2-m2+k+2);
-	  ll r=1;
-	  for(ll i=1,j=10;i<=len-1;i<<=1,j=(j*j)%b)
-	    if(i&(len-1))
-	      r=(r*j)%b;
-	  r*=(((c[m2][k]%b)*(c[m1][l]%b))%b);
-	  r%=b;
-	  r=(r*PRE)/b;
-	  // ll r=1e9/b;
-	  // r*=cc[m2][k][cc[m2][k].size()-1];
-	  if((l+k)&1)
-	    ans+=(1-r),sum+=(1-r);
-	  else ans+=r,sum+=r;
-	  for(;ans<0;)
-	    ans+=PRE;
-	  ans%=PRE;
+	  ki%=d;
+	  for(ll i=1,j=10;i<=len-1-9;i<<=1,j=(j*j)%d)
+	    if(i&(len-1-9))
+	      ki=(ki*j)%d;
 	}
-      // cout <<l<<' '<<sum<<endl;
-      cout<<ans<<endl;
+      else
+	{
+	  for(int i=0;i<9-(len-1);++i)
+	    ki/=10;
+	  ki%=d;
+	}
+      ki*=d9;
+      ki/=d;
+      ki*=kkk;
+      ki/=d9;
+      if(k&1)
+	ans+=1-ki;
+      else ans+=ki;
+      if(ans<0)
+	ans+=d9;
+      else ans%=d9;
+
+      ++v;
+      if(det[v][m1]>50 )
+	kk=max(kk-det[v][m1],0LL);
     }
-  ans=(ans+PRE)%PRE;
-  cout<<ans<<' '<<endl;
-  // cout<<"!"<<endl;
-  pt(a);
-  mul(a,ans);
-  return prt(a,len);
+  // cout<<"!"<<ans<<endl;
+  mul(nn,ans);
+  ptr(nn,len);
 }
 int main()
 {
+  freopen("in","r",stdin);
   FOR(i,0,N)
     {
       cc[i][0].PB(1);
@@ -198,7 +189,7 @@ int main()
   	{
   	  mul(cc[i][j],cc[i-1][j-1],i);
   	  div(cc[i][j],j);
-  	}
+	}
     }
   FOR(i,0,M)
     FOR(j,0,min(i+1,M))
@@ -207,13 +198,43 @@ int main()
       if(cc[i][j].size()>1)
 	c[i][j]+=(ll)base*cc[i][j][1];
     }
+
+  FOR(i,2,N*2+1)
+    FOR(j,0,M)
+    {
+      ll sum,sum2;
+      sum=sum2=0;
+      FOR(k,0,j+1)
+	{
+	  ll d=(i+k)*(i+k-1);
+	  ll dd=i+k;
+	  ll tmp=c[j][k]%d;
+	  ll tmp2=c[j][k]%dd;
+	  tmp*=d12;
+	  tmp2*=d12;
+	  tmp/=d;
+	  tmp2/=dd;
+	  if(k&1)
+	    sum+=1-tmp,sum2+=1-tmp2;
+	  else sum+=tmp,sum2+=tmp;
+
+	  if(sum<0)
+	    sum+=d12;
+	  else sum%=d12;
+
+	  if(sum2<0)
+	    sum2+=d12;
+	  else sum2%=d12;
+	}
+      det[i][j]=sum,ss[i][j]=sum2;
+    }
+
   int T;
   scanf("%d",&T);
   for(;T--;)
     {
       int n1,m1,n2,m2;
       scanf("%d%d%d%d",&n1,&m1,&n2,&m2);
-      printf("%.4f\n",(float)cal(n1,m1,n2,m2));
     }
   return 0;
 }

@@ -1,0 +1,278 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+// #include <gmp.h>
+// #include <gmpxx.h>
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+typedef pair<ld,ld> ppld;
+#define PB push_back
+#define FIR first
+#define SEC second
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+#define N 1001
+#define M 51
+const ld eps=1e-13;
+const ll d12=1e12;
+const ll base=1e9;
+typedef vector<int> bn;
+const int prec=9;
+const ll PRE=(ll)(1e9);
+const ll d9=PRE;
+const ll d10=1e10;
+bn cc[N][M];
+ll c[M][M];
+bn det[N*2+1][M];
+bn ss[N*2+1][M];
+void pt(bn&a)
+{
+  if(a.size())
+    {
+      int i=a.size()-1;
+      printf("%d",a[i]);
+      for(--i;i>=0;--i)
+	printf("%09d",a[i]);
+    }
+  else printf("0");
+  printf("\n");
+}
+void mul(bn &t, bn &f, int v)
+{
+  t.resize(0);
+  for(int i=0;i<f.size();++i)
+    {
+      if(t.size()<=i)
+	t.resize(i+1);
+      ll ca=t[i];
+      ca+=(ll)f[i]*(ll)v;
+      t[i]=ca%base;
+      ca/=base;
+      if(ca>0)
+	{
+	  if(t.size()<=i+1)
+	    t.resize(i+2);
+	  t[i+1]+=ca;
+	}
+    }
+}
+void mul(bn &t,int v)
+{
+  ll c=0;
+  for(int i=0,j=t.size();i<j;++i)
+    {
+      c+=(ll)t[i]*(ll)v;
+      t[i]=c%base;
+      c/=base;
+    }
+  if(c)
+    t.PB(c);
+}
+void mul(bn &t, const bn &a,const bn &b)
+{
+  t.resize(0);
+  FOR(i,0,a.size())
+    FOR(j,0,b.size())
+    {
+      if(t.size()<=i+j)
+	t.resize(i+j+1);
+      ll v=t[i+j];
+      v+=(ll)a[i]*(ll)b[j];
+      t[i+j]=v%base;
+      v/=base;
+      if(v>0)
+	{
+	  if(t.size()<=i+j+1)
+	    t.resize(i+j+2);
+	  t[i+j+1]+=v;
+	}
+    }
+}
+void mul(bn &a,bn &b)
+{
+  bn tmp;
+  mul(tmp,a,b);
+  a=tmp;
+}
+void add(bn &a,bn &b)
+{
+  ll c=0;
+  int i=0;
+  for(int j=b.size();i<j;++i)
+    {
+      if(a.size()<=i)
+	a.resize(i+1);
+      c+=a[i]+b[i];
+      a[i]=c%base;
+      c/=base;
+    }
+  for(;c;++i)
+    {
+      if(a.size()<=i)
+	a.resize(i+1);
+      c+=a[i];
+      a[i]=c%base;
+      c/=base;
+    }
+}
+void d0(bn &a)
+{
+  int i=a.size()-1;
+  for(;i>=0 && a[i]==0;--i)
+    ;
+  a.resize(i+1);
+}
+void sub(bn &a,bn &b)
+{
+  if(a.size()<b.size())
+    {
+      a.resize(0);
+      return ;
+    }
+  int i=0,c=0;
+  for(int j=b.size();i<j;++i)
+    {
+      a[i]-=(c+b[i]);
+      if(a[i]>=0)
+	c=0;
+      else a[i]+=base,c=1;
+    }
+  for(;c && i<a.size();++i)
+    {
+      a[i]-=c;
+      if(a[i]>=0)
+	break;
+      else a[i]+=base;
+    }
+  if(i>=a.size())
+    a.resize(0);
+  else
+    d0(a);
+}
+void div(bn &a,int b)
+{
+  ll re=0;
+  for(int i=a.size()-1;i>=0;--i)
+    {
+      re=re*base+a[i];
+      a[i]=re/b;
+      re%=b;
+    }
+  d0(a);
+}
+void cal(int n1,int m1,int n2,int m2)
+{
+  bn nn;
+  mul(nn,cc[n1][m1],cc[n2][m2]);
+  mul(nn,(n1+1)*(n2+1));
+
+  bn ans;
+  bn a;
+  a.PB(0),a.PB(0),a.PB(0),a.PB(1);
+  int v=n1-m1+1+n2-m2+1;
+  bn kk=ss[v][m1];
+  int len=nn.size();
+  FOR(k,0,m2+1)
+    {
+      bn tmp;
+      int l2=cc[m2][k].size();
+      for(int i=11-len-l2,j=0;i<kk.size() && j<4;++i,++j)
+	if(i<0)
+	  tmp.PB(0);
+	else
+	  tmp.PB(kk[i]);
+      mul(tmp,cc[m2][k][l2-1]);
+      div(tmp,n2-m2+k+1);
+      for(int i=0,j=tmp.size();i+1<j;++i)
+	tmp[i]=tmp[i+1];
+      tmp.resize(3);
+      add(ans,a);
+      if(k&1)
+	sub(ans,tmp);
+      else add(ans,tmp);
+      ans.resize(3);
+      ++v;
+      sub(kk,det[v][m1]);
+    }
+  mul(ans,nn[len-1]);
+  if(ans[1]>0)
+    printf("1");
+  else printf("%.7lf",(double)ans[1]/1e9);
+}
+int main()
+{
+  freopen("in","r",stdin);
+  FOR(i,0,N)
+    {
+      cc[i][0].PB(1);
+      for(int j=1;j<min(i+1,M);++j)
+  	{
+  	  mul(cc[i][j],cc[i-1][j-1],i);
+  	  div(cc[i][j],j);
+	}
+    }
+  FOR(i,0,M)
+    FOR(j,0,min(i+1,M))
+    {
+      c[i][j]=cc[i][j][0];
+      if(cc[i][j].size()>1)
+	c[i][j]+=(ll)base*cc[i][j][1];
+    }
+
+  FOR(i,2,N*2+1)
+    {
+      FOR(j,0,M)
+	{
+	  for(int k=0;k<=j;k+=2)
+	    {
+	      ll d=(i+k)*(i+k-1);
+	      bn t=cc[j][k];
+	      FOR(l,0,5)
+	      	t.PB(0);
+	      div(t,i+k);
+	      add(ss[i][j],t);
+	      div(t,i+k-1);
+	      add(det[i][j],t);
+	    }
+	  for(int k=1;k<=j;k+=2)
+	    {
+	      bn t=cc[j][k];
+	      FOR(l,0,5)
+		t.PB(0);
+	      div(t,i+k);
+	      sub(ss[i][j],t);
+	      div(t,i+k-1);
+	      sub(det[i][j],t);
+	    }
+	}
+    }
+  return 0;
+  int T;
+  scanf("%d",&T);
+  for(;T--;)
+    {
+      int n1,m1,n2,m2;
+      scanf("%d%d%d%d",&n1,&m1,&n2,&m2);
+      cal(n1,m2,n2,m2);
+    }
+  return 0;
+}
