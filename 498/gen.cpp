@@ -31,9 +31,9 @@ typedef pair<ld,ld> ppld;
 
 int main()
 {
-  int n=10000;
+  int n=1000;
   cout<<n<<endl;
-
+  srand(7);
   for(int i=0;i<n;++i)
     //cout<<"1000 50 1000 50\n";
     {
@@ -41,9 +41,13 @@ int main()
       // ++a,++b;
       // int c=min(50,rand()%a);
       // int d=min(50,rand()%b);
-      int a=1000,c=50;
-      int b=1000;
-      cout<<a<<' '<<c<<' '<<b<<' '<<c<<endl;
+      int a,b,c,d;
+      a=max(50,rand()%1000);
+      c=max(50,rand()%1000);
+      b=rand()%(1+min(50,a));
+      d=rand()%(1+min(50,c));
+      ++a,++c;
+      cout<<a<<' '<<b<<' '<<c<<' '<<d<<endl;
     }
 
   return 0;

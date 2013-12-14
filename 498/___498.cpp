@@ -70,7 +70,7 @@ double cal(int n1,int m1,int n2,int m2)
 	    ans+=PRE;
 	  ans%=PRE;
 	}
-      cout <<k<<' '<<sum<<endl;
+      // cout <<k<<' '<<sum<<endl;
       // cout<<ans<<endl;
     }
 
@@ -95,7 +95,7 @@ double cal(int n1,int m1,int n2,int m2)
   // 	}
   //     cout<<ans<<endl;
   //   }
-  cout<<a<<' '<<ans<<endl;
+  // cout<<a<<' '<<ans<<endl;
   ans=(ans+PRE)%PRE;
   a*=ans;
   a/=1e9;

@@ -1,0 +1,329 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+typedef pair<double,double> ppd;
+#define PB push_back
+#define FIR first
+#define SEC second
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+const ll base=1e9;
+const int prec=3;
+class fn
+{
+public:
+  vector<int> v;
+  bool sig;
+  fn(){sig=0;v.resize(0);};
+  void set(int n);
+  void div(int n);
+  void mul(int n);
+  void re();
+  void pt();
+  void pf(int c);
+  void add(fn &n);
+  void sub(fn &n);
+};
+#define N 1001
+#define M 51
+fn c[N][M];
+int cmp(const vector<int> &a,const vector<int> &b)
+{
+  if(a.size()!=b.size())
+    return a.size()-b.size();
+  int i=a.size()-1;
+  for(;i>=0;--i)
+    if(a[i]!=b[i])
+      return a[i]-b[i];
+  return 0;
+}
+void fn::pf(int c)
+{
+  int i=v.size()-1;
+  if(sig)
+    printf("-");
+  if(i>=20)
+    {
+      printf("%d",v[i]);
+      for(--i;i>=20;--i)
+	printf("%09d",v[i]);
+    }
+  printf(".");
+  int j=prec-1;
+  for(;j>i && j>=prec-c;--j)
+    printf("%09d",0);
+  for(;i>=0 && i>=prec-c;--i)
+    printf("%09d",v[i]);
+  printf("\n");
+}
+void fn::set(int n)
+{
+  v.resize(1);
+  if(n<0)
+    {
+      sig=1;
+      v[0]=-n;
+    }
+  else sig=0,v[0]=n;
+}
+void fn::pt()
+{
+  int i=v.size()-1;
+  if(i<0)
+    printf("0");
+  else
+    {
+      if(sig)
+	printf("-");
+      printf("%d",v[i]);
+      for(--i;i>=0;--i)
+	printf("%09d",v[i]);
+    }
+  printf("\n");
+}
+void fn::re()
+{
+  int i=v.size()-1;
+  for(;i>=0 && v[i]==0;--i)
+    ;
+  v.resize(i+1);
+  if(v.size()==0)
+    sig=0;
+}
+void fn::div(int n)
+{
+  ll c=0;
+  if((n<0 && !sig) || (n>0 && sig))
+    sig=1;
+  else sig=0;
+  if(n<0)
+    n=-n;
+  for(int i=v.size()-1;i>=0;--i)
+    {
+      c=c*base+v[i];
+      v[i]=c/n;
+      c%=n;
+    }
+  re();
+}
+void fn::mul(int n)
+{
+  ll c=0;
+  int i=0;
+  if((n<0 && !sig) || (n>0 && sig))
+    sig=1;
+  else sig=0;
+  if(n<0)
+    n=-n;
+  for(int j=v.size();i<j;++i)
+    {
+      c=c+(ll)v[i]*n;
+      v[i]=c%base;
+      c/=base;
+    }
+  if(c)
+    v.PB(c);
+}
+void addd(vector<int> &a,const vector<int> &b)
+{
+  int i=0;
+  ll c=0;
+  for(int j=b.size();i<j;++i)
+    {
+      if(i>=a.size())
+	a.resize(i+1);
+      c+=a[i]+b[i];
+      a[i]=c%base;
+      c/=base;
+    }
+  for(;c;++i)
+    {
+      if(i>=a.size())
+	a.resize(i+1);
+      c+=a[i];
+      a[i]=c%base;
+      c/=base;
+    }
+}
+void subb(vector<int> &a,const vector<int> &b)
+{
+  int carry=0;
+  int i=0;
+  for(int j=b.size();i<j;++i)
+    {
+      a[i]-=(b[i]+carry);
+      if(a[i]<0)
+	a[i]+=base,carry=1;
+      else carry=0;
+    }
+  for(;carry;++i)
+    {
+      --a[i];
+      if(a[i]<0)
+	a[i]+=base;
+      else break;
+    }
+}
+void fn::add(fn &n)
+{
+  assert(!n.sig);
+  if(sig)
+    {
+      if(cmp(v,n.v)>0)
+	subb(v,n.v);
+      else
+	{
+	  vector<int> tmp=v;
+	  v=n.v;
+	  subb(v,tmp);
+	  sig=0;
+	}
+      re();
+    }
+  else
+    {
+      addd(v,n.v);
+    }
+}
+void fn::sub(fn &n)
+{
+  assert(!n.sig);
+  if(sig)
+    {
+      addd(v,n.v);
+    }
+  else
+    {
+      if(cmp(v,n.v)>=0)
+	{
+	  subb(v,n.v);
+	}
+      else
+	{
+	  vector<int> tmp=v;
+	  v=n.v;
+	  subb(v,tmp);
+	  sig=1;
+	}
+      re();
+    }
+}
+void mull(vector<int> &a,const vector<int> &b,const vector<int> &c)
+{
+  for(int i=0;i<b.size();++i)
+    for(int j=0;j<c.size();++j)
+      {
+	if(a.size()<=i+j)
+	  a.resize(i+j+1);
+	ll d=a[i+j];
+	d+=(ll)b[i]*(ll)c[j];
+	a[i+j]=d%base;
+	d/=base;
+	if(d>0)
+	  {
+	    if(a.size()<=i+j+1)
+	      a.resize(i+j+2);
+	    a[i+j+1]+=d;
+	  }
+      }
+}
+float cal(int n1,int m1,int n2,int m2)
+{
+  fn v;
+  mull(v.v,c[n1][m1].v,c[n2][m2].v);
+  // FOR(i,0,m1)
+  //   {
+  //     v.mul(n1-i);
+  //     v.div(i+1);
+  //   }
+  // FOR(i,0,m2)
+  //   {
+  //     v.mul(n2-i);
+  //     v.div(i+1);
+  //   }
+  v.mul((n1+1)*(n2+1));
+  int l=v.v.size();
+  v.v.resize(v.v.size()+prec);
+  for(int i=l-1;i>=0;--i)
+    {
+      v.v[i+prec]=v.v[i];
+      v.v[i]=0;
+    }
+  for(int i=m1;i>0;--i)
+    {
+      v.mul(i);
+      v.div(n2+n1-m2+0+1-i+1);
+    }
+  v.div((n2-m2+0+1)*(n2-m2+0+n1+2));
+  // v.pf();
+  fn ans;
+  FOR(k,0,m2+1)
+    {
+      // cout<<v.v.size()<<endl;
+      // v.pf(1);
+      if(k)
+	{
+	  v.mul((n2-m2+k)*(m2-k+1)*(n1+n2+k+1-m1-m2));
+	  v.div((n2-m2+k+1)*(n2-m2+k+2+n1)*k);
+	}
+      if(k&1)
+	ans.sub(v);
+      else ans.add(v);
+    }
+  int i=prec-1;
+  double r=0;
+  // ans.pf(1);
+  if(ans.v.size()>i)
+    {
+      r=ans.v[i];
+      // cout<<"!"<<r<<endl;
+      ++i;
+      r/=1e9;
+      if(ans.v.size()>i)
+	r+=ans.v[i]%10;
+    }
+  return r;
+}
+int main()
+{
+
+  FOR(i,0,N)
+    {
+      c[i][0].set(1);
+      FOR(j,1,M)
+	{
+	  c[i][j].mul(i);
+	  c[i][j].div(j);
+	}
+    }
+  int t;
+  scanf("%d",&t);
+  for(;t--;)
+    {
+      int n1,m1,n2,m2;
+      scanf("%d%d%d%d",&n1,&m1,&n2,&m2);
+      printf("%.7f\n",cal(n1,m1,n2,m2));
+    }
+  return 0;
+}

@@ -180,12 +180,12 @@ double cal(int n1,int m1,int n2,int m2)
 	  ans%=PRE;
 	}
       // cout <<l<<' '<<sum<<endl;
-      cout<<ans<<endl;
+      // cout<<ans<<endl;
     }
   ans=(ans+PRE)%PRE;
-  cout<<ans<<' '<<endl;
+  // cout<<ans<<' '<<endl;
   // cout<<"!"<<endl;
-  pt(a);
+  // pt(a);
   mul(a,ans);
   return prt(a,len);
 }
@@ -213,7 +213,7 @@ int main()
     {
       int n1,m1,n2,m2;
       scanf("%d%d%d%d",&n1,&m1,&n2,&m2);
-      printf("%.4f\n",(float)cal(n1,m1,n2,m2));
+      printf("%.5f\n",(float)cal(n1,m1,n2,m2));
     }
   return 0;
 }
