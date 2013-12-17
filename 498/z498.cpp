@@ -30,7 +30,7 @@ typedef pair<double,double> ppd;
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
 const ll base=1e9;
 const ll bb=base*base;
-const int prec=3;
+const int prec=2;
 class fn
 {
 public:
@@ -365,6 +365,26 @@ void pt(int *a)
   for(int i=min(a[0],prec);i>0;--i)
     printf("%09d",a[i]);
 }
+void mull(int *a,const int *b,const int *c)
+{
+  int k=0;
+  for(int i=1;i<b[0];++i)
+    for(int j=1;j<c[0];++j)
+      {
+	if(k<=i+j-1)
+	  a[++k]=0;
+	ll d=(ll)a[k]+(ll)b[i]*(ll)c[j];
+	a[i+j-1]=d%base;
+	d/=base;
+	if(c>0)
+	  {
+	    if(k<=i+j)
+	      a[++k]=0;
+	    a[k]+=d;
+	  }
+      }
+  a[0]=k;
+}
 float cal(int n1,int m1,int n2,int m2)
 {
   // fn vv;
@@ -389,20 +409,22 @@ float cal(int n1,int m1,int n2,int m2)
   //   }
 
   int v[17];
+  // mull(v,ci[n2][m2],ci[n1][m1]);
+  // muli(v,(n1+1)*(n2+1));
+  // divi(v,(n2-m2+1)*(n2-m2+n1+2));
   mulii(v,ci[n2][m2],(n1+1)*(n2+1));
   divii(v,(n2-m2+1)*(n2-m2+n1+2),prec);
   // pt(v);
-  for(int i=0;i<m1;)
+  for(int i=0;i<m1;++i)
     {
-      ll m=1;
-      ll d=1;
-      int j=i;
-      for(;i<m1 && m*(n1-i)<base && d*(n2+n1-m2+1-i)<base;++i)
-	m*=(n1-i),d*=(n2+n1-m2+1-i);
+      ll m=n1-i;;
+      ll d=(n2+n1-m2+1-i);
+      ++i;
+      if(i<m1)
+	m*=n1-i,d*=(n2+n1-m2+1-i);
       muli(v,m);
       divi(v,d);
     }
-  // mull(v.v,c[n1][m1].v,c[n2][m2].v);
   // v.mul((n1+1)*(n2+1));
   // int l=v.v.size();
   // v.v.resize(v.v.size()+prec);

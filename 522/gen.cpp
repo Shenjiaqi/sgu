@@ -26,29 +26,17 @@ typedef pair<ld,ld> ppld;
 #define PB push_back
 #define FIR first
 #define SEC second
+#define MP make_pair
 #define FOR(a,b,c) for(int a=(b);a<(c);++a)
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
 
 int main()
 {
-  int n=100000;
-  cout<<n<<endl;
+  int n;
+  n=10;
+  cout<<n<<' '<<0<<' '<<0<<endl;
   srand(7);
-  for(int i=0;i<n;++i)
-    //cout<<"1000 50 1000 50\n";
-    {
-      // int a=rand()%1000,b=rand()%1000;
-      // ++a,++b;
-      // int c=min(50,rand()%a);
-      // int d=min(50,rand()%b);
-      int a,b,c,d;
-      a=max(50,rand()%1000);
-      c=max(50,rand()%1000);
-      b=rand()%(1+min(50,a));
-      d=rand()%(1+min(50,c));
-      ++a,++c;
-      cout<<a<<' '<<b<<' '<<c<<' '<<d<<endl;
-    }
-
+  FOR(i,0,n)
+    cout<<rand()%10<<' '<<rand()%10<<endl;
   return 0;
 }
