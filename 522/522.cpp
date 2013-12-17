@@ -32,13 +32,6 @@ typedef pair<ld,ld> ppld;
 const int N=400;
 int n,x,y;
 int p[N][2];
-int cmp(const void *a,const void *b)
-{
-  int *c=(int*)a,*d=(int*)b;
-  if(*c==*d)
-    ++c,++d;
-  return *c-*d;
-}
 int main()
 {
   scanf("%d%d%d",&n,&x,&y);
@@ -67,47 +60,78 @@ int main()
 	  p[i][0]=abs(p[i][0]);
 	  p[i][1]=abs(p[i][1]);
 	}
-      int area;
-      vector<char> ans;
-      qsort(p,n,sizeof(p[0]),cmp);
-      vector<pair<int,ppi> > pos;
-      for(int i=0;i<n;)
-	{
-	  int j=i+1;
-	  for(;j<n && p[i][0]==p[j][0];++j)
-	    ;
-	  pos.PB(MP(p[i][0],ppi(p[i][1],p[j-1][1])));
-	  i=j;
-	}
+
+      vector<ppi> pos;
+      FOR(i,0,n)
+	pos.PB(MP(p[i][0],p[i][1]));
+      // cout<<pos.size()<<endl;
+      // FR(i,pos)
+      // 	cout<<i->FIR<<' '<<i->SEC<<endl;
+      pos.PB(MP(0,1));
+      pos.PB(MP(1,0));
+      pos.PB(MP(1,1));
+      sort(pos.begin(),pos.end());
       int nowX,nowY;
       nowX=nowY=0;
-      nowY=1;
-      ans.PB('W');
-      for(i,0,pos.size())
+      int lx=pos[pos.size()-1].FIR;
+      vector<int> hi;
+      for(int i=0;nowX<lx;)
 	{
-	  for(;nowX<pos[i].FIR-1;++nowX)
-	    ans.PB('E'),hi[nowX]=nowY;
-	  for(;nowY<pos[i].SEC.SEC;++nowY)
-	    ans.PB('W');
-	  for(;nowX<pos[i].FIR;++nowX)
-	    ans.PB('E'),hi[nowX]=nowY;
-	}
-      if(nowX<1)
-	ans.PB('E'),hi[nowX++]=nowY;
-      for(int i=pos.size()-1;i>=0;--i)
-	{
-	  for(;nowY>pos[i].SEC.FIR;--nowY)
-	    ans.PB('S');
-	  for(;nowX>(i>0?p[i-1].FIR:0);--nowX)
+	  if(nowX==pos[i].FIR)
 	    {
-	      for(;hi[nowX]<=nowY;--nowY)
-		ans.PB('S');
-	      ans.PB('W');
-	      area+=(hi[nowX-1]-nowY);
+	      nowY=max(nowY,pos[i].SEC);
+	      ++i;
+	    }
+	  else
+	    {
+	      hi.PB(nowY);
+	      ++nowX;
 	    }
 	}
+      // FR(i,pos)
+      // 	cout<<i->FIR<<' '<<i->SEC<<endl;
+      int c=hi.size()-1;
+      hi[c]=max(hi[c],pos[pos.size()-1].SEC);
+      vector<int> lw;
+      nowX=lx,nowY=1e9;
+      for(int i=pos.size()-1;nowX>0;)
+	{
+	  if(i>=0 && nowX==pos[i].FIR)
+	    {
+	      nowY=min(pos[i].SEC,nowY);
+	      --i;
+	    }
+	  else
+	    {
+	      nowY=min(nowY,min(nowX>1?hi[nowX-2]-1:0,hi[nowX-1]-1));
+	      lw.PB(nowY);
+	      --nowX;
+	    }
+	}
+      reverse(lw.begin(),lw.end());
+      // cout<<hi.size()<<' '<<lw.size()<<endl;
+      assert(hi.size()==lw.size());
 
+      int area=0;
+      FOR(i,0,hi.size())
+	area+=hi[i]-lw[i];
       printf("%d\n",area);
+      vector<char> ans;
+      nowX=nowY=0;
+      FR(i,hi)
+	{
+	  for(;nowY<*i;++nowY)
+	    ans.PB('N');
+	  ans.PB('E');
+	  ++nowX;
+	}
+      for(int i=lw.size()-1;i>=0;--i)
+	{
+	  for(;nowY>lw[i];--nowY)
+	    ans.PB('S');
+	  ans.PB('W');
+	  --nowX;
+	}
       FR(i,ans)
 	{
 	  if(*i=='W' || *i=='E')
