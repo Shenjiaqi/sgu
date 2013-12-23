@@ -38,10 +38,17 @@ void calmsk(const char *a,const char *b,int la,int lb,int m[13])
 {
   int t[13][13]={0};
   t[la][lb]=1;
+  memset(m,0,sizeof(m));
   for(int i=la;i>=0;--i)
     for(int j=lb;j>=0;--j)
-      if( (i+1<=la && t[i+1][j]) || (i+1<=la && j+1<=lb && t[i+1][j+1]) )
-	
+      if( (i+1<=la && t[i+1][j]) || (i+1<=la && j+1<=lb && t[i+1][j+1] &&
+				     a[i]==b[j]) )
+	{
+	  t[i][j]=1;
+	  if(a[i]==b[j])
+	    m[j]|=1<<i;
+	}
+	  
 }
 bool test(int left)
 {
@@ -49,6 +56,9 @@ bool test(int left)
   FOR(i,0,2)
     FOR(j,0,n[i])
     calmsk(s[i][j],z,len[i][j],lz,msk[i][j]);
+  FOR(i,0,n[0])
+    if(msk[0][i][0]==0)
+      return false;
   int v=(1<<n[1])-1;
   FOR(i,0,n[1])
     if(msk[1][i][0]==0)

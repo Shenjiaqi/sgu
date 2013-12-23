@@ -122,7 +122,8 @@ void cal(const char *f, const char *t,int m[15])
     for(int j=lt;j>=0;--j)
       if((i+1<=lf && tab[i+1][j]) || (i+1<=lf && j+1<=lt && tab[i+1][j+1] && f[i]==t[j]))
 	tab[i][j]=true;
-  memset(m,0,sizeof(m));
+  FOR(i,0,15)
+    m[i]=0;
   for(int i=0;i<=lf;++i)
     for(int j=0;j<=lt;++j)
       if(f[i]==t[j] && tab[i][j])
