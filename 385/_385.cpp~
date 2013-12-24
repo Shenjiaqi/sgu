@@ -1,0 +1,82 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+typedef pair<ld,ld> ppld;
+#define PB push_back
+#define FIR first
+#define SEC second
+#define MP make_pair
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+#define N 107
+ld c[N];
+ld p[N][N];
+ld ans;
+ld sum;
+void dfs(int mi,int left,int lev,int mx,ld acu,int cnt)
+{
+  if(left==0)
+    {
+      sum+=acu;
+      ans+=acu*cnt;
+      return ;
+    }
+  if(mi<=1 || (mi==2 && (left&1) ))
+    return ;
+  int tmx=mx;
+  for(int i=0,j=left/mi;i<=j;++i,acu*=(p[left][mi]/mi),left-=mi)
+    {
+      if(tmx==0)
+	{
+	  if(i)
+	    mx=mi;
+	  else mx=0;
+	}
+      if(i && mi-1>=(mx+1)/2)
+	cnt+=mi;
+      dfs(min(mi-1,left),left,lev+1,mx,acu/p[i][i],cnt);
+    }
+}
+int main()
+{
+  int n;
+  scanf("%d",&n);
+  c[0]=1;
+  c[1]=0;
+  for(int i=2;i<N;++i)
+    c[i]=(ld)(i-1)*(c[i-1]+c[i-2]);
+  for(int i=0;i<N;++i)
+    {
+      p[i][0]=1;
+      for(int j=1;j<=i;++j)
+	p[i][j]=p[i][j-1]*(i-j+1);
+    }
+
+  ans=0;
+  dfs(n,n,0,0,1,0);
+  ans/=c[n];
+  cout<<sum<<' '<<c[n]<<endl;
+  printf("%.10lf",(double)ans);
+  return 0;
+}
