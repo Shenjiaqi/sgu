@@ -1,0 +1,52 @@
+3
+2 1
+0 0
+50 50
+100 0
+70.710678
+
+sample input
+sample output
+3
+1 1
+0 0
+50 50
+100 0
+100.000000
+
+sample input
+sample output
+3
+1 2
+0 0
+50 50
+100 0
+50.000000
+
+sample input
+sample output
+3
+2 1
+0 0
+100 100
+150 50
+106.066017
+
+sample input
+sample output
+6
+1 2
+0 0
+50 50
+100 0
+150 0
+200 50
+250 0
+150.000000
+
+sample input
+sample output
+2
+1 2
+0 0
+100 0
