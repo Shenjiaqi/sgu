@@ -22,24 +22,49 @@ typedef long double ld;
 typedef long long ll;
 typedef pair<int,int> ppi;
 typedef pair<ll,ll> ppl;
-typedef pair<ld,ld> ppld;
+typedef pair<double,double> ppd;
 #define PB push_back
+#define MP make_pair
 #define FIR first
 #define SEC second
-#define MP make_pair
 #define FOR(a,b,c) for(int a=(b);a<(c);++a)
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
-ld pv[27];
+char buf[128007];
 int main()
 {
-  pv[0]=1;
-  for(int i=1;i<=26;++i)
+  for(;getbeg();)
     {
-      pv[i]=0;
-      for(int j=max(0,i-6);j<i;++j)
-	pv[i]+=pv[j];
-      pv[i]/=6.0;
+      char type=getnxt();
+      if(type=='l')
+	{
+	  printf("<i>%s</i>",buf);
+	}
+      else if(type=='d')
+	printf("%s",buf);
+      else if(type=='o')
+	printf("&nbsp;%s&nbsp;",buf);
+      else if(type=='u')
+	{
+	  type=getnxt();
+	  printf("<sup>");
+	  if(type=='p')
+	    {
+	      for(;;)
+		{
+		  scanf("%c",type);
+		  if(type=='}')
+		    break;
+		  if(type!=' ')
+		    printf("%c",type);
+		}
+	    }
+	  else
+	    {
+	      getnxt();
+	      printf("%s",buf);
+	    }
+	  printf("</sup>");
+	}
+      getend();
     }
-  
-  return 0;
 }

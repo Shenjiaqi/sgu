@@ -1,0 +1,11 @@
+#include <cstdio>
+int main()
+{
+  int p;
+  for(int i=1;EOF!=sacnf("%d",&p);++i)
+    {
+      int r=
+      if(p<=78)
+	printf("
+    }
+}
