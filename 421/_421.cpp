@@ -10,9 +10,62 @@ using namespace std;
 #define N 10000
 #define M 13
 typedef long double ld;
+typedef long long ll;
+const ll base=1e9;
+const ld eps=1e-10;
 int n,m,k;
 int a[N];
 int ntag;
+struct bn
+{
+  vector<int> v;
+};
+void mul(bn &a,const ll b)
+{
+  ll carry=0;
+  for(int i=0,j=a.v.size();i<j;++i)
+    {
+      carry+=(ll)a.v[i]*b;
+      a.v[i]=carry%base;
+      carry/=base;
+    }
+  if(carry>0)
+    a.v.push_back(carry);
+  else
+    for(;a.v.size()>0 && a.v[a.v.size()-1]==0;)
+      a.v.pop_back();
+}
+void mul(bn &to,const bn &a,const bn &b)
+{
+  to.v.resize(0);
+  for(int i=0;i<a.v.size();++i)
+    for(int j=0;j<b.v.size();++j)
+      {
+	if(to.v.size()<=i+j)
+	  to.v.resize(i+j+1);
+	ll carry=(ll)a.v[i]*(ll)b.v[j]+(ll)to.v[i+j];
+	to.v[i+j]=carry%base;
+	carry/=base;
+	if(carry>0)
+	  {
+	    if(to.v.size()<=i+j+1)
+	      to.v.resize(i+j+2);
+	    to.v[i+j+1]+=carry;
+	  }
+      }
+  for(;to.v.size()>0 && to.v[to.v.size()-1]==0;)
+    to.v.pop_back();
+}
+int cmpbn(const bn &a,const bn&b)
+{
+  int sa=a.v.size(),sb=b.v.size();
+  if(sa!=sb)
+    return sa>sb?1:-1;
+  for(int i=0;i<sa;++i)
+    if(a.v[i]!=b.v[i])
+      return a.v[i]>b.v[i]?1:-1;
+  return 0;
+}
 bool cntp(int pos,int neg)
 {
   int f=max(0,m-neg);
@@ -36,6 +89,34 @@ bool cntp(int pos,int neg)
       vp=(vp*(ld)(pos-i))/(ld)(i+1);
       vn=(vn*(ld)(m-i))/(ld)(neg-(m-i)+1);
     }
+  // cout<<sum<<endl;
+  k-=(int)(sum+0.1);
+  return false;
+}
+bool cntz(int zero,int nzero)
+{
+  int f=max(0,m-nzero);
+  int t=min(zero,m);
+  assert(f<=t);
+  ld sum=0;
+  ld vp=1;
+  for(int i=0;i<f;++i)
+    vp=vp*(ld)(zero-i)/(ld)(i+1);
+  ld vn=1;
+  for(int i=0;i<m-f;++i)
+    vn=vn*(ld)(nzero-i)/(ld)(i+1);
+  for(int i=f;;++i)
+    {
+      if(i>0)
+	sum+=vn*vp;
+      if(sum+0.1>k)
+	return true;
+      if(i>=t)
+	break;
+      vp=(vp*(ld)(zero-i))/(ld)(i+1);
+      vn=(vn*(ld)(m-i))/(ld)(nzero-(m-i)+1);
+    }
+  // cout<<"!"<<sum<<endl;
   k-=(int)(sum+0.1);
   return false;
 }
@@ -46,23 +127,21 @@ inline bool cmpabs(int a,int b)
     return false;
   return ((abs(a)<abs(b))^ntag);
 }
-const ld eps=1e-13;
-typedef pair<ld,int> pli;
+typedef pair<bn,int> pli;
 struct cmpp
 {
   bool operator()(const pli &v1,const pli &v2) const
   {
-    if(fabsl(v1.first-v2.first)<eps)
+    int c=cmpbn(v1.first,v2.first);
+    if(c==0)
       return v1.second>v2.second;
-    return ((v1.first>v2.first)^ntag);
+    return ((c>0?1:0)^ntag);
   };
 };
 struct el
 {
-  ld val;
-  ld preval;
+  bn val;
   int lev;
-  vector<int> lst;
   int precol;
   map<pli,int,cmpp>::iterator ite1;
 };
@@ -70,69 +149,59 @@ struct cmpel
 {
   bool operator()(const el &e1,const el &e2) const
   {
-    if(fabsl(e1.val-e2.val)<eps)
+    int c=cmpbn(e1.val,e2.val);
+    if(c==0)
       {
 	if(e1.lev==e2.lev)
 	  {
 	    if(e1.precol==e2.precol)
-	      return e1.ite1->first.second>e2.ite1->first.second;
+	      {
+		return  e1.ite1->first.second>e2.ite1->first.second;
+	      }
 	    return e1.precol>e2.precol;
 	  }
 	return e1.lev>e2.lev;
       }
-    return ((e1.val>e2.val)^ntag);
+    return ((c>0?1:0)^ntag);
   };
 };
-typedef long long ll;
-ll base=1e9;
-typedef vector<int> bn;
-void prt(bn &v)
+void prt(const bn &v)
 {
-  int i=v.size()-1;
+  int i=v.v.size()-1;
   if(i<0)
     printf("0");
-  printf("%d",v[i]);
-  for(--i;i>=0;--i)
-    printf("%09d",v[i]);
-}
-void mul(bn &v,ll a)
-{
-  for(;v.size()>0 && v[v.size()-1]==0;)
-    v.pop_back();
-  ll carry=0;
-  for(int i=0,j=v.size();i<j;++i)
+  else
     {
-      carry+=(ll)v[i]*a;
-      v[i]=carry%base;
-      carry/=base;
+      printf("%d",v.v[i]);
+      for(--i;i>=0;--i)
+	printf("%09d",v.v[i]);
     }
-  if(carry>0)
-    v.push_back(carry);
 }
 map<pli,int,cmpp> mapp[M][2];
 map<pli,int,cmpp>::iterator itee[M][N][2],ite;
 void pt(const el & z)
 {
-  bn val;
-  val.push_back(1);
-  for(int i=0;i<z.lst.size();++i)
-    mul(val,z.lst[i]);
-  int lev=z.lev;
-  if(lev>=0)
-    {
-      int col=z.ite1->first.second;
-      int posi=z.ite1->second;
-      for(int i=lev;i>=0;--i)
-	{
-	  mul(val,abs(a[col]));
-	  if(i>0)
-	    {
-	      posi^=(a[col]>=0?0:1);
-	      col=itee[i-1][col-1][posi]->first.second;
-	    }
-	}
-    }
-  prt(val);
+  // bn val;
+  // val.push_back(1);
+  // for(int i=0;i<z.lst.size();++i)
+  //   mul(val,abs(a[z.lst[i]]));
+  // int lev=z.lev;
+  // if(lev>=0)
+  //   {
+  //     int col=z.ite1->first.second;
+  //     int posi=z.ite1->second;
+  //     for(int i=lev;i>=0;--i)
+  // 	{
+  // 	  mul(val,abs(a[col]));
+  // 	  if(i>0)
+  // 	    {
+  // 	      posi^=(a[col]>=0?0:1);
+  // 	      col=itee[i-1][col-1][posi]->first.second;
+  // 	    }
+  // 	}
+  //   }
+  // prt(val);
+  prt(z.val);
 }
 void calpos()
 {
@@ -140,7 +209,10 @@ void calpos()
   for(int i=0;i<n;++i)
     {
       int t=a[i]>=0?0:1;
-      mapp[0][t][pli(fabsl(a[i]),i)]=t;
+      pli c;
+      c.first.v.push_back(abs(a[i]));
+      c.second=i;
+      mapp[0][t][c]=t;
       for(int j=0;j<2;++j)
 	itee[0][i][j]=mapp[0][j].begin();
     }
@@ -153,28 +225,32 @@ void calpos()
 	    ite=itee[i-1][j-1][h];
 	    if(ite!=mapp[i-1][h].end())
 	      {
-		mapp[i][t^h][pli(ite->first.first*fabsl(a[j]),j)]=t^h;
+		pli c=ite->first;
+		mul(c.first,abs(a[j]));
+		c.second=j;
+		mapp[i][t^h][c]=t^h;
 	      }
 	  }
 	for(int h=0;h<2;++h)
 	  itee[i][j][h]=mapp[i][h].begin();
       }
-  for(typeof(mapp[0][1].begin()) i=mapp[0][1].begin();i!=mapp[0][1].end();++i)
-    cout<<i->second<<' '<<i->first.first<<endl;
-  map<el,int,cmpel> que;
+  // for(typeof(mapp[0][1].begin()) i=mapp[0][1].begin();i!=mapp[0][1].end();++i)
+  //   cout<<i->second<<' '<<i->first.first<<endl;
+  multimap<el,bn,cmpel> que;
   el tmp;
   tmp.ite1=mapp[m-1][ntag].begin();
   tmp.val=tmp.ite1->first.first;
-  tmp.preval=1;
   tmp.lev=m-1;
-  int col=tmp.ite1->first.second;
   tmp.precol=n;
   // cout<<tmp.val<<endl;
-  que[tmp]=1;
+  bn one;
+  one.v.push_back(1);
+  que.insert(make_pair(tmp,one));
   for(;--k;)
     {
       tmp=que.begin()->first;
-      cout<<k<<' '<<tmp.val<<endl;
+      bn preval=que.begin()->second;
+      // cout<<k<<' '<<tmp.val<<endl;
       for(;;)
 	{
 	  typeof(ite) ii=tmp.ite1;
@@ -187,17 +263,21 @@ void calpos()
 	  if(ii!=mapp[tmp.lev][tmp.ite1->second].end())
 	    {
 	      el z=tmp;
-	      z.val=z.preval*ii->first.first;
-	      cout<<"!"<<tmp.lev<<' '<<z.val<<' '<<z.precol<<' '<<ii->first.first<<' '<<
-	      	ii->first.second<<' '<<ii->second<<' '<<a[ii->first.second]<<endl;
+	      mul(z.val,preval,ii->first.first);
+	      // if(fabsl(z.val-27)<eps)
+	      // 	{
+		  // cout<<"!"<<tmp.lev<<' '<<z.val<<' '<<z.precol<<' '<<ii->first.first<<' '<<
+		  //   ii->first.second<<' '<<ii->second<<' '<<a[ii->first.second]<<endl;
+		//   for(int o=0;o<z.lst.size();++o)
+		//     cout<<z.lst[o]<<' ';cout<<'!'<<endl;
+		// }
 	      z.ite1=ii;
-	      que[z]=1;
+	      que.insert(make_pair(z,preval));
 	    }
 	  if(tmp.lev>0)
 	    {
 	      tmp.precol=tmp.ite1->first.second;
-	      tmp.preval*=fabsl(a[tmp.precol]);
-	      tmp.lst.push_back(abs(a[tmp.precol]));
+	      mul(preval,abs(a[tmp.precol]));
 	      --tmp.lev;
 	      int posi=tmp.ite1->second^(a[tmp.precol]>=0?0:1);
 	      tmp.ite1=itee[tmp.lev][tmp.precol-1][posi];
@@ -265,29 +345,33 @@ void calpos()
 }
 void calneg()
 {
-  int i=0;
-  for(int j=0;j<n;++j)
-    if(a[j]!=0)
-      a[i]=a[j],++i;
-  n=i;
   ntag=1;
   printf("-");
   calpos();
 }
 int main()
 {
-  freopen("in","r",stdin);
   scanf("%d%d%d",&n,&m,&k);
   assert(m<=n);
-  int nneg=0;
+  int nneg=0,npos=0,nzero=0;
   for(int i=0;i<n;++i)
     {
       scanf("%d",a+i);
       if(a[i]<0)
 	++nneg;
+      else if(a[i]>0)
+	++npos;
+      else ++nzero;
     }
-  if(cntp(n-nneg,nneg))
+  int i=0;
+  for(int j=0;j<n;++j)
+    if(a[j]!=0)
+      a[i]=a[j],++i;
+  n=i;
+  if(cntp(npos,nneg))
     calpos();
+  else if(nzero>0 && cntz(nzero,nneg+npos))
+    printf("0");
   else calneg();
   return 0;
 }
