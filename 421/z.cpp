@@ -22,43 +22,20 @@ typedef long double ld;
 typedef long long ll;
 typedef pair<int,int> ppi;
 typedef pair<ll,ll> ppl;
-typedef pair<ld,ld> ppld;
+typedef pair<double,double> ppd;
 #define PB push_back
+#define MP make_pair
 #define FIR first
 #define SEC second
-#define MP make_pair
 #define FOR(a,b,c) for(int a=(b);a<(c);++a)
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
-#define N 10000
-int p[N];
 int main()
 {
-  int n,m,k;
-  n=k=20;
-  m=7;
-  cout<<n<<' '<<m<<' '<<k<<endl;
-  FOR(i,0,n)
-    {
-      p[i]=i;
-      // if(i&1)
-      // 	p[i]=-1;
-      cout<<p[i]<<' ';
-    }
-  // vector<ll> q;
-  // for(int i=0;i<(1<<n);++i)
-  //   {
-  //     if(__builtin_popcount(i)==m)
-  // 	{
-  // 	  ll t=1;
-  // 	  for(int j=1,k=0;j<=i;j<<=1,++k)
-  // 	    if(j&i)
-  // 	      t*=p[k];
-  // 	  q.PB(t);
-  // 	}
-  //   }
-  // sort(q.begin(),q.end(),greater<ll>());
-  // for(int i=0;i<q.size();++i)
-  //   cout<<i<<' '<<q[i]<<endl;
-  
+  multimap<int,int> z;
+  z.insert(MP(0,0));
+  z.insert(MP(0,0));
+  z.insert(MP(0,1));
+  for(auto i:z)
+    cout<<i.FIR<<' '<<i.SEC<<endl;
   return 0;
 }

@@ -12,59 +12,81 @@ using namespace std;
 typedef long double ld;
 typedef long long ll;
 const ll base=1e9;
-const ld eps=1e-10;
+const ld eps=2e-17;
 int n,m,k;
 int a[N];
 int ntag;
 struct bn
 {
-  vector<int> v;
+  ld lv;
+  // vector<int> v;
 };
-void mul(bn &a,const ll b)
+void mul(vector<int> &a,ll b)
 {
+  assert(b>0);
   ll carry=0;
-  for(int i=0,j=a.v.size();i<j;++i)
+  for(int i=0,j=a.size();i<j;++i)
     {
-      carry+=(ll)a.v[i]*b;
-      a.v[i]=carry%base;
+      carry+=(ll)a[i]*b;
+      a[i]=carry%base;
       carry/=base;
     }
   if(carry>0)
-    a.v.push_back(carry);
-  else
-    for(;a.v.size()>0 && a.v[a.v.size()-1]==0;)
-      a.v.pop_back();
+    a.push_back(carry);
+}
+void mul(bn &a,const ll b)
+{
+  // ll carry=0;
+  // for(int i=0,j=a.v.size();i<j;++i)
+  //   {
+  //     carry+=(ll)a.v[i]*b;
+  //     a.v[i]=carry%base;
+  //     carry/=base;
+  //   }
+  // if(carry>0)
+  //   a.v.push_back(carry);
+  // else
+  //   for(;a.v.size()>0 && a.v[a.v.size()-1]==0;)
+  //     a.v.pop_back();
+  assert(b>0);
+  a.lv+=logl((ld)b);
+  // a.lv*=(ld)b;
 }
 void mul(bn &to,const bn &a,const bn &b)
 {
-  to.v.resize(0);
-  for(int i=0;i<a.v.size();++i)
-    for(int j=0;j<b.v.size();++j)
-      {
-	if(to.v.size()<=i+j)
-	  to.v.resize(i+j+1);
-	ll carry=(ll)a.v[i]*(ll)b.v[j]+(ll)to.v[i+j];
-	to.v[i+j]=carry%base;
-	carry/=base;
-	if(carry>0)
-	  {
-	    if(to.v.size()<=i+j+1)
-	      to.v.resize(i+j+2);
-	    to.v[i+j+1]+=carry;
-	  }
-      }
-  for(;to.v.size()>0 && to.v[to.v.size()-1]==0;)
-    to.v.pop_back();
+  // to.v.resize(0);
+  // for(int i=0;i<a.v.size();++i)
+  //   for(int j=0;j<b.v.size();++j)
+  //     {
+  // 	if(to.v.size()<=i+j)
+  // 	  to.v.resize(i+j+1);
+  // 	ll carry=(ll)a.v[i]*(ll)b.v[j]+(ll)to.v[i+j];
+  // 	to.v[i+j]=carry%base;
+  // 	carry/=base;
+  // 	if(carry>0)
+  // 	  {
+  // 	    if(to.v.size()<=i+j+1)
+  // 	      to.v.resize(i+j+2);
+  // 	    to.v[i+j+1]+=carry;
+  // 	  }
+  //     }
+  // for(;to.v.size()>0 && to.v[to.v.size()-1]==0;)
+  //   to.v.pop_back();
+  to.lv=a.lv+b.lv;
 }
 int cmpbn(const bn &a,const bn&b)
 {
-  int sa=a.v.size(),sb=b.v.size();
-  if(sa!=sb)
-    return sa>sb?1:-1;
-  for(int i=0;i<sa;++i)
-    if(a.v[i]!=b.v[i])
-      return a.v[i]>b.v[i]?1:-1;
-  return 0;
+  if(fabsl(a.lv-b.lv)<eps)
+    {
+      // int sa=a.v.size(),sb=b.v.size();
+      // if(sa!=sb)
+      // 	return sa>sb?1:-1;
+      // for(int i=0;i<sa;++i)
+      // 	if(a.v[i]!=b.v[i])
+      // 	  return a.v[i]>b.v[i]?1:-1;
+      return 0;
+    }
+  return a.lv>b.lv?1:-1;
 }
 bool cntp(int pos,int neg)
 {
@@ -89,7 +111,6 @@ bool cntp(int pos,int neg)
       vp=(vp*(ld)(pos-i))/(ld)(i+1);
       vn=(vn*(ld)(m-i))/(ld)(neg-(m-i)+1);
     }
-  // cout<<sum<<endl;
   k-=(int)(sum+0.1);
   return false;
 }
@@ -141,8 +162,10 @@ struct cmpp
 struct el
 {
   bn val;
+  bn preval;
   int lev;
   int precol;
+  vector<int>lst;
   map<pli,int,cmpp>::iterator ite1;
 };
 struct cmpel
@@ -150,58 +173,61 @@ struct cmpel
   bool operator()(const el &e1,const el &e2) const
   {
     int c=cmpbn(e1.val,e2.val);
-    if(c==0)
-      {
-	if(e1.lev==e2.lev)
-	  {
-	    if(e1.precol==e2.precol)
-	      {
-		return  e1.ite1->first.second>e2.ite1->first.second;
-	      }
-	    return e1.precol>e2.precol;
-	  }
-	return e1.lev>e2.lev;
-      }
-    return ((c>0?1:0)^ntag);
+    if(c!=0)
+      return ((c>0?1:0)^ntag);
+    if(e1.lev!=e2.lev)
+      return e1.lev>e2.lev;
+    if(e1.precol!=e2.precol)
+      return e1.precol>e2.precol;
+    if(e1.ite1->first.second!=e2.ite1->first.second)
+      return e1.ite1->first.second>e2.ite1->first.second;
+    assert(e1.lst.size()==e2.lst.size());
+    for(int i=0;i<e1.lst.size();++i)
+      if(e1.lst[i]!=e2.lst[i])
+	return e1.lst[i]>e2.lst[i];
+    c=cmpbn(e1.ite1->first.first,e2.ite1->first.first);
+    if(c)
+      return c>0?1:0;
+    return cmpbn(e1.preval,e2.preval)>=0;
   };
 };
-void prt(const bn &v)
+void prt(const vector<int> & val)
 {
-  int i=v.v.size()-1;
+  int i=val.size()-1;
   if(i<0)
     printf("0");
   else
     {
-      printf("%d",v.v[i]);
+      printf("%d",val[i]);
       for(--i;i>=0;--i)
-	printf("%09d",v.v[i]);
+	printf("%09d",val[i]);
     }
 }
 map<pli,int,cmpp> mapp[M][2];
 map<pli,int,cmpp>::iterator itee[M][N][2],ite;
-void pt(const el & z)
+void pt(const el & z,const vector<int> &lst)
 {
-  // bn val;
-  // val.push_back(1);
-  // for(int i=0;i<z.lst.size();++i)
-  //   mul(val,abs(a[z.lst[i]]));
-  // int lev=z.lev;
-  // if(lev>=0)
-  //   {
-  //     int col=z.ite1->first.second;
-  //     int posi=z.ite1->second;
-  //     for(int i=lev;i>=0;--i)
-  // 	{
-  // 	  mul(val,abs(a[col]));
-  // 	  if(i>0)
-  // 	    {
-  // 	      posi^=(a[col]>=0?0:1);
-  // 	      col=itee[i-1][col-1][posi]->first.second;
-  // 	    }
-  // 	}
-  //   }
-  // prt(val);
-  prt(z.val);
+  vector<int> val;
+  val.push_back(1);
+  for(int i=0;i<lst.size();++i)
+    mul(val,abs(a[lst[i]]));
+  int lev=z.lev;
+  if(lev>=0)
+    {
+      int col=z.ite1->first.second;
+      int posi=z.ite1->second;
+      for(int i=lev;i>=0;--i)
+  	{
+  	  mul(val,abs(a[col]));
+  	  if(i>0)
+  	    {
+  	      posi^=(a[col]>=0?0:1);
+  	      col=itee[i-1][col-1][posi]->first.second;
+  	    }
+  	}
+    }
+  prt(val);
+  // prt(z.val);
 }
 void calpos()
 {
@@ -210,7 +236,8 @@ void calpos()
     {
       int t=a[i]>=0?0:1;
       pli c;
-      c.first.v.push_back(abs(a[i]));
+      // c.first.v.push_back(abs(a[i]));
+      c.first.lv=logl((ld)abs(a[i]));
       c.second=i;
       mapp[0][t][c]=t;
       for(int j=0;j<2;++j)
@@ -223,6 +250,7 @@ void calpos()
 	for(int h=0;h<2;++h)
 	  {
 	    ite=itee[i-1][j-1][h];
+	    // assert(ite->second==h);
 	    if(ite!=mapp[i-1][h].end())
 	      {
 		pli c=ite->first;
@@ -236,20 +264,26 @@ void calpos()
       }
   // for(typeof(mapp[0][1].begin()) i=mapp[0][1].begin();i!=mapp[0][1].end();++i)
   //   cout<<i->second<<' '<<i->first.first<<endl;
-  multimap<el,bn,cmpel> que;
+  // multimap<el,vector<int>,cmpel> que;
+  map<el,int,cmpel> que;
   el tmp;
   tmp.ite1=mapp[m-1][ntag].begin();
   tmp.val=tmp.ite1->first.first;
   tmp.lev=m-1;
+  tmp.preval.lv=0;
   tmp.precol=n;
   // cout<<tmp.val<<endl;
-  bn one;
-  one.v.push_back(1);
-  que.insert(make_pair(tmp,one));
+  // bn one;
+  // one.v.push_back(1);
+  // one.lv=0;
+  vector<int> emp;
+  // que.insert(make_pair(tmp,emp));
+  que[tmp]=1;
   for(;--k;)
     {
+      // cout<<k<<' '<<que.size()<<endl;
       tmp=que.begin()->first;
-      bn preval=que.begin()->second;
+      // vector<int> lst=que.begin()->second;
       // cout<<k<<' '<<tmp.val<<endl;
       for(;;)
 	{
@@ -258,26 +292,24 @@ void calpos()
 		ii->first.second>=tmp.precol;)
 	    {
 	      typeof(ii) iii=ii++;
-	      mapp[tmp.lev][tmp.ite1->second].erase(iii);
+	      // mapp[tmp.lev][tmp.ite1->second].erase(iii);
 	    }
 	  if(ii!=mapp[tmp.lev][tmp.ite1->second].end())
 	    {
 	      el z=tmp;
-	      mul(z.val,preval,ii->first.first);
-	      // if(fabsl(z.val-27)<eps)
-	      // 	{
-		  // cout<<"!"<<tmp.lev<<' '<<z.val<<' '<<z.precol<<' '<<ii->first.first<<' '<<
-		  //   ii->first.second<<' '<<ii->second<<' '<<a[ii->first.second]<<endl;
-		//   for(int o=0;o<z.lst.size();++o)
-		//     cout<<z.lst[o]<<' ';cout<<'!'<<endl;
-		// }
+	      mul(z.val,tmp.preval,ii->first.first);
+	      // mul(z.val,preval,ii->first.first);
 	      z.ite1=ii;
-	      que.insert(make_pair(z,preval));
+	      que[z]=1;
+	      // que.insert(make_pair(z,lst));
 	    }
 	  if(tmp.lev>0)
 	    {
 	      tmp.precol=tmp.ite1->first.second;
-	      mul(preval,abs(a[tmp.precol]));
+	      // lst.push_back(tmp.precol);
+	      tmp.lst.push_back(tmp.precol);
+	      mul(tmp.preval,abs(a[tmp.precol]));
+	      // mul(preval,abs(a[tmp.precol]));
 	      --tmp.lev;
 	      int posi=tmp.ite1->second^(a[tmp.precol]>=0?0:1);
 	      tmp.ite1=itee[tmp.lev][tmp.precol-1][posi];
@@ -341,7 +373,7 @@ void calpos()
 	  que.erase(ii);
 	}
     }
-  pt(que.begin()->first);
+  pt(que.begin()->first,que.begin()->first.lst);
 }
 void calneg()
 {
@@ -351,6 +383,7 @@ void calneg()
 }
 int main()
 {
+  freopen("in","r",stdin);
   scanf("%d%d%d",&n,&m,&k);
   assert(m<=n);
   int nneg=0,npos=0,nzero=0;
@@ -368,7 +401,7 @@ int main()
     if(a[j]!=0)
       a[i]=a[j],++i;
   n=i;
-  if(cntp(npos,nneg))
+  if(npos+nneg>0 && cntp(npos,nneg))
     calpos();
   else if(nzero>0 && cntz(nzero,nneg+npos))
     printf("0");

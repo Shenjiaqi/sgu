@@ -19,7 +19,7 @@ int main()
   int p[100];
   for(int i=0;i<n;++i)
     scanf("%d",p+i);
-  int cnt=0,nneg=0;
+  int cnt=0,neg=0,npo=0,nze=0;
   ll mi=10;
   map<ll,int,cmp> mapp;
   for(int i=0;i<(1<<n);++i)
@@ -29,6 +29,11 @@ int main()
       for(int j=0;(1LL<<j)<=i;++j)
 	if((1LL<<j)&i)
 	  v*=(ll)p[j];
+      if(v<0)
+	++neg;
+      else if(v>0)
+	++npo;
+      else ++nze;
       ++cnt;
       mapp[v]++;
     }
@@ -45,5 +50,6 @@ int main()
 	}
       mapp.erase(mapp.begin());
     }
+  cout<<npo<<' '<<nze<<' '<<neg<<endl;
   return 0;
 }

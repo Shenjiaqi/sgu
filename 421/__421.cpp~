@@ -1,0 +1,187 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+typedef pair<double,double> ppd;
+#define PB push_back
+#define MP make_pair
+#define FIR first
+#define SEC second
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+#define N 10000
+#define M 13
+const ld eps=2e-17;
+int n,m,k;
+int a[N];
+bool ntag;
+bool cntp(int pos,int neg)
+{
+  int f=max(0,m-neg);
+  int t=min(pos,m);
+  assert(f<=t);
+  ld sum=0;
+  ld vp=1;
+  for(int i=0;i<f;++i)
+    vp=vp*(ld)(pos-i)/(ld)(i+1);
+  ld vn=1;
+  for(int i=0;i<m-f;++i)
+    vn=vn*(ld)(neg-i)/(ld)(i+1);
+  for(int i=f;;++i)
+    {
+      if(((m-i)&1)==0)
+	sum+=vn*vp;
+      if(sum+0.1>k)
+	return true;
+      if(i>=t)
+	break;
+      vp=(vp*(ld)(pos-i))/(ld)(i+1);
+      vn=(vn*(ld)(m-i))/(ld)(neg-(m-i)+1);
+    }
+  k-=(int)(sum+0.1);
+  return false;
+}
+bool cntz(int zero,int nzero)
+{
+  int f=max(0,m-nzero);
+  int t=min(zero,m);
+  assert(f<=t);
+  ld sum=0;
+  ld vp=1;
+  for(int i=0;i<f;++i)
+    vp=vp*(ld)(zero-i)/(ld)(i+1);
+  ld vn=1;
+  for(int i=0;i<m-f;++i)
+    vn=vn*(ld)(nzero-i)/(ld)(i+1);
+  for(int i=f;;++i)
+    {
+      if(i>0)
+	sum+=vn*vp;
+      if(sum+0.1>k)
+	return true;
+      if(i>=t)
+	break;
+      vp=(vp*(ld)(zero-i))/(ld)(i+1);
+      vn=(vn*(ld)(m-i))/(ld)(nzero-(m-i)+1);
+    }
+  // cout<<"!"<<sum<<endl;
+  k-=(int)(sum+0.1);
+  return false;
+}
+inline bool cmpabs(const int &a,const int &b)
+{
+  return ((abs(a)>abs(b))!=ntag);
+}
+typedef ld bn;
+typedef pair<bn,int> pbi;
+struct cmppbi
+{
+  bool operator()(const pbi &a,const pbi &b) const 
+  {
+    if(fabsl(a.FIR-b.FIR)>eps)
+      return (a.FIR>b.FIR)!=ntag;
+    return a.SEC>b.SEC;
+  };
+};
+map<pbi,int,cmppbi> mapp[M][2];
+typeof(mapp[0][0].begin()) itee[M][N][2],ite;
+inline void mul(bn &to,const bn &from,const ld v)
+{
+  to=from+logl(v);
+}
+struct el
+{
+  bn val;
+  vector<int> lst;
+};
+struct cmpel
+{
+  bool operator()(const el &a,const el &b) const 
+  {
+    if(fabsl(a.val-b.val)>eps)
+      return (a.val>b.val)!=natg;
+    int sa=a.size();
+    if(sa!=b.size())
+      return sa<b.size();
+    FOR(i,0,sa)
+		if
+  };
+};
+void cal()
+{
+  sort(a,a+n,cmpabs);
+  FOR(i,0,n)
+    {
+      if(a[i]>0)
+	mapp[0][0].insert(MP(pbi(logl(a[i]),i),0));
+      else mapp[0][1].insert(MP(pbi(logl(-a[i]),i),1));
+      FOR(j,0,2)
+	itee[0][i][j]=mapp[0][j].begin();
+    }
+  FOR(i,1,m)
+    FOR(j,i,n)
+    {
+      int h=a[j]>0?0:1;
+      FOR(c,0,2)
+	{
+	  ite=itee[i-1][j-1][c];
+	  if(ite!=mapp[i-1][c].end())
+	    {
+	      bn tmp;
+	      mul(tmp,ite->FIR.FIR,abs(a[j]));
+	      mapp[i-1][c^h][pbi(tmp,j)]=c^h;
+	    }
+	}
+    }
+  map<el,bn> que;
+}
+int main()
+{
+  scanf("%d%d%d",&n,&m,&k);
+  int npos,nneg,nzeo;
+  npos=nneg=nzeo=0;
+  FOR(i,0,n)
+    {
+      scanf("%d",a+i);
+      if(a[i]==0)
+	++nzeo;
+      else if(a[i]>0)
+	++npos;
+      else ++nneg;
+    }
+  int nn=n;
+  n=0;
+  for(int i=0;i<nn;++i)
+    if(a[i]!=0)
+      a[n++]=a[i];
+  if(npos+nneg>0 && cntp(npos,nneg))
+    cal();
+  else if(nzeo>0 && cntz(nzeo,npos+nneg))
+    printf("0");
+  else
+    {
+      ntag=true;
+      cal();
+    }
+  return 0;
+}
