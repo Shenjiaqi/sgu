@@ -1,0 +1,25 @@
+3
++ andrew
++ ilya
+- mike
+4
++ andrew
++ ilya
++ mike
+- mike
+
+sample input
+sample output
+1
+= 2
+3
++ first
++ second
+= 2
+
+sample input
+sample output
+3
+- silentbob
+- silentbob
+= 1
