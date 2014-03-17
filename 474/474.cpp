@@ -131,6 +131,8 @@ bool apart( const tri & a, const tri & b)
   trans( aa, a ), trans( bb, b );
   return test( aa, bb );
 }
+// p1, p2 and only p1, p2 cover some part of to, 
+// size of to is 1
 inline bool canMerge( const tri & to, const tri & p1, const tri & p2)
 {
   return apart( p1, p2 );
@@ -159,14 +161,15 @@ void consTri(tri &t, poi a, poi b, poi c)
   for( int i = 0; i < 3; ++i )
     {
       if( ( ( a.x == b.x && a.y == c.y ) ||
-	    ( a.x == c.x && a.y == c.x ) ) ||
-	  ( a.x != b.x && a.x != c.x && a.y != b.y && a.y != c.y ) )
+	    ( a.x == c.x && a.y == c.x ) ) )
 	{
 	  t.r = a;
 	  t.a = b, t.b = c;
 	  t.size = area(t);
 	  return;
 	}
+      else if( a.x != b.x && a.x != c.x && a.y != b.y && a.y != c.y )
+	assert(0);
       poi tmp = a;
       a = b, b = c, c = a;
     }
@@ -192,41 +195,60 @@ bool dfs( const tri &big, stack<int> &stk )
     {
       return triInTri( big, p[stk.top()] );
     }
-  if( stk.size() > area( big ) * 2LL )
+  if( stk.size() > big.size * 2LL )
     return false;
   tri part1, part2;
   splitTri( big, part1, part2 );
+  poi heartP1, heartP2;
+  heartP1.x = ( part1.r.x + part1.a.x + part1.b.x ) / 3;
+  heartP1.y = ( part1.r.y + part1.a.y + part1.b.y ) / 3;
+  heartP2.x = ( part2.r.x + part2.a.x + part1.b.x ) / 3;
+  heartP2.y = ( part2.r.x + part2.a.y + part2.b.y ) / 3;
   stack<int> stk1, stk2;
   ll area1(0), area2(0);
-  int inCnt1(0), inCnt2(0);
-  for(; stk.empty() && inCnt1 < 1 && inCnt < 1; stk.pop() )
+  int inCnt1(0), inCnt2(0), onCnt1(0), onCnt2(0);
+  for(; stk.empty() && inCnt1 < 1 && ( inCnt1 == 0 || onCnt1 == 0 ) && 
+	onCnt1 < 9 && inCnt2 < 1 && ( inCnt2 == 0 || onCnt2 == 0 ) &&
+	onCnt2 < 9 ; )
     {
       int t = stk.top();
+      stk.pop();
       if( !apart( p[t], part1 ) )
 	{
 	  stk1.push(t);
 	  area1 += p[t].size;
-	  if( p[t].size > triInTri( part1, p[t] ) )
+	  int rel1 = poiTri( heartP1, p[t] );
+	  if( rel1 == 0 )
 	    ++inCnt1;
+	  else if( rel1 == 1 )
+	    ++onCnt1;
 	  if( !apart( p[t], part2 ) )
 	    {
 	      stk2.push(t);
 	      area2 += p[t].size;
-	      if( triInTri( part2, p[t] ) )
+	      int rel2 = poiTri( heartP2, p[t] );
+	      if( rel2 == 0 )
 		++inCnt2;
+	      else if( rel2 == 1 )
+		++onCnt2;
 	    }
 	}
       else
 	{
 	  stk2.push(t);
 	  area2 += p[t].size;
-	  if( part2.size && triInTri( part2, p[t] ) )
+	  int rel2 = poiTri( heartP2, p[t] );
+	  if( rel2 == 0 )
 	    ++inCnt2;
+	  else if( rel2 == 1 )
+	    ++onCnt2;
 	}
     }
   if( inCnt1 > 1 || inCnt2 > 1 || 
       ( inCnt1 == 1 && stk1.size() > 1 ) ||
-      ( inCnt2 == 1 && skt2.size() > 1 ) )
+      ( inCnt2 == 1 && skt2.size() > 1 ) ||
+      ( inCnt1 && onCnt1 ) || ( inCnt2 && onCnt2 ) ||
+      onCnt1 > 8 || onCnt2 > 8 )
     return false;
   if( area1 < area( part1 ) || area2 < area( part2 ) )
     return false;
