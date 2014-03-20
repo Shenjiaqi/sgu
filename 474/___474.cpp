@@ -31,7 +31,7 @@ typedef pair<double,double> ppd;
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
 const int M = 1e5 + 7;
 const int N = 25000 + 7;
-const int mk = 7;
+const int mk = 30;
 struct frag
 {
   int x, y;
