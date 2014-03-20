@@ -31,7 +31,7 @@ typedef pair<double,double> ppd;
 #define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
 const int M = 1e5 + 7;
 const int N = 25000 + 7;
-int mk = 7;
+const int mk = 7;
 struct frag
 {
   int x, y;
@@ -131,7 +131,7 @@ void split( const frag & from, int x, int y, vector<frag> to[],
       mv( from, mval );
       if( x < mval[1] && x > mval[0] && y < mval[3] && y > mval[2] )
 	{
-	  assert( from.high == -1 );
+	  // assert( from.high == -1 );
 	  int xx = from.x + from.y + from.len - y, 
 	    yy = from.x + from.y + from.len - x;
 	  frag tmp;
@@ -143,7 +143,7 @@ void split( const frag & from, int x, int y, vector<frag> to[],
 	  area[1] += areA(tmp);
 	  if( xx != x )
 	    {
-	      assert( xx < x );
+	      // assert( xx < x );
 	      conTri( tmp, xx, yy, y - yy, from.high );
 	      to[0].push_back(tmp);
 	      area[0] += areA(tmp);
@@ -162,13 +162,18 @@ void split( const frag & from, int x, int y, vector<frag> to[],
 	  ( y <= mval[2] || y >= mval[3] ) )
 	{
 	  int pos;
-	  if( mval[1] <= x )
-	    {
-	      if( mval[3] <= y )
-		pos = 0;
-	      else pos = 2;
-	    }
-	  else pos = 1;
+	  // if( mval[1] <= x )
+	  //   {
+	  //     if( mval[3] <= y )
+	  // 	pos = 0;
+	  //     else pos = 2;
+	  //   }
+	  // else pos = 1;
+	  if( x <= mval[0] )
+	    pos = 1;
+	  else if( y <= mval[2] )
+	    pos = 2;
+	  else pos = 0;
 	  to[pos].push_back( from );
 	  area[pos] += areA(from);
 	  if( from.high == -1 )
@@ -211,7 +216,7 @@ void split( const frag & from, int x, int y, vector<frag> to[],
 	}
       else
 	{
-	  assert( y < mval[3] && y > mval[2] );
+	  // assert( y < mval[3] && y > mval[2] );
 	  ver = false;
 	  if( from.high == -1 || from.high == -3 )
 	    x = from.x + from.y + from.len - y;
@@ -259,7 +264,7 @@ void split( const frag & from, int x, int y, vector<frag> to[],
 	      else
 		{
 		  to[2].push_back(f[2]), area[2] += areA(f[2]);
-		  cnt[1] += l2 * 2;
+		  cnt[0] += l2 * 2;
 		}
 	    }
 	}
@@ -308,30 +313,38 @@ void split( const frag & from, int x, int y, vector<frag> to[],
     }
   else
     { // rectangle
-      assert( x <= from.x || x >= from.x + from.len ||
-      	      y <= from.y || y >= from.y + from.high );
+      // assert( x <= from.x || x >= from.x + from.len ||
+      // 	      y <= from.y || y >= from.y + from.high );
       frag tmp;
       if( ( x >= from.x + from.len || x <= from.x ) &&
 	  ( y >= from.y + from.high || y <= from.y ) )
 	{
-	  if( x >= from.x + from.len )
-	    {
-	      if( y >= from.y + from.high )
-		{
-		  to[0].push_back( from );
-		  area[0] += areA( from );
-		}
-	      else
-		{
-		  to[2].push_back( from );
-		  area[2] += areA( from );
-		}
-	    }
-	  else
-	    {
-	      to[1].push_back( from );
-	      area[1] += areA( from );
-	    }
+	  // if( x >= from.x + from.len )
+	  //   {
+	  //     if( y >= from.y + from.high )
+	  // 	{
+	  // 	  to[0].push_back( from );
+	  // 	  area[0] += areA( from );
+	  // 	}
+	  //     else
+	  // 	{
+	  // 	  to[2].push_back( from );
+	  // 	  area[2] += areA( from );
+	  // 	}
+	  //   }
+	  // else
+	  //   {
+	  //     to[1].push_back( from );
+	  //     area[1] += areA( from );
+	  //   }
+	  int pos;
+	  if( x <= from.x )
+	    pos = 1;
+	  else if( y <= from.y )
+	    pos = 2;
+	  else pos = 0;
+	  to[pos].push_back( from );
+	  area[pos] += areA( from );
 	  if( x == from.x || x == from.x + from.len )
 	    cnt[1] += from.high;
 	  if( y == from.y || y == from.y + from.high )
@@ -349,7 +362,7 @@ void split( const frag & from, int x, int y, vector<frag> to[],
 	}
       else
 	{
-	  assert( from.y < y && y < from.y + from.high );
+	  // assert( from.y < y && y < from.y + from.high );
 	  conRec( tmp, from.x, from.y, from.len, y - from.y );
 	  to[0].push_back(tmp);
 	  area[0] += areA(tmp);
@@ -406,11 +419,11 @@ bool dfsTri( const frag & big, vector<frag> & s)
   // 	pt( small[i][0] );
   // 	cout << areaBig[i] << ' ' << cntB[i] << endl;
   //     }
-  if( tri(big) )
-    assert( cntB[1] + cntB[0] == big.len * 2 );
-  else if( big.len > big.high )
-    assert( cntB[1] == big.high * 2 && cntB[0] == 0);
-  else assert( cntB[0] == big.len * 2 && cntB[1] == 0);
+  // if( tri(big) )
+  //   assert( cntB[1] + cntB[0] == big.len * 2 );
+  // else if( big.len > big.high )
+  //   assert( cntB[1] == big.high * 2 && cntB[0] == 0);
+  // else assert( cntB[0] == big.len * 2 && cntB[1] == 0);
     
   for( int i = s.size() - 1; !s.empty(); s.pop_back(), --i )
     {
@@ -420,11 +433,11 @@ bool dfsTri( const frag & big, vector<frag> & s)
       for( int j = 0 ; j < 3; ++j )
       	if( areaBig[j] < areaSum[j] )
       	  return false;
-      if( cnt[0] > cntB[0] ) //|| cnt[1] > cntB[1] )
+      if( cnt[0] > cntB[0] || cnt[1] > cntB[1] )
       	return false;
     }
-  // if( cnt[0] != cntB[0] ) // || cnt[1] != cntB[1] )
-  if( cnt[0] + cnt[1] != cntB[0] + cntB[1] )
+  if( cnt[0] != cntB[0] || cnt[1] != cntB[1] )
+  // if( cnt[0] + cnt[1] != cntB[0] + cntB[1] )
     return false;
   for( int i = 0 ; i < 3 ; ++i )
     if( areaBig[i] != areaSum[i] )
@@ -454,8 +467,8 @@ int main()
 	  scanf("%d%d%d%d%d%d", &x1, &y1, &x2, &y2, &x3, &y3);
 	  if( x1 + y1 > n || x2 + y2 > n || x3 + y3 > n )
 	    ok = false;
-	  assert( x1 >= 0 && y1 >= 0 && x2 >= 0 && y2 >= 0 &&
-		  x3 >= 0 && y3 >= 0 );
+	  // assert( x1 >= 0 && y1 >= 0 && x2 >= 0 && y2 >= 0 &&
+	  // 	  x3 >= 0 && y3 >= 0 );
 	  if( ok )
 	    {
 	      int type = 0;
@@ -490,8 +503,8 @@ int main()
 		      else 
 			type = -3;
 		      conTri( s[i], x2, y2, x3 - x2, type );
-		      assert( y3 - y2 == x3 - x2 );
-		      assert( y3 - y2 > 0 );
+		      // assert( y3 - y2 == x3 - x2 );
+		      // assert( y3 - y2 > 0 );
 		      break;
 		    }
 		  int tmpx = x1, tmpy = y1;
