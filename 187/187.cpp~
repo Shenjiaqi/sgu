@@ -1,0 +1,44 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <fstream>
+#include <cassert>
+#include <set>
+#include <queue>
+#include <iostream>
+#include <utility>
+#include <stack>
+#include <complex>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <list>
+#include <functional>
+#include <cctype>
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef pair<int,int> ppi;
+typedef pair<ll,ll> ppl;
+typedef pair<double,double> ppd;
+#define PB push_back
+#define MP make_pair
+#define FIR first
+#define SEC second
+#define FOR(a,b,c) for(int a=(b);a<(c);++a)
+#define FR(a,b) for(typeof(b.begin()) a=b.begin();a!=b.end();++a)
+const int M = 2000 + 7;
+const int N = 130000 + 7;
+int p[ M * M ][4], poi;
+int main()
+{
+  scanf("%d%d", &n, &m );
+  int s = 1;
+  p[1][0] = 1, p[1][1] = n;
+  p[1][2] = p[1][3] = 1;
+  poi = 2;
+  for( int 
+  return 0;
+}
