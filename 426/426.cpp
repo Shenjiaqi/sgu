@@ -36,22 +36,59 @@ bool eq(int f1,int f2,int l)
       }
   return true;
 }
-bool cmp(int aa,int bb)
+// bool cmp(int aa,int bb)
+// {
+//   // int an=1;
+//   // for(int f=1,l=n;f<=l;)
+//   //   {
+//   //     int mid=(f+l)>>1;
+//   //     if(eq(aa,bb,mid))
+//   // 	an=mid,f=mid+1;
+//   //     else l=mid-1;
+//   //   }
+//   // int ta = ((a[(aa+an)%n]+add)%m);
+//   // int tb = ((a[(bb+an)%n]+add)%m);
+//   // // cout << aa << ' ' << bb << ' ' << ta << ' ' << tb << endl;
+//   // if( ta == tb )
+//   //   return aa < bb;
+//   // return ta < tb;
+// }
+int getLen( int aa, int bb )
 {
-  int an=1;
-  for(int f=1,l=n;f<=l;)
+  int l(0);
+  int i = 16;
+  for( ; ( 1 << i ) > n; --i )
+    ;
+  for( ; i >= 0; --i)
     {
-      int mid=(f+l)>>1;
-      if(eq(aa,bb,mid))
-	an=mid,f=mid+1;
-      else l=mid-1;
+      if( r[i][aa] == r[i][bb] )
+	{
+	  aa += (1 << i);
+	  bb += (1 << i);
+	  l += ( 1 << i );
+	}
     }
-  return (((a[(aa+an)%n]+add)%m)<((a[(bb+an)%n]+add)%m));
+  return l;
+}
+bool lt( int aa, int bb )
+{
+  int len = getLen( aa, bb );
+  int ta = ((a[(aa+len)%n]+add)%m);
+  int tb = ((a[(bb+len)%n]+add)%m);
+  return ( ta < tb || ( ta == tb && aa < bb ) );
+}
+int getMi( vector<int> & a )
+{
+  int l(0);
+  for( int i = 1; i < a.size(); ++i )
+    {
+      if( lt( a[i], a[l] ) )
+	l = i;
+    }
+  return l;
 }
 int main()
 {
-  freopen("in","r",stdin);
-  //freopen("out","w",stdout);
   scanf("%d%d%d",&n,&m,&kk);
   for(int i=0;i<n;++i)
     scanf("%d",a+i);
@@ -83,10 +120,11 @@ int main()
 	  int z=(b[j]-(1<<(i-1))+n)%n;
 	  tmp[--c[r[i-1][z]]]=z;
 	}
-      memcpy(b,tmp,sizeof(b));
+      memcpy(b,tmp,sizeof(b[0]) * ( n + 1 ) );
       for(int j=0,k=0;j<n;++j)
 	{
-	  if(j && r[i-1][(b[j]+(1<<(i-1)))%n]!=r[i-1][(b[j-1]+(1<<(i-1)))%n])
+	  if(j && ( ( r[i-1][(b[j]+(1<<(i-1)))%n]!=r[i-1][(b[j-1]+(1<<(i-1)))%n] )
+	     || ( r[i-1][b[j]] != r[i-1][b[j-1]] ) ) )
 	    ++k;
 	  r[i][b[j]]=k;
 	}
@@ -106,9 +144,10 @@ int main()
 	  int bb=m-d[i-1].first;
 	  int ee=m-d[i].first;
 	  add=bb;
-	  sort(tt.begin(),tt.end(),cmp);
+	  // sort(tt.begin(),tt.end(),cmp);
+	  int id = getMi( tt );
 	  for(int k=bb;k<ee;++k)
-	    ans[k]=(a[(tt[0]+kk)%n]+k)%m;
+	    ans[k]=(a[(tt[id]+kk)%n]+k)%m;
 	}
       else
 	{
@@ -117,18 +156,20 @@ int main()
 	  if(bb<ee)
 	    {
 	      add=0;
-	      sort(tt.begin(),tt.end(),cmp);
+	      // sort(tt.begin(),tt.end(),cmp);
+	      int id = getMi( tt );
 	      for(int k=bb;k<ee;++k)
-		ans[k]=(a[(tt[0]+kk)%n]+k)%m;
+		ans[k]=(a[(tt[id]+kk)%n]+k)%m;
 	    }
 	  bb=m-d[i-1].first;
 	  ee=m;
 	  if(bb<ee)
 	    {
 	      add=bb;
-	      sort(tt.begin(),tt.end(),cmp);
+	      int id = getMi( tt );
+	      // sort(tt.begin(),tt.end(),cmp);
 	      for(int k=bb;k<ee;++k)
-		ans[k]=(a[(tt[0]+kk)%n]+k)%m;
+		ans[k]=(a[(tt[id]+kk)%n]+k)%m;
 	    }
 	  break;
 	}
