@@ -1,0 +1,23 @@
+#include <cstdio>
+
+int main()
+{
+  int n = 30;
+  for (int i(0); i < n; ++i)
+    {
+      int r(rand() % n);
+      if (r < 4)
+	{
+	  printf("*");
+	}
+      else if (r < 6)
+	{
+	  printf("?");
+	}
+      else if (r < 10)
+	{
+	  printf("!");
+	}
+    }
+  return 0;
+}

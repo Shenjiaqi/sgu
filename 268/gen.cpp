@@ -32,7 +32,7 @@ typedef pair<ld,ld> ppld;
 vector<ppi> p;
 int main()
 {
-  int n=17;
+  int n=7;
   p.resize(n);
   srand(time(NULL));
   FOR(i,0,n)

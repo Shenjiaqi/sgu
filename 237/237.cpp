@@ -1,0 +1,232 @@
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+const int N = 255 * 3 + 7;
+
+string Dp[N][N];
+bool Valid[N][N];
+
+bool BetterThan(int idxA1, int idxA2, char fill1, int idxB1, int idxB2, char fill2)
+{
+  if (Valid[idxA1][idxA2])
+    {
+      if (!Valid[idxB1][idxB2])
+	{
+	  return true;
+	}
+
+      int len1(Dp[idxA1][idxA2].length() + (fill1 == 0 ? 0 : 2));
+      int len2(Dp[idxB1][idxB2].length() + (fill2 == 0 ? 0 : 2));
+
+      if (len1 < len2)
+	{
+	  return true;
+	}
+
+      if (len1 == len2)
+	{
+	  string tmp1, tmp2;
+	  if (fill1)
+	    {
+	      tmp1.push_back(fill1);
+	    }
+	  if (fill2)
+	    {
+	      tmp2.push_back(fill2);
+	    }
+
+	  tmp1 += Dp[idxA1][idxA2];
+	  tmp2 += Dp[idxB1][idxB2];
+
+	  if (fill1)
+	    {
+	      tmp1.push_back(fill1);
+	    }
+	  if (fill2)
+	    {
+	      tmp2.push_back(fill2);
+	    }
+
+	  return tmp1 < tmp2;
+	}
+    }
+
+  return false;
+}
+
+void Fill(int idxA, int idxB, int withIdxA, int withIdxB, char charToFill)
+{
+  if (Valid[withIdxA][withIdxB])
+    {
+      Valid[idxA][idxB] = true;
+      Dp[idxA][idxB].push_back(charToFill);
+      Dp[idxA][idxB] += Dp[withIdxA][withIdxB];
+      Dp[idxA][idxB].push_back(charToFill);
+    }
+}
+
+int main()
+{
+  string str;
+  cin >> str;
+
+  for (int i(0); i < str.length(); ++i)
+    {
+      if (str[i] == '!')
+	{
+	  str[i] = '?';
+	  str.insert(i, "??");
+	}
+    }
+
+  // for (int i(0); i < str.length(); ++i)
+  //   {
+  //     if (str[i] != '?' && str[i] != '*' && (str[i] < 'a' || str[i] > 'z'))
+  // 	{
+  // 	  return 1;
+  // 	}
+  //   }
+
+  int n(str.length());
+
+  for (int i(0); i < n; ++i)
+    {
+      for (int j(0); j < i; ++j)
+	{
+	  Valid[i][j] = true;
+	}
+
+      Valid[i][i] = true;
+      if (str[i] != '*')
+	{
+	  Dp[i][i].push_back(str[i] == '?' ? 'a' : str[i]);
+	}
+    }
+  
+  for (int len(2); len <= n; ++len)
+    {
+      for (int i(0); i + len - 10 < n; ++i)
+      	{
+      	  if (i + len - 10 >= i)
+      	    {
+      	      string().swap(Dp[i][i + len - 10]);
+      	    }
+      	}
+      
+      for (int i(0); i + len <= n; ++i)
+	{
+	  int a(i), b(i + len - 1);
+	  char endA(str[a]), endB(str[b]);
+
+	  if (endA != '*' && endB != '*')
+	    {
+	      if (endA != '?' && endB != '?')
+		{
+		  if (endA == endB)
+		    {
+		      Fill(a, b, a + 1, b - 1, endA);
+		    }
+		}
+	      else
+		{
+		  char fillChar(endA != '?' ? endA : (endB != '?' ? endB : 'a'));
+		  
+		  Fill(a, b, a + 1, b - 1, fillChar);
+		}
+	    }
+	  else if (endA != '*')
+	    {
+	      // (a, b - 1), (a + 1, b)
+	      char cA(endA != '?' ? endA : 'a');
+	      if (BetterThan(a, b - 1, 0, a + 1, b, cA))
+		{
+		  if (Valid[a][b - 1])
+		    {
+		      Dp[a][b] = Dp[a][b - 1];
+		      Valid[a][b] = true;
+		    }
+		}
+	      else if (Valid[a + 1][b])
+		{
+		  Fill(a, b, a + 1, b, cA);
+		}
+	    }
+	  else if (endB != '*')
+	    {
+	      // (a + 1, b), (a, b - 1)
+	      char cB(endB != '?' ? endB : 'a');
+	      if (BetterThan(a + 1, b, 0, a, b - 1, cB))
+		{
+		  if (Valid[a + 1][b])
+		    {
+		      Dp[a][b] = Dp[a + 1][b];
+		      Valid[a][b] = true;
+		    }
+		}
+	      else if(Valid[a][b - 1])
+		{
+		  Fill(a, b, a, b - 1, cB);
+		}
+	    }
+	  else
+	    {
+	      int a1(a + 1), b1(b - 1);
+	      int a2(a), b2(b - 1);
+	      int a3(a + 1), b3(b);
+	      if (!BetterThan(a1, b1, 0, a2, b2, 0))
+		{
+		  swap(a1, a2);
+		  swap(b1, b2);
+		}
+	      if (!BetterThan(a1, b1, 0, a3, b3, 0))
+		{
+		  swap(a1, a3);
+		  swap(b1, b3);
+		}
+
+	      if (Valid[a1][b1])
+		{
+		  Dp[a][b] = Dp[a1][b1];
+		  Valid[a][b] = true;
+		}
+	    }
+	}
+    }
+
+  // for (int i(0); i < Dp[0][n - 1].length(); ++i)
+  //   {
+  //     if (Dp[0][n - 1][i] < 'a' || Dp[0][n - 1][i] > 'z')
+  // 	{
+  // 	  return 1;
+  // 	}
+  //   }
+
+  // for (int i(0), j(Dp[0][n - 1].length() - 1); i < j; ++i, --j)
+  //   {
+  //     if (Dp[0][n - 1][i] != Dp[0][n - 1][j])
+  // 	{
+  // 	  return 1;
+  // 	}
+  //   }
+  
+  if (str.empty() || Valid[0][n - 1])
+    {
+      printf("YES\n");
+      if (!str.empty() && !Dp[0][n - 1].empty())
+	{
+	  printf("%s", Dp[0][n - 1].c_str());
+	}
+      printf("\n");
+    }
+  else
+    {
+      printf("NO\n");
+    }
+
+  return 0;
+}
